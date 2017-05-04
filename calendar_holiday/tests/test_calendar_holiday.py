@@ -4,7 +4,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import openerp.tests.common as common
-from openerp import fields
+from openerp import fields, exceptions
 
 
 class TestCalendarHoliday(common.TransactionCase):
@@ -20,6 +20,9 @@ class TestCalendarHoliday(common.TransactionCase):
         self.today = fields.Date.from_string(fields.Date.today())
         self.partner = self.env['res.partner'].create({
             'name': 'Partner',
+        })
+        self.partner2 = self.env['res.partner'].create({
+            'name': 'Partner 2',
         })
         self.user = self.env['res.users'].create({
             'partner_id': self.partner.id,
@@ -47,8 +50,7 @@ class TestCalendarHoliday(common.TransactionCase):
         contract_vals = {
             'name': 'Test Employee Contract',
             'date_start': self.today.replace(month=1, day=1),
-            'date_end': self.today.replace(
-                year=self.today.year+1, month=12, day=31),
+            'date_end': self.today.replace(month=12, day=31),
             'employee_id': self.employee.id,
             'wage': 500,
             'working_hours': self.ref('resource.timesheet_group1'),
@@ -78,20 +80,32 @@ class TestCalendarHoliday(common.TransactionCase):
         self.hr_holidays = self.holidays_model.create(hr_holidays_vals)
 
     def test_calendar_holiday(self):
+        self.contract.write({})
         cond = [('partner', '=', self.contract.partner.id),
                 ('year', '=', self.today.year)]
         calendar = self.calendar_model.search(cond)
         self.assertEquals(len(calendar), 0)
         wiz = self.wiz_model.with_context(
-            active_id=self.contract.id).create({})
+            active_id=self.contract.id).create({'year': 2000})
+        with self.assertRaises(exceptions.Warning):
+            wiz.button_calculate_workables_and_festives()
+        wiz.year = self.today.year+5
+        with self.assertRaises(exceptions.Warning):
+            wiz.button_calculate_workables_and_festives()
+        wiz.year = 0
+        self.wiz_model.with_context(
+            active_id=self.contract.id).default_get([])
+        wiz.year = self.today.year
+        wiz.button_calculate_workables_and_festives()
+        self.wiz_model.with_context(
+            active_id=self.contract.id).default_get([])
         self.assertEquals(
             wiz.year, fields.Date.from_string(self.contract.date_start).year)
-        wiz.button_calculate_workables_and_festives()
         calendar = self.calendar_model.search(cond)
         self.assertNotEquals(len(calendar), 0)
-        wiz_vals = self.wiz_model.with_context(
-            active_id=self.contract.id).default_get([])
-        self.assertFalse(wiz_vals.get('year'))
+        with self.assertRaises(exceptions.Warning):
+            self.partner2._generate_festives_in_calendar(self.today.year,
+                                                         self.calendar_holiday)
         self.hr_holidays.signal_workflow('validate')
         date_from = '{}-01-01'.format(self.today.year)
         date_to = '{}-12-31'.format(self.today.year)
@@ -114,6 +128,10 @@ class TestCalendarHoliday(common.TransactionCase):
         wiz2 = self.wiz_model.with_context(active_id=self.contract.id).create(
             {'year': fields.Date.from_string(self.contract.date_end).year})
         wiz2.button_calculate_workables_and_festives()
+        date_from = str(fields.Datetime.from_string(
+            fields.Datetime.now()).replace(month=1, day=1))
+        vals = self.holidays_model.onchange_date_from(
+            False, date_from, self.employee.id)
         date_to = str(fields.Datetime.from_string(
             fields.Datetime.now()).replace(month=1, day=7))
         date_from = str(fields.Datetime.from_string(
@@ -130,6 +148,17 @@ class TestCalendarHoliday(common.TransactionCase):
             self.employee.id, date_to, date_from)
         days = int(vals['value'].get('number_of_days_temp'))
         self.assertEqual(days, 6, 'Absent days(3) badly calculated')
+        cond = [('calendar', '=', calendar.id),
+                ('partner', '=', self.partner.id),
+                ('date', '=', self.today.replace(month=1, day=6))]
+        self.calendar_day_model.search(cond, limit=1). unlink()
+        with self.assertRaises(exceptions.Warning):
+            self.partner._generate_festives_in_calendar(self.today.year,
+                                                        self.calendar_holiday)
+        self.employee.address_home_id = False
+        res = self.hr_holidays._remove_holidays(
+            20, False, False, self.employee.id)
+        self.assertEqual(res, 20, 'Bad days of employee without partner')
 
     def test_calendar_holiday_calendar_Scheduler(self):
         self.contract_cron.automatic_process_generate_calendar()
