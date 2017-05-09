@@ -15,7 +15,7 @@
     "depends": [
         "hr_timesheet_invoice",
     ],
-    "category": "Custom Modules",
+    "category": "Human Resources",
     "data": [
         "views/res_config_view.xml"
     ],

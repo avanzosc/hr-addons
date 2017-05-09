@@ -5,7 +5,7 @@
 {
     "name": "Hr Attendance from Kanban",
     "version": "8.0.1.0.0",
-    "category": "Custom Module",
+    "category": "Human Resources",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
