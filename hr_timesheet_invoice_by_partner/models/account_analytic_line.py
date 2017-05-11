@@ -55,14 +55,13 @@ class AccountAnalyticLine(models.Model):
                 invoice_lines_grouping.setdefault(key, []
                                                   ).append(analytic_line)
             for (product_id, uom, user_id, factor_id,
-                    analytic_line.account_id, journal_type), \
+                    account_id, journal_type), \
                     lines_to_invoice in invoice_lines_grouping.items():
                 curr_invoice_line = self.with_context(
                     lang=partner.lang, force_company=company_id,
                     company_id=company_id)._prepare_cost_invoice_line(
                     last_invoice.id, product_id, uom, user_id, factor_id,
-                    analytic_line.account_id, lines_to_invoice, journal_type,
-                    data)
+                    account_id, lines_to_invoice, journal_type, data)
                 invoice_line_obj.create(curr_invoice_line)
             lines = self.env['account.analytic.line']
             for line in analytic_lines:
