@@ -1,0 +1,166 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* calendar_holiday_project_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-23 09:37+0000\n"
+"PO-Revision-Date: 2017-05-23 11:44+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,task_count:0
+msgid "# Tasks"
+msgstr "Num. tareas"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,sale_order_count:0
+msgid "# of Sales Order"
+msgstr "Num. Pedidos venta"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,property_account_payable:0
+msgid "Account Payable"
+msgstr "Cuenta a pagar"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,property_account_receivable:0
+msgid "Account Receivable"
+msgstr "Cuenta a cobrar"
+
+#. module: calendar_holiday_project_timesheet
+#: view:res.partner.calendar.day:calendar_holiday_project_timesheet.res_partner_calendar_day_form_view_inh_timesheet
+msgid "Analytic Entries"
+msgstr "Entradas analítica"
+
+#. module: calendar_holiday_project_timesheet
+#: model:ir.model,name:calendar_holiday_project_timesheet.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.partner.calendar.day,account_analytic_line_ids:0
+msgid "Analytic lines"
+msgstr "Líneas analítica"
+
+#. module: calendar_holiday_project_timesheet
+#: view:res.partner.calendar.day:calendar_holiday_project_timesheet.res_partner_calendar_day_form_view_inh_timesheet
+msgid "Analytical imputations"
+msgstr "Imputaciones analítica"
+
+#. module: calendar_holiday_project_timesheet
+#: code:addons/calendar_holiday_project_timesheet/models/account_analytic_line.py:48
+#, python-format
+msgid "Calendar day not found for employee '%s'."
+msgstr "Día calendario no encontrado para empleado '%s'."
+
+#. module: calendar_holiday_project_timesheet
+#: help:res.users,vat_subjected:0
+msgid ""
+"Check this box if the partner is subjected to the VAT. It will be used for "
+"the VAT legal statement."
+msgstr ""
+"Marque esta casilla si la empresa está sujeta al IVA. Se utilizará para la "
+"declaración legal del IVA."
+
+#. module: calendar_holiday_project_timesheet
+#: model:ir.model,name:calendar_holiday_project_timesheet.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,contract_ids:0 field:res.users,contracts_count:0
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,property_payment_term:0
+msgid "Customer Payment Term"
+msgstr "Termino pago cliente"
+
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,employee_id:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: calendar_holiday_project_timesheet
+#: field:account.analytic.line,partner_calendar_day_id:0
+#: model:ir.model,name:calendar_holiday_project_timesheet.model_res_partner_calendar_day
+msgid "Employee calendar day"
+msgstr "Día calendario empleado"
+
+#. module: calendar_holiday_project_timesheet
+#: code:addons/calendar_holiday_project_timesheet/models/res_users.py:17
+#, python-format
+msgid "Employee not found for user: '%s'."
+msgstr "Empleado no encontrado para el usuario: '%s'."
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,property_account_position:0
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,invoice_ids:0
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,journal_item_count:0
+msgid "Journal Items"
+msgstr "Campos del diario"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,calendar_last_notif_ack:0
+msgid "Last notification marked as read from base Calendar"
+msgstr "Última notificación marcada como leída desde la base del calendario"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,last_reconciliation_date:0
+msgid "Latest Full Reconciliation Date"
+msgstr "Última fecha de reconciliación completa"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.partner.calendar.day,account_analytic_line_real_hours:0
+msgid "Real hours from analytic_lines"
+msgstr "Horas reales desde analítica"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,sale_order_ids:0
+msgid "Sales Order"
+msgstr "Pedidos venta"
+
+#. module: calendar_holiday_project_timesheet
+#: view:res.partner.calendar.day:calendar_holiday_project_timesheet.res_partner_calendar_day_tree_view_inh_timesheet
+msgid "Sum. task real hours"
+msgstr "Sum. horas reales tareas"
+
+#. module: calendar_holiday_project_timesheet
+#: field:res.users,task_ids:0
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: calendar_holiday_project_timesheet
+#: view:res.partner.calendar.day:calendar_holiday_project_timesheet.res_partner_calendar_day_form_view_inh_timesheet
+msgid "Total"
+msgstr "Total"
+
+#. module: calendar_holiday_project_timesheet
+#: model:ir.model,name:calendar_holiday_project_timesheet.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: calendar_holiday_project_timesheet
+#: view:res.partner.calendar.day:calendar_holiday_project_timesheet.res_partner_calendar_day_form_view_inh_timesheet
+msgid "tasks"
+msgstr "Tareas"
+

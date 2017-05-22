@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_calendar_day_form_view_inh_timesheet" model="ir.ui.view">
+            <field name="name">res.partner.calendar.day.form.view.inh.timesheet</field>
+            <field name="model">res.partner.calendar.day</field>
+            <field name="inherit_id" ref="calendar_holiday_project_task.res_partner_calendar_day_form_view_inh_project_task"/>
+            <field name="arch" type="xml">
+                <page string="tasks" position="after">
+                     <page string="Analytical imputations">
+                         <field name="account_analytic_line_ids" nolabel="1" readonly="1" >
+                            <tree string="Analytic Entries">
+                                <field name="date"/>
+                                <field name="name"/>
+                                <field name="unit_amount" sum="Total" />
+                                <field name="account_id"/>
+                                <field name="journal_id" />
+                            </tree>
+                         </field>
+                     </page>
+                </page>
+                <field name="tasks_real_hours" position="after">
+                    <field name="account_analytic_line_real_hours"  widget="float_time" />
+                </field>
+            </field>
+        </record>
+        <record id="res_partner_calendar_day_tree_view_inh_timesheet" model="ir.ui.view">
+            <field name="name">res.partner.calendar.day.tree.view.inh.timesheet</field>
+            <field name="model">res.partner.calendar.day</field>
+            <field name="inherit_id" ref="calendar_holiday_project_task.res_partner_calendar_day_tree_view_inh_project_task"/>
+            <field name="arch" type="xml">
+                <field name="tasks_real_hours" position="after">
+                    <field name="account_analytic_line_real_hours"  widget="float_time" sum="Sum. task real hours"/>
+                </field>
+            </field>
+        </record>
+        <record id="res_partner_calendar_day_calendar_view_inh_timesheet" model="ir.ui.view">
+            <field name="name">res.partner.calendar_day.calendar.view.inh.timesheet</field>
+            <field name="model">res.partner.calendar.day</field>
+            <field name="inherit_id" ref="calendar_holiday_project_task.res_partner_calendar_day_calendar_view_inh_project_task"/>
+            <field name="arch" type="xml">
+                <field name="tasks_real_hours" position="after">
+                    <field name="account_analytic_line_real_hours" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
