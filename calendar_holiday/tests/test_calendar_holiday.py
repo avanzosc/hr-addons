@@ -49,8 +49,8 @@ class TestCalendarHoliday(common.TransactionCase):
         self.calendar_holiday = self.holiday_model.create(calendar_vals)
         contract_vals = {
             'name': 'Test Employee Contract',
-            'date_start': self.today.replace(month=1, day=1),
-            'date_end': self.today.replace(month=12, day=31),
+            'date_start': self.today.replace(month=1, day=2),
+            'date_end': self.today.replace(month=12, day=30),
             'employee_id': self.employee.id,
             'wage': 500,
             'working_hours': self.ref('resource.timesheet_group1'),

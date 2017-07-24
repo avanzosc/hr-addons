@@ -84,6 +84,7 @@
             <field name="res_model">res.partner.calendar.day</field>
             <field name="view_type">form</field>
             <field name="view_mode">calendar,tree,form</field>
+            <field name="domain">[('contract','!=',False)]</field>
         </record>
         <menuitem id="res_partner_calendar_day_option_view" name="Employee calendar days"
                   action="action_res_partner_calendar_day_view" 

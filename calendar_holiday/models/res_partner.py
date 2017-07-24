@@ -30,6 +30,29 @@ class ResPartner(models.Model):
                 'dates': day_vals,
             }
             calendar = calendar_obj.create(calendar_vals)
+        self._put_contract_in_partner_calendar_day(year)
+
+    def _put_contract_in_partner_calendar_day(self, year):
+        contract_obj = self.env['hr.contract']
+        date_begin = '{}-01-01'.format(year)
+        cond = [('type_id', '=',
+                 self.env.ref('hr_contract.hr_contract_type_emp').id),
+                ('employee_id', '=', self.employee_id.id),
+                '|', ('date_end', '=', False),
+                ('date_end', '>=', date_begin)]
+        contracts = contract_obj.search(cond)
+        for contract in contracts:
+            date_start = '{}-01-01'.format(year)
+            if contract.date_start > date_start:
+                date_start = contract.date_start
+            date_end = '{}-12-31'.format(year)
+            if contract.date_end and contract.date_end < date_end:
+                date_end = contract.date_end
+            cond = [('partner', '=', self.id),
+                    ('date', '>=', date_start),
+                    ('date', '<=', date_end)]
+            days = self.env['res.partner.calendar.day'].search(cond)
+            days.write({'contract': contract.id})
 
     def _put_estimated_hours_in_calendar(self, year, contract):
         partner_calendar_day_obj = self.env['res.partner.calendar.day']
