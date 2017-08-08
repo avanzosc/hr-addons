@@ -27,8 +27,11 @@ class HrEmployee(models.Model):
 
     @api.multi
     def write(self, vals):
-        result = super(HrEmployee, self).write(vals)
         if vals.get('address_home_id', False):
-            for employee in self:
-                employee.address_home_id.employee_id = employee.id
-        return result
+            other_employee = self.search(
+                [('address_home_id', '=', self.address_home_id.id),
+                 ('id', '!=', self.id)], limit=1)
+            self.address_home_id.employee_id = other_employee or False
+            self.env['res.partner'].browse(
+                vals['address_home_id']).employee_id = self.id
+        return super(HrEmployee, self).write(vals)
