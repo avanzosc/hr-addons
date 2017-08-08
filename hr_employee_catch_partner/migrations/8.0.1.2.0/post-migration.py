@@ -27,4 +27,3 @@ def migrate(cr, version):
     if not version:
         return
     remove_duplicate_res_partner_employee_references(cr)
-
