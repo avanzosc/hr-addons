@@ -45,14 +45,17 @@ class HrContract(models.Model):
                     contract.partner._generate_festives_in_calendar(year,
                                                                     calendar)
             date_from = '{}-01-01'.format(year)
-            date_to = '{}-12-31'.format(year)
             cond = [('employee_id', '=', contract.employee_id.id),
-                    ('date_from', '>=', date_from),
-                    ('date_from', '<=', date_to),
-                    ('state', '=', 'validate')]
+                    ('type', '=', 'remove'),
+                    ('date_to', '>=', date_from),
+                    ('state', 'in', ('validate', 'validate1'))]
             for holiday in holidays_obj.search(cond):
                 days = holiday._find_calendar_days_from_holidays()
-                days.write({'absence_type': holiday.holiday_status_id.id})
+                days.write(self._prepare_partner_day_information(
+                    holiday.holiday_status_id.id))
+
+    def _prepare_partner_day_information(self, absence_type):
+        return {'absence_type': absence_type}
 
     @api.multi
     def automatic_process_generate_calendar(self):

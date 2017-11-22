@@ -55,10 +55,12 @@ class HrHolidays(models.Model):
 
     @api.multi
     def holidays_validate(self):
+        contract_obj = self.env['hr.contract']
         res = super(HrHolidays, self).holidays_validate()
         for holiday in self.filtered(lambda x: x.type == 'remove'):
             days = holiday._find_calendar_days_from_holidays()
-            days.write({'absence_type': holiday.holiday_status_id.id})
+            days.write(contract_obj._prepare_partner_day_information(
+                holiday.holiday_status_id.id))
         return res
 
     @api.multi
