@@ -4,7 +4,7 @@
 
 {
     "name": "Attendance Control",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -14,6 +14,8 @@
         "Ana Juaristi <anajuaristi@avanzosc.es>",
     ],
     "depends": [
+        "marketing",
+        "mail",
         "hr_attendance_from_kanban",
         "hr_holidays",
         "hr_expense",
