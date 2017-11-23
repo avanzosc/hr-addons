@@ -34,6 +34,7 @@ class HrContract(models.Model):
     @api.multi
     def _generate_calendar_from_wizard(self, year):
         holidays_obj = self.env['hr.holidays']
+        date_from = '{}-01-01'.format(year)
         for contract in self:
             contract.partner._generate_calendar(year)
             if (contract.working_hours and
@@ -44,7 +45,6 @@ class HrContract(models.Model):
                 for calendar in contract.holiday_calendars:
                     contract.partner._generate_festives_in_calendar(year,
                                                                     calendar)
-            date_from = '{}-01-01'.format(year)
             cond = [('employee_id', '=', contract.employee_id.id),
                     ('type', '=', 'remove'),
                     ('date_to', '>=', date_from),
@@ -53,9 +53,25 @@ class HrContract(models.Model):
                 days = holiday._find_calendar_days_from_holidays()
                 days.write(self._prepare_partner_day_information(
                     holiday.holiday_status_id.id))
+            self._put_contract_in_employee_calendar_day(year)
 
     def _prepare_partner_day_information(self, absence_type):
         return {'absence_type': absence_type}
+
+    def _put_contract_in_employee_calendar_day(self, year):
+        day_obj = self.env['res.partner.calendar.day']
+        date_from = '{}-01-01'.format(year)
+        date_to = '{}-12-31'.format(year)
+        cond = [('employee_id', '=', self.employee_id.id),
+                '|', ('date_end', '=', False), ('date_end', '>=', date_from)]
+        contracts = self.search(cond)
+        for contract in contracts:
+            cond = [('partner', '=', contract.partner.id),
+                    ('date', '>=', max(date_from, contract.date_start)),
+                    ('date', '<=', date_to if not contract.date_end else
+                     min(date_to, contract.date_end))]
+            days = day_obj.search(cond)
+            days.write({'contract': contract.id})
 
     @api.multi
     def automatic_process_generate_calendar(self):
