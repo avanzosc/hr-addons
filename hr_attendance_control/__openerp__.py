@@ -14,6 +14,7 @@
         "Ana Juaristi <anajuaristi@avanzosc.es>",
     ],
     "depends": [
+        "hr_attendance",
         "hr_attendance_from_kanban",
         "hr_holidays",
         "hr_expense",

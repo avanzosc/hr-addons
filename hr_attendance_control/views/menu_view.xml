@@ -4,9 +4,6 @@
         <record id="mail.mail_feeds_main" model="ir.ui.menu">
             <field name="groups_id" eval="[(3,ref('base.group_user')), (4,ref('group_attendance_control'))]"/>
         </record>
-        <record id="base.marketing_menu" model="ir.ui.menu">
-            <field name="groups_id" eval="[(3,ref('base.group_user')), (4,ref('group_attendance_control'))]"/>
-        </record>
         <record id="base.menu_reporting" model="ir.ui.menu">
             <field name="groups_id" eval="[(3,ref('base.group_user')), (4,ref('group_attendance_control'))]"/>
         </record>
