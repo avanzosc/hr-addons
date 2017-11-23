@@ -56,7 +56,9 @@ class HrHolidays(models.Model):
     @api.multi
     def holidays_validate(self):
         contract_obj = self.env['hr.contract']
-        res = super(HrHolidays, self).holidays_validate()
+        res = super(
+            HrHolidays,
+            self.with_context(tracking_disable=True)).holidays_validate()
         for holiday in self.filtered(lambda x: x.type == 'remove'):
             days = holiday._find_calendar_days_from_holidays()
             days.write(contract_obj._prepare_partner_day_information(
@@ -91,3 +93,13 @@ class HrHolidays(models.Model):
                 ('date', '<=', date_to.date())]
         days = calendar_day_obj.search(cond)
         return days
+
+    @api.multi
+    def write(self, values):
+        if (('state' in values and values.get('state') == 'validate') or
+            ('manager_id' in values or 'manager_id2' in values or
+             'meeting_id' in values)):
+            return super(
+                HrHolidays,
+                self.with_context(tracking_disable=True)).write(values)
+        return super(HrHolidays, self).write(values)
