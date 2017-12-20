@@ -78,9 +78,7 @@ class HrContract(models.Model):
         contract_obj = self.env['hr.contract']
         date_begin = '{}-01-01'.format(fields.Date.from_string(
             fields.Date.today()).year)
-        cond = [('type_id', '=',
-                 self.env.ref('hr_contract.hr_contract_type_emp').id),
-                '|', ('date_end', '=', False),
+        cond = ['|', ('date_end', '=', False),
                 ('date_end', '>=', date_begin)]
         contracts = contract_obj.search(cond)
         for contract in contracts:
