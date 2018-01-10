@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
-# (c) 2016 Alfredo de la Fuente - AvanzOSC
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Copyright (c) 2017 Alfredo de la fuente <alfredodelafuente@avanzosc.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from openerp import models, api
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    @api.multi
-    def onchange_user(self, user_id):
-        user_obj = self.env['res.users']
-        result = super(HrEmployee, self).onchange_user(user_id)
-        if user_id:
-            cond = [('id', '=', user_id)]
-            user = user_obj.search(cond)
-            if user.partner_id:
-                result['value']['address_home_id'] = user.partner_id.id
+    @api.onchange('user_id')
+    def _onchange_user(self):
+        result = super(HrEmployee, self)._onchange_user()
+        if self.user_id and self.user_id.partner_id:
+            self.address_home_id = self.user_id.partner_id.id
         return result
 
     @api.model
@@ -27,8 +23,16 @@ class HrEmployee(models.Model):
 
     @api.multi
     def write(self, vals):
-        result = super(HrEmployee, self).write(vals)
         if vals.get('address_home_id', False):
-            for employee in self:
-                employee.address_home_id.employee_id = employee.id
+            if self.address_home_id:
+                other_employee = self.search(
+                    [('address_home_id', '=', self.address_home_id.id),
+                     ('id', '!=', self.id)], limit=1)
+                self.address_home_id.employee_id = other_employee or False
+            self.env['res.partner'].browse(
+                vals['address_home_id']).employee_id = self.id
+        result = super(HrEmployee, self).write(vals)
+        if 'address_home_id' in vals and not vals.get('address_home_id'):
+            cond = [('employee_id', 'in', self.ids)]
+            self.env['res.partner'].search(cond).write({'employee_id': False})
         return result
