@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_partner_tree" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="headquarters_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_simple_form" model="ir.ui.view">
+            <field name="name">res.partner.simplified.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_simple_form"/>
+            <field name="arch" type="xml">
+                <field name="mobile" position="after">
+                    <field name="headquarters_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="headquarters_id"/>
+                </field>
+            </field>
+        </record>
+
+       <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="headquarters_id"/>
+                </field>
+                <filter string="Country" position="after">
+                    <filter string="Headquarters" context="{'group_by': 'headquarters_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>
