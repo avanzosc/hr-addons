@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# (c) 2016 Alfredo de la Fuente - AvanzOSC
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-import openerp.tests.common as common
+# Copyright (c) 2017 Alfredo de la fuente <alfredodelafuente@avanzosc.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo.tests import common
 
 
 class TestHrEmployeeAssociatedPicking(common.TransactionCase):
@@ -9,13 +9,12 @@ class TestHrEmployeeAssociatedPicking(common.TransactionCase):
     def setUp(self):
         super(TestHrEmployeeAssociatedPicking, self).setUp()
         employee_model = self.env['hr.employee']
+        self.user = self.browse_ref('base.user_root')
         employee_vals = {
             'name': 'employee name',
-            'user_id': self.ref('base.user_root'),
+            'user_id': self.user.id,
+            'address_home_id': self.user.partner_id.id
         }
-        employee_vals.update(
-            employee_model.onchange_user(
-                user_id=employee_vals['user_id'])['value'])
         self.employee = employee_model.create(employee_vals)
 
     def test_hr_employee_associated_picking(self):

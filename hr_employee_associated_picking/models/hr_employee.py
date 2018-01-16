@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# © 2016 Alfredo de la Fuente - AvanzOSC
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# Copyright (c) 2017 Alfredo de la fuente <alfredodelafuente@avanzosc.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from openerp import fields, models, api, _
 
 
@@ -22,10 +22,10 @@ class HrEmployee(models.Model):
 
     @api.multi
     def pickings_from_employee(self):
-        self.ensure_one()
-        return {'name': _('Pickings'),
-                'view_type': 'form',
-                "view_mode": 'tree,form,calendar',
-                'res_model': 'stock.picking',
-                'type': 'ir.actions.act_window',
-                'domain': [('partner_id', '=', self.address_home_id.id)]}
+        if self.address_home_id:
+            return {'name': _('Pickings'),
+                    'view_type': 'form',
+                    "view_mode": 'tree,form,calendar',
+                    'res_model': 'stock.picking',
+                    'type': 'ir.actions.act_window',
+                    'domain': [('partner_id', '=', self.address_home_id.id)]}
