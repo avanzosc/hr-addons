@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_res_headquarters_tree" model="ir.ui.view">
+            <field name="name">res.headquarters.tree</field>
+            <field name="model">res.headquarters</field>
+            <field name="arch" type="xml">
+                <tree string="Headquarters">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_res_headquarters_form" model="ir.ui.view">
+            <field name="name">res.headquarters.form</field>
+            <field name="model">res.headquarters</field>
+            <field name="arch" type="xml">
+                <form string="Headquarters">
+                    <group col="4">
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_headquarters" model="ir.actions.act_window">
+            <field name="name">Headquarters</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.headquarters</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_headquarters" id="menu_headquarters" parent="base.menu_base_config"/>
+
+    </data>
+</openerp>
