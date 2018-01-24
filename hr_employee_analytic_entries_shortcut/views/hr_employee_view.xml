@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="employee_form_view_inh_analytic_entries_shortcut" model="ir.ui.view">
+            <field name="name">employee.form.view.inh.analytic.entries.shortcut</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="account_analytic_id" />
+                </field>
+                <button name="toggle_active" position="after">
+                    <button name="show_analytic_entries_from_employee"
+                            type="object" class="oe_stat_button oe_inline" icon="fa-comments">
+                        <field name="analytic_entries_count" widget="statinfo" string="Analytic entries"/>
+                    </button>
+                </button>
+            </field>
+        </record>
+        <record id="employee_tree_view_inh_analytic_entries_shortcut" model="ir.ui.view">
+            <field name="name">employee.tree.view.inh.analytic.entries.shortcut</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="account_analytic_id" />
+                </field>
+            </field>
+        </record>
+        <record id="employee_filter_view_inh_analytic_entries_shortcut" model="ir.ui.view">
+            <field name="name">employee.filter.view.inh.analytic.entries.shortcut</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="account_analytic_id" />
+                </field>
+            </field>
+        </record>
+        <record id="partner_r_view_inh_analytic_entries_shortcut" model="ir.ui.view">
+            <field name="name">employee.filter.view.inh.analytic.entries.shortcut</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_partner_tree2"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="account_analytic_id" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
