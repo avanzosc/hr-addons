@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_job_form_view_inh_country">
+            <field name="name">hr.job.form.view.inh.country</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_job_survey" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='address_id']//.." position="after">
+                    <field name="destination_country_id" readonly="1" />
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_hr_job_tree_inh_country">
+            <field name="name">view.hr.job.tree.inh.country</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree" />
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="destination_country_id" />
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_job_filter_inh_country">
+            <field name="name">view.job.filter.inh.country</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_job_filter" />
+            <field name="arch" type="xml">
+                <field name="department_id" position="after">
+                    <field name="destination_country_id" />
+                </field>
+                <filter string="Company" position="after">
+                    <filter string="Destination country" domain="[]" context="{'group_by':'destination_country_id'}"/>
+                </filter>
+            </field>
+        </record>
+    </data>
+</openerp>

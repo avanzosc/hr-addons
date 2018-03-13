@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="crm_case_tree_view_job_inh_country">
+            <field name="name">crm.case.tree.view.job.inh.country</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job" />
+            <field name="arch" type="xml">
+                <field name="partner_name" position="after">
+                    <field name="contact_country_id" />
+                </field>
+                <field name="job_id" position="after">
+                    <field name="destination_country_id" />
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="crm_case_form_view_job_inh_country">
+            <field name="name">crm.case.form.view.job.inh.country</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job" />
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="contact_country_id" />
+                </field>
+                <field name="job_id" position="after">
+                    <field name="destination_country_id" readonly="1"/>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_crm_case_jobs_filter_inh_country">
+            <field name="name">view.crm.case.jobs.filter.inh.country</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.view_crm_case_jobs_filter" />
+            <field name="arch" type="xml">
+                <field name="partner_name" position="after">
+                    <field name="contact_country_id" />
+                </field>
+                <field name="job_id" position="after">
+                    <field name="destination_country_id" readonly="1"/>
+                </field>
+                <filter string="Job" position="after">
+                    <filter string="Destination country" domain="[]" context="{'group_by':'destination_country_id'}"/>
+                    <filter string="Contact country" domain="[]" context="{'group_by':'contact_country_id'}"/>
+                    
+                    Destination country
+                </filter>
+            </field>
+        </record>
+    </data>
+</openerp>
