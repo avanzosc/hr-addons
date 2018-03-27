@@ -6,8 +6,10 @@
 Hr applicant country
 ====================
 
+* New field "Nationality" in partners.
 * In "Job positions" object show "job location country".
-* In "Applications" object, show "Job location country" and "contact country".
+* In "Applications" object, show "Job location country", "contact country", and
+  "Nationality".
 
 
 configuracion
