@@ -20,13 +20,22 @@ class HrApplicant(models.Model):
         related='job_id.destination_country_id', store=True)
     contact_country_id = fields.Many2one(
         comodel_name='res.country', string='Contact country')
+    nationality_id = fields.Many2one(
+        comodel_name='res.country', string='Nationality')
+    birthdate_date = fields.Date(string='Birthdate')
 
     @api.multi
     def onchange_partner_id(self, partner_id):
         res = super(HrApplicant, self).onchange_partner_id(partner_id)
-        res['value']['contact_country_id'] = False
+        res['value'].update({'contact_country_id': False,
+                             'nationality_id': False,
+                             'birthdate_date': False})
         if partner_id:
             partner = self.env['res.partner'].browse(partner_id)
             if partner.country_id:
                 res['value']['contact_country_id'] = partner.country_id.id
+            if partner.nationality_id:
+                res['value']['nationality_id'] = partner.nationality_id.id
+            if partner.birthdate_date:
+                res['value']['birthdate_date'] = partner.birthdate_date
         return res

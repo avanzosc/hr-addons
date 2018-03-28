@@ -12,7 +12,9 @@ class TestHrApplicantCountry(common.TransactionCase):
             {'name': 'Country for test hr applicant country'})
         self.partner = self.env['res.partner'].create(
             {'name': 'Partner for test hr applicant country',
-             'country_id': self.country.id})
+             'country_id': self.country.id,
+             'nationality_id': self.country.id,
+             'birthdate_date': '1969-01-01'})
         self.application = self.env['hr.applicant'].create(
             {'name': 'Applicant for test hr applicant country',
              'partner_id': self.partner.id})
@@ -23,3 +25,9 @@ class TestHrApplicantCountry(common.TransactionCase):
         country_id = values.get('contact_country_id')
         self.assertEqual(
             country_id, self.country.id, 'Bad country for application contact')
+        self.assertEqual(
+            values.get('nationality_id'), self.country.id,
+            'Bad nationality for application contact')
+        self.assertEqual(
+            values.get('birthdate_date'), '1969-01-01',
+            'Bad birthdate for application contact')
