@@ -18,4 +18,8 @@ class HrContract(models.Model):
                 ('date_end', '<=', date),
                 ('contract_stage_id', '!=', expired_stage.id)]
         contracts = self.env['hr.contract'].search(cond)
-        contracts.write({'contract_stage_id': expired_stage.id})
+        for contract in contracts:
+            try:
+                contract.contract_stage_id = expired_stage.id
+            except Exception:
+                pass
