@@ -22,6 +22,7 @@
         "views/account_analytic_line_view.xml",
         "views/account_invoice_view.xml",
         "views/account_move_line_view.xml",
+        "views/account_move_view.xml",
         "views/res_partner_view.xml",
     ],
     "installable": True,
