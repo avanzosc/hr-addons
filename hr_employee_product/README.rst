@@ -2,35 +2,22 @@
    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================
-Hr employee product
-===================
+================
+Employee Product
+================
 
- * This module allows you to define a product in the employee's form view.
- * When an analytical line is generated from time imputation, bring the
-   following fields to the analytical line: product of the employee, product
-   category, employee, department of the employee.
+* This module allows you to define a product in the employee's form view.
+* When an analytical line is generated from time imputation, bring the
+  following fields to the analytical line:
 
-Configuration
-=============
-
-
-Usage
-=====
-
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/134/11.0
-
-Bug Tracker
-===========
+  * product of the employee
+  * product category
+  * employee
+  * department of the employee
 
 
 Credits
 =======
-
-Images
-------
 
 Contributors
 ------------
