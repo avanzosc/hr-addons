@@ -487,3 +487,9 @@ msgstr "o"
 #: field:res.partner.calendar.day,year:0
 msgid "year"
 msgstr "año"
+
+#. module: calendar_holiday
+#: view:hr.contract:calendar_holiday.hr_contract_view_search_inh_calendarholiday
+msgid "Associated to"
+msgstr "Asociado a"
+
