@@ -12,7 +12,7 @@ class HrContract(models.Model):
         comodel_name='calendar.holiday', string='Holiday calendars')
     partner = fields.Many2one(
         comodel_name='res.partner', string='Contract employee',
-        related='employee_id.address_home_id')
+        related='employee_id.address_home_id', store=True)
     calendar_days = fields.One2many(
         comodel_name='res.partner.calendar.day', inverse_name='contract',
         string='Employee calendar days')

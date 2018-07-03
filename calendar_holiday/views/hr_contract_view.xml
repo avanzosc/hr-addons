@@ -19,6 +19,9 @@
                 <field name="employee_id" position="after">
                     <field name="partner"/>
                 </field>
+                <filter string="Employee" position="after">
+                    <filter string="Associated to" icon="terp-personal" domain="[]" context="{'group_by':'partner'}"/>
+                </filter>
             </field>
         </record>
         <record id="hr_contract_view_form_inh_calendarholiday" model="ir.ui.view">
