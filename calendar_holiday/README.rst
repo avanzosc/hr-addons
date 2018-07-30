@@ -14,10 +14,8 @@ This module allows you to define holiday calendars and employee calendars.
 * The employee calendar is generated from his contract.
 * New scheduled action for generate calendar in contracts annually.
 
-Credits
-=======
-
 Contributors
 ------------
 * Ana Juaristi <anajuaristi@avanzosc.es>
 * Alfredo de la Fuente <alfredodelafuente@avanzosc.es>
+* Eider Oyarbide <eideroyarbide@avanzosc.es>

@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
-# (c) 2016 Alfredo de la Fuente - AvanzOSC
+# (c) 2016 Alfredo de la Fuente, Eider Oyarbide - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Calendar Holiday",
-    "version": "8.0.1.2.0",
+    "version": "8.0.1.3.0",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
     "contributors": [
         "Ana Juaristi <anajuaristi@avanzosc.es>",
-        "Alfredo de la Fuente <alfredodelafuente@avanzosc.es",
+        "Alfredo de la Fuente <alfredodelafuente@avanzosc.es>",
+        "Eider Oyarbide <eideroyarbide@avanzosc.es>",
     ],
     "category": "Human Resources",
     "depends": [
@@ -29,6 +30,7 @@
         "views/hr_employee_view.xml",
         "views/hr_contract_view.xml",
         "views/hr_holidays_view.xml",
+        "wizard/wiz_assign_calendar_holiday_view.xml"
     ],
     "installable": True,
 }

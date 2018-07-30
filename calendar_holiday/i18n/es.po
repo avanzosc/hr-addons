@@ -493,3 +493,34 @@ msgstr "año"
 msgid "Associated to"
 msgstr "Asociado a"
 
+#. module: calendar_holiday
+#: field:wiz.assign.calendar.holiday,calendar_holidays_ids:0
+msgid "Assign holidays"
+msgstr "Asignar festivos"
+
+#. module: calendar_holiday
+#: field:wiz.assign.calendar.holiday,calendar_year:0
+msgid "Generated calendar for year"
+msgstr "Generar caldendario para el año"
+
+#. module: calendar_holiday
+#: view:wiz.assign.calendar.holiday:calendar_holiday.wiz_assign_calendar_holiday_view
+msgid "Wizard for assign calendar holidays in employee contract"
+msgstr "Wizard para asignar calendario festivo a los contratos de los empleados"
+
+#. module: calendar_holiday
+#: view:wiz.assign.calendar.holiday:calendar_holiday.wiz_assign_calendar_holiday_view
+msgid "Calendar Holidays"
+msgstr "Calendario de festivos"
+
+#. module: calendar_holiday
+#: view:wiz.assign.calendar.holiday:calendar_holiday.wiz_assign_calendar_holiday_view
+msgid "Assign calendar"
+msgstr "Asignar calendario"
+
+#. module: calendar_holiday
+#: view:wiz.assign.calendar.holiday:calendar_holiday.wiz_assign_calendar_holiday_view
+#: view:wiz.calculate.workable.festive:calendar_holiday.wiz_calculate_workable_festive_view
+msgid "Cancel"
+msgstr "Cancelar"
+

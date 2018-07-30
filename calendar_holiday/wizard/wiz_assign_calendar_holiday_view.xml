@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="wiz_assign_calendar_holiday_view">
+            <field name="name">wiz.assign.calendar.holiday.view</field>
+            <field name="model">wiz.assign.calendar.holiday</field>
+            <field name="arch" type="xml">
+                <form string="Wizard for assign calendar holidays in employee contract" version="7.0">
+                    <group colspan="4">
+                        <field name="calendar_year" colspan="4"/>
+                        <separator string="Calendar Holidays" colspan="4"/>
+                        <field name="calendar_holidays_ids" nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button name="button_assign_calendar_holiday_in_contracts" type="object"
+                                string="Assign calendar" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link"
+                                special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_assign_calendar_contracts"
+            key2="client_action_multi" name="Assign calendar in contracts"
+            res_model="wiz.assign.calendar.holiday" src_model="hr.contract"
+            view_mode="form" target="new" />
+    </data>
+</openerp>
