@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_automatic_congratulate_birthday
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-09 13:02+0000\n"
+"PO-Revision-Date: 2018-08-09 13:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_automatic_congratulate_birthday
+#: model:email.template,body_html:hr_automatic_congratulate_birthday.email_for_congratulate_employee_birthday
+msgid "\n"
+"    <p>Hello ${object.address_home_id.name}.</p>\n"
+"    <p>We wish you a very happy birthday and have a great day with yours.</p>\n"
+"    <p>Enjoy your day.</p>\n"
+"    <p>A hug from the whole team.</p>\n"
+"            "
+msgstr "\n"
+"    <p>Hola ${object.address_home_id.name}.</p>\n"
+"    <p>Te deseamos un muy feliz cumpleaños y que pases un día genial con los tuyos.</p>\n"
+"    <p>Disfruta de tu día. </p>\n"
+"    <p>Un abrazo de parte de todo el equipo.</p>\n"
+"            "
+
+#. module: hr_automatic_congratulate_birthday
+#: model:ir.model,name:hr_automatic_congratulate_birthday.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: hr_automatic_congratulate_birthday
+#: model:ir.model,name:hr_automatic_congratulate_birthday.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_automatic_congratulate_birthday
+#: model:email.template,subject:hr_automatic_congratulate_birthday.email_for_congratulate_employee_birthday
+msgid "Happy birthday"
+msgstr "Feliz cumpleaños"
+

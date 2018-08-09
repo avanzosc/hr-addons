@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record forcecreate="True" id="ir_cron_hr_contract_close_automatically" model="ir.cron">
+            <field name="name">Congratulate employee birthday</field>
+            <field eval="False" name="active" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="model"  eval="'hr.employee'" />
+            <field name="function" eval="'automatic_congratulate_employee_birthday'" />
+            <field name="args" eval="'(None, )'" />
+        </record>
+        <record id="email_for_congratulate_employee_birthday" model="email.template">
+            <field name="name">Congratulate employee birthday</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="reply_to">${(object.company_id.email or 'noreply@localhost')|safe}</field>
+            <field name="subject">Happy birthday</field>
+            <field name="lang">${object.address_home_id.lang}</field>
+            <field name="body_html"><![CDATA[
+    <p>Hello ${object.address_home_id.name}.</p>
+    <p>We wish you a very happy birthday and have a great day with yours.</p>
+    <p>Enjoy your day.</p>
+    <p>A hug from the whole team.</p>
+            ]]></field>
+        </record>
+    </data>
+</openerp>
