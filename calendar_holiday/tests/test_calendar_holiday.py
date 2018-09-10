@@ -16,6 +16,7 @@ class TestCalendarHoliday(common.TransactionCase):
         self.calendar_model = self.env['res.partner.calendar']
         self.calendar_day_model = self.env['res.partner.calendar.day']
         self.wiz_model = self.env['wiz.calculate.workable.festive']
+        self.wiz_assign_model = self.env['wiz.assign.calendar.holiday']
         self.holidays_model = self.env['hr.holidays']
         self.today = fields.Date.from_string(fields.Date.today())
         self.partner = self.env['res.partner'].create({
@@ -162,3 +163,19 @@ class TestCalendarHoliday(common.TransactionCase):
         calendars = self.calendar_model.search(cond)
         self.assertEquals(
             len(calendars), 1, 'Calendar no generated for employee')
+
+    def test_wiz_assign_calendar_holiday(self):
+        cond = [('partner', '=', self.contract.partner.id)]
+        calendars = self.calendar_model.search(cond)
+        calendars.unlink()
+        wiz_vals = {
+            'calendar_holidays_ids': [(6, 0, self.calendar_holiday.ids)],
+            'calendar_year': self.today.year}
+        wiz = self.wiz_assign_model.create(wiz_vals)
+        c = self.contract.ids
+        wiz.with_context(
+            active_ids=c).button_assign_calendar_holiday_in_contracts()
+        cond = [('partner', '=', self.contract.partner.id),
+                ('year', '=', self.today.year)]
+        calendar = self.calendar_model.search(cond)
+        self.assertEquals(len(calendar), 1)
