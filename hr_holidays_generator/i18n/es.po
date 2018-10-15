@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_generator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-15 08:29+0000\n"
+"PO-Revision-Date: 2018-10-15 08:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_generator
+#: model:ir.model,name:hr_holidays_generator.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: hr_holidays_generator
+#: model:ir.model,name:hr_holidays_generator.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: hr_holidays_generator
+#: field:res.company,days_per_month_worked:0
+msgid "Days per month worked"
+msgstr "Días por mes trabajado"
+
+#. module: hr_holidays_generator
+#: code:addons/hr_holidays_generator/models/hr.py:71
+#, python-format
+msgid "Holidays"
+msgstr "Vacaciones"
+
+#. module: hr_holidays_generator
+#: model:ir.model,name:hr_holidays_generator.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Tipo de ausencia"
+
+#. module: hr_holidays_generator
+#: field:hr.holidays.status,vacations_automatically:0
+msgid "To generate vacations automatically"
+msgstr "Para generar vacaciones automáticamente"
+
