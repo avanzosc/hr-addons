@@ -21,7 +21,10 @@ class HrContract(models.Model):
         first_day = today.replace(day=1)
         last_day = today.replace(day=lastday)
         cond = [('contract_stage_id', '!=', expired_stage.id),
-                ('date_start', '<', fields.Date.to_string(last_day))]
+                ('date_start', '<', fields.Date.to_string(last_day)),
+                ('job_id', '=', False),
+                '|', ('job_id', '!=', False),
+                ('type_id.vacations_automatically', '=', True)]
         contracts = self.search(cond)
         for c in contracts:
             days = (
@@ -60,3 +63,10 @@ class HrHolidaysStatus(models.Model):
 
     vacations_automatically = fields.Boolean(
         string='To generate vacations automatically')
+
+
+class HrContractType(models.Model):
+    _inherit = 'hr.contract.type'
+
+    vacations_automatically = fields.Boolean(
+        string='To generate vacations automatically', default=True)

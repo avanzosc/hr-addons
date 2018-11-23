@@ -8,6 +8,9 @@ Hr holidays generator
 
 * New planner to automatically generate holidays for workers. Vacation days per
   month worked are defined in the company form.
+* Only vacations will be generated for those contracts that not have defined a
+  "Job Title", and if the contract has defined any "Job Title" her type of 
+  contract must have checked the option "To generate vacations automatically".
 
 
 Credits
