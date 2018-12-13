@@ -22,8 +22,8 @@ class HrContract(models.Model):
         last_day = today.replace(day=lastday)
         cond = [('contract_stage_id', '!=', expired_stage.id),
                 ('date_start', '<', fields.Date.to_string(last_day)),
-                ('job_id', '=', False),
-                '|', ('job_id', '!=', False),
+                '|', ('job_id', '=', False),
+                ('job_id', '!=', False),
                 ('type_id.vacations_automatically', '=', True)]
         contracts = self.search(cond)
         for c in contracts:

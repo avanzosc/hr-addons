@@ -37,5 +37,5 @@ class TestHrHolidaysGenerator(common.TransactionCase):
                 ('holiday_type', '=', 'employee'),
                 ('type', '=', 'add')]
         holiday = self.env['hr.holidays'].search(cond, limit=1)
-        self.assertEqual(
-            holiday.number_of_days_temp, 1.0, 'Bad holidays generated')
+        self.assertIn(
+            holiday.number_of_days_temp, (1.0, 1.1), 'Bad holidays generated')
