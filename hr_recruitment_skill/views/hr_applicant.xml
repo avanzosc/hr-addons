@@ -1,0 +1,44 @@
+
+<odoo>
+
+    <record id="view_employee_skill_form" model="ir.ui.view">
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <group string="Skills">
+                    <group>
+                        <field name="applicant_skill_ids" nolabel="1">
+                            <tree>
+                                <field name="skill_id"/>
+                                <field name="level" widget="priority"/>
+                            </tree>
+                        </field>
+                        <field name="applicant_eskill_ids" nolabel="1"
+                                context="{'default_applicant_id': active_id}">
+                            <tree>
+                                <field name="skill_id"/>
+                                <field name="level" widget="priority"/>
+                            </tree>
+                            <form>
+                                <field name="applicant_id" />
+                                <field name="skill_id"/>
+                                <field name="level" widget="priority"/>
+                            </form>
+                        </field>
+                    </group>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <!--<record id="hr_employee_normal_action_tree" model="ir.actions.act_window">-->
+        <!--<field name="name">Employees</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">hr.employee</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--<field name="domain">[('employee_skill_ids', 'child_of', active_ids)]</field>-->
+    <!--</record>-->
+
+</odoo>
