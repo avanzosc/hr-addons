@@ -146,3 +146,15 @@ msgstr "Tutores por año"
 msgid "User"
 msgstr "Usuario"
 
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__name
+msgid "Description"
+msgstr "Descripción"
+
+#. module: hr_school
+#: code:addons/hr_school/models/hr_employee.py:42
+#, python-format
+msgid "Academic year: {}, teacher: {}, student: {}"
+msgstr "Año académico: {}, profesor: {}, estudiante: {}"
+
+
