@@ -27,3 +27,8 @@ class TestHrSchool(TransactionCase):
         self.assertEqual(res.get('domain'), domain)
         self.student._compute_allowed_user_ids()
         self.assertEqual(self.student.allowed_user_ids, self.employee.user_id)
+        res = self.tutored.name_get()[0]
+        lit = u"Academic year: {}, teacher: {}, student: {}".format(
+            self.tutored.school_year_id.name, self.tutored.teacher_id.name,
+            self.tutored.student_id.name)
+        self.assertIn(lit, str(res))

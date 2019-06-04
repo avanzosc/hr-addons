@@ -47,3 +47,14 @@ class HrEmployeeSupervisedYear(models.Model):
     user_id = fields.Many2one(
         string='User', comodeel_name='res.users', store=True,
         related='teacher_id.user_id')
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for year in self:
+            name = _(
+                u"Academic year: {}, teacher: {}, student: {}").format(
+                    year.school_year_id.name, year.teacher_id.name,
+                    year.student_id.name)
+            result.append((year.id, name))
+        return result
