@@ -14,6 +14,7 @@ Hr school
   "Tutors per year".
 * New rule "Teachers tutors student" to see only students in which the teacher
   has been a student's tutor.
+* New object "Order of the day"
 
 Bug Tracker
 ===========
