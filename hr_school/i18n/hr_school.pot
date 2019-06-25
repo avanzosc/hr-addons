@@ -18,69 +18,69 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__count_tutored_students
 msgid "# Tutored students"
-msgstr "Estudiantes tutelados"
+msgstr ""
 
 #. module: hr_school
 #: selection:education.order.day,meeting_day:0
 msgid "15"
-msgstr "15"
+msgstr ""
 
 #. module: hr_school
 #: code:addons/hr_school/models/hr_employee.py:55
 #, python-format
 msgid "Academic year: {}, teacher: {}, student: {}"
-msgstr "Año académico: {}, profesor: {}, estudiante: {}"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_res_partner__allowed_user_ids
 #: model:ir.model.fields,field_description:hr_school.field_res_users__allowed_user_ids
 msgid "Allowed users"
-msgstr "Usuarios permitidos"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_res_partner
 msgid "Contact"
-msgstr "Contacto"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__course_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Course"
-msgstr "Curso"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__create_uid
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__create_date
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__display_name
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee
 msgid "Employee"
-msgstr "Empleado"
+msgstr ""
 
 #. module: hr_school
 #: selection:education.order.day,type:0
 msgid "Family"
-msgstr "Familia"
+msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Group By"
-msgstr "Agrupar por"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__id
@@ -92,118 +92,118 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day____last_update
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year____last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__write_uid
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización por"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__write_date
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__write_date
 msgid "Last Updated on"
-msgstr "Última actualización el"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__meeting_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Meeting day"
-msgstr "Día reunión"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__month_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Month"
-msgstr "Mes"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_education_order_day
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__order_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_form
 msgid "Order of the day"
-msgstr "Órden del día"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.actions.act_window,name:hr_school.action_education_order_day_view_form
 #: model:ir.ui.menu,name:hr_school.menu_education_order_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_tree
 msgid "Orders of the day"
-msgstr "Órdenes del día"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,help:hr_school.field_hr_employee_supervised_year__user_id
 msgid "Related user name for the resource to manage its access."
-msgstr "Usuario relacionado con el recurso para gestionar su acceso."
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__school_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "School"
-msgstr "Escuela"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__school_year_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "School year"
-msgstr "Año lectivo"
+msgstr ""
 
 #. module: hr_school
 #: code:addons/hr_school/models/education_order_day.py:33
 #, python-format
 msgid "School: {} Month: {} Meeting day: {} Course: {} Type: {}"
-msgstr "Colegio: {} Mes: {} Día reunión: {} Curso: {} Tipo: {}"
+msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Search orders of the day"
-msgstr "Buscar órdenes del día"
+msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Search tutors per year"
-msgstr "Buscar tutores por año"
+msgstr ""
 
 #. module: hr_school
 #: selection:education.order.day,type:0
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__student_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Student"
-msgstr "Alumno"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__teacher_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Teacher"
-msgstr "Profesor"
+msgstr ""
 
 #. module: hr_school
 #: model:res.groups,name:hr_school.group_teacher_tutor
 msgid "Teachers tutors"
-msgstr "Profesores tutores"
+msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_form_view
 msgid "Tutor per year"
-msgstr "Tutor por año"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee_supervised_year
 msgid "Tutored by year"
-msgstr "Tutelado por año"
+msgstr ""
 
 #. module: hr_school
 #: code:addons/hr_school/models/hr_employee.py:25
 #: model_terms:ir.ui.view,arch_db:hr_school.view_employee_form_ihn_hr_school
 #, python-format
 msgid "Tutored students"
-msgstr "Estudiantes tutelados"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__tutored_student_ids
 msgid "Tutored students per year"
-msgstr "Estudiantes tutelados por año"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.actions.act_window,name:hr_school.action_hr_employee_supervised_year_form
@@ -213,20 +213,20 @@ msgstr "Estudiantes tutelados por año"
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_tree_view
 #: model_terms:ir.ui.view,arch_db:hr_school.view_partner_form_ihn_hr_school
 msgid "Tutors per year"
-msgstr "Tutores por año"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__type
 msgid "Type"
-msgstr "Tipo"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__user_id
 msgid "User"
-msgstr "Usuario"
+msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "type"
-msgstr "tipo"
+msgstr ""
 
