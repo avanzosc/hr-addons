@@ -23,9 +23,8 @@ class TestHrSchool(TransactionCase):
     def test_hr_scholl(self):
         self.assertEqual(self.employee.count_tutored_students, 1)
         res = self.employee.button_show_tutored_students()
-        domain = [('id', 'in', [self.tutored.id])]
+        domain = [('teacher_id', '=', [self.employee.id])]
         self.assertEqual(res.get('domain'), domain)
-        self.student._compute_allowed_user_ids()
         self.assertEqual(self.student.allowed_user_ids, self.employee.user_id)
         res = self.tutored.name_get()[0]
         lit = u"Academic year: {}, teacher: {}, student: {}".format(

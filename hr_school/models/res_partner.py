@@ -6,9 +6,8 @@ from odoo import models, fields, api
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    @api.depends('year_tutor_ids')
+    @api.depends('year_tutor_ids', 'year_tutor_ids.user_id')
     def _compute_allowed_user_ids(self):
-        users = self.env['res.users']
         for partner in self:
             partner.allowed_user_ids = [(6, 0, [])]
             users = partner.year_tutor_ids.mapped('user_id')
