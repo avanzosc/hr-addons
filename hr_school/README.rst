@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=========
-Hr school
-=========
+====================
+Employees for school
+====================
 
 * In employees menu new option "Tutors per year". You can also navigate to this
   new object from the employee form.

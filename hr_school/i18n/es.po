@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 12:03+0000\n"
-"PO-Revision-Date: 2019-06-24 12:03+0000\n"
+"POT-Creation-Date: 2019-07-03 08:21+0000\n"
+"PO-Revision-Date: 2019-07-03 08:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,10 +23,11 @@ msgstr "Estudiantes tutelados"
 #. module: hr_school
 #: selection:education.order.day,meeting_day:0
 msgid "15"
-msgstr "15"
+msgstr ""
 
 #. module: hr_school
 #: code:addons/hr_school/models/hr_employee.py:55
+#: code:addons/hr_school/models/hr_employee.py:72
 #, python-format
 msgid "Academic year: {}, teacher: {}, student: {}"
 msgstr "Año académico: {}, profesor: {}, estudiante: {}"
@@ -65,6 +66,11 @@ msgstr "Creado el"
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_hr_employee__center_ids
+msgid "Education Centers"
+msgstr "Centros educativos"
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee
@@ -141,19 +147,13 @@ msgstr "Usuario relacionado con el recurso para gestionar su acceso."
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__school_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "School"
-msgstr "Escuela"
+msgstr "Colegio"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__school_year_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "School year"
 msgstr "Año lectivo"
-
-#. module: hr_school
-#: code:addons/hr_school/models/education_order_day.py:33
-#, python-format
-msgid "School: {} Month: {} Meeting day: {} Course: {} Type: {}"
-msgstr "Colegio: {} Mes: {} Día reunión: {} Curso: {} Tipo: {}"
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
