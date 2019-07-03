@@ -1,17 +1,28 @@
 # Copyright 2019 Alfredo de la fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo import models, fields, api, _
+from odoo.models import expression
+from odoo.tools.safe_eval import safe_eval
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
+    center_ids = fields.Many2many(
+        comodel_name='res.partner', string='Education Centers',
+        compute='_compute_center_ids', store=True)
     tutored_student_ids = fields.One2many(
         comodel_name='hr.employee.supervised.year',
         inverse_name='teacher_id', string='Tutored students per year')
     count_tutored_students = fields.Integer(
         string='# Tutored students', compute='_compute_count_tutored_students')
 
+    @api.depends('user_id', 'user_id.school_ids')
+    def _compute_center_ids(self):
+        for employee in self.filtered('user_id'):
+            employee.center_ids = employee.user_id.school_ids
+
+    @api.depends('tutored_student_ids')
     def _compute_count_tutored_students(self):
         for employee in self:
             employee.count_tutored_students = (
@@ -22,13 +33,19 @@ class HrEmployee(models.Model):
         self.ensure_one()
         self = self.with_context(
             search_default_teacher_id=self.id, default_teacher_id=self.id)
-        return {'name': _('Tutored students'),
-                'type': 'ir.actions.act_window',
-                'view_mode': 'tree,form',
-                'view_type': 'form',
-                'res_model': 'hr.employee.supervised.year',
-                'domain': [('id', 'in', self.tutored_student_ids.ids)],
-                'context': self.env.context}
+        action = self.env.ref(
+            'hr_school.action_hr_employee_supervised_year_form')
+        action_dict = action.read()[0] if action else {}
+        action_dict['context'] = safe_eval(
+            action_dict.get('context', '{}'))
+        action_dict['context'].update(
+            {'search_default_teacher_id': self.id,
+             'default_teacher_id': self.id})
+        domain = expression.AND([
+            [('teacher_id', '=', self.id)],
+            safe_eval(action.domain or '[]')])
+        action_dict.update({'domain': domain})
+        return action_dict
 
 
 class HrEmployeeSupervisedYear(models.Model):
