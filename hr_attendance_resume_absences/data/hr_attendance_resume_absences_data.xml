@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="hr_leave_type_holiday_bonus" model="hr.leave.type">
+        <field name="name">Time difference</field>
+        <field name="request_unit">day</field>
+        <field name="time_type">other</field>
+    </record>
+</odoo>
