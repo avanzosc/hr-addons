@@ -18,15 +18,15 @@ msgstr ""
 #. module: hr_partner
 #: model_terms:ir.ui.view,arch_db:hr_partner.hr_employee_form_view
 msgid "(find or create address)"
-msgstr "(buscar o crear dirección)"
+msgstr ""
 
 #. module: hr_partner
 #: model_terms:ir.ui.view,arch_db:hr_partner.hr_employee_form_view
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr ""
 
 #. module: hr_partner
 #: model:ir.model,name:hr_partner.model_hr_employee
 msgid "Employee"
-msgstr "Empleado"
+msgstr ""
 
