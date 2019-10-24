@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_holidays.act_hr_employee_holiday_request" model="ir.actions.act_window">
+        <field name="domain">[('holiday_type','=','employee'),('employee_id.user_id','=',uid)]</field>
+    </record>
+    <record id="hr_holidays.open_company_allocation" model="ir.actions.act_window">
+        <field name="domain">[('holiday_type','=','employee'),('employee_id.user_id','=',uid)]</field>
+    </record>
+    <record id="action_open_hr_leave_report_from_manager" model="ir.actions.act_window">
+        <field name="name">Leaves Summary</field>
+        <field name="res_model">hr.leave.report</field>
+        <field name="src_model">hr.employee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="hr_holidays.hr_leave_report_tree"/>
+        <field name="context">{
+            'search_default_group_type': 1,
+            'search_default_year': 1 ,
+            'search_default_my_leaves': 1,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new leave request
+            </p>
+        </field>
+        <field name="domain">[('holiday_type','=','employee')]</field>
+        <field name="search_view_id" ref="hr_holidays.view_hr_holidays_filter_report"/>
+    </record>
+    <menuitem id="menu_hr_leave_report_from_manager"
+        name="Summary"
+        parent="hr_holidays.menu_hr_holidays_approvals"
+        action="action_open_hr_leave_report_from_manager"
+        sequence="20"
+        groups="hr_holidays.group_hr_holidays_manager"/>
+</odoo>
