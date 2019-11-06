@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="wiz_attendance_resume_put_resolved_view_form" model="ir.ui.view">
+            <field name="model">wiz.attendance.resume.put.resolved</field>
+            <field name="arch" type="xml">
+                <form string="Uncheck treaties">
+                    <p class="oe_grey">
+                        You are going to Set as resolved anomalies
+                    </p>
+                    <footer>
+                        <button string="Resolved" name="button_resolved" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_wiz_attendance_resume_put_resolved"
+            multi="True"
+            key2="client_action_multi" name="Set as resolved anomalies"
+            res_model="wiz.attendance.resume.put.resolved" src_model="hr.attendance.resume"
+            view_mode="form" target="new" view_type="form" />
+    </data>
+</odoo>
