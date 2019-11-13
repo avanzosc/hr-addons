@@ -61,8 +61,10 @@ class HrEmployeeSupervisedYear(models.Model):
     student_id = fields.Many2one(
         string='Student', comodel_name='res.partner',
         required=True)
+    center_id = fields.Many2one(
+        string='Education Center', comodel_name='res.partner')
     user_id = fields.Many2one(
-        string='User', comodeel_name='res.users', store=True,
+        string='User', comodel_name='res.users', store=True,
         related='teacher_id.user_id')
 
     @api.multi

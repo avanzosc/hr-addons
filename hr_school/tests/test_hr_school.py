@@ -1,5 +1,6 @@
 # Copyright 2019 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+from odoo import _
 from odoo.tests import common
 
 
@@ -9,14 +10,20 @@ class TestHrSchool(common.SavepointCase):
     def setUpClass(cls):
         super(TestHrSchool, cls).setUpClass()
         year_vals = {
-            'name': '2019-2020',
+            'name': '2019+2020',
             'date_start': '2019-09-01',
             'date_end': '2020-06-30',
         }
         cls.year = cls.env['education.academic_year'].create(year_vals)
-        cls.employee = cls.env.ref('hr.employee_al')
-        cls.employee.user_id = cls.env.ref('base.user_admin')
-        cls.student = cls.env.ref('base.res_partner_address_2')
+        cls.employee = cls.env['hr.employee'].create({
+            'name': 'Teacher',
+            'user_id': cls.env.ref('base.user_admin').id,
+        })
+        # cls.employee.user_id = cls.env.ref('base.user_admin')
+        cls.student = cls.env['res.partner'].create({
+            'name': 'Student',
+            'educational_category': 'student',
+        })
         tutored_vals = {
             'school_year_id': cls.year.id,
             'teacher_id': cls.employee.id,
@@ -31,7 +38,7 @@ class TestHrSchool(common.SavepointCase):
         domain = [('teacher_id', '=', self.employee.id)]
         self.assertEqual(res.get('domain'), domain)
         self.assertEqual(self.student.allowed_user_ids, self.employee.user_id)
-        lit = u"Academic year: {}, teacher: {}, student: {}".format(
+        lit = _(u"Academic year: {}, teacher: {}, student: {}").format(
             self.tutored.school_year_id.name, self.tutored.teacher_id.name,
             self.tutored.student_id.name)
         self.assertIn(lit, self.tutored.display_name)
