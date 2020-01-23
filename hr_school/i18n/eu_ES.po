@@ -41,31 +41,31 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontaktua"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__course_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Course"
-msgstr ""
+msgstr "Maila"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__create_uid
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Nork sortua"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__create_date
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Noiz sortua"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__display_name
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Izena erakutsi"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__center_id
@@ -80,7 +80,7 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Langilea"
 
 #. module: hr_school
 #: selection:education.order.day,type:0
@@ -91,7 +91,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Group By"
-msgstr ""
+msgstr "Taldekatu"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__id
@@ -103,19 +103,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day____last_update
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Azken aldaketa"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__write_uid
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Azkenengoz eguneratu zuena"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__write_date
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Azken eguneraketa noiz"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__meeting_day
@@ -127,7 +127,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__month_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Month"
-msgstr ""
+msgstr "Hilabetea"
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_education_order_day
@@ -175,13 +175,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__student_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Student"
-msgstr ""
+msgstr "Ikaslea"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__teacher_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Teacher"
-msgstr ""
+msgstr "Irakaslea"
 
 #. module: hr_school
 #: model:res.groups,name:hr_school.group_teacher_tutor
@@ -222,12 +222,12 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__type
 msgid "Type"
-msgstr ""
+msgstr "Mota"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__user_id
 msgid "User"
-msgstr ""
+msgstr "Erabiltzailea"
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
