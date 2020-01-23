@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="view_partner_form_ihn_hr_school" model="ir.ui.view">
-        <field name="name">view.partner.form.ihn.hr.school</field>
+    <record id="res_partner_view_form" model="ir.ui.view">
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="contacts_school.view_partner_form_ihn_contacts_school" />
         <field name="arch" type="xml">
             <page name="student_characteristic" position="after">
                 <page name="tutors_per_year" string='Tutors per year'
-                        attrs="{'invisible': ['|',('educational_category', '=', False),('educational_category', '!=', 'student')]}">
+                      attrs="{'invisible': ['|',('educational_category','=',False),('educational_category','!=','student')]}">
                     <field name="year_tutor_ids" nolabel="1" readonly="1"
                             domain="[('student_id','=', active_id)]" >
                         <tree string="Tutors per year" >
