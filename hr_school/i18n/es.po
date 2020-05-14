@@ -156,6 +156,7 @@ msgstr "Colegio"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__school_year_id
+#: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__school_year_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "School year"
 msgstr "Año lectivo"
@@ -179,6 +180,7 @@ msgstr "Alumno"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__teacher_id
+#: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__teacher_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Teacher"
 msgstr "Profesor"
@@ -233,4 +235,24 @@ msgstr "Usuario"
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "type"
 msgstr "tipo"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.wiz_create_relationship_supervised_year_view_form
+msgid "Create relationship in supervised year for selected students"
+msgstr "Crear relación tutores por año para los estudiantes seleccionados"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.wiz_create_relationship_supervised_year_view_form
+msgid "Create relationship"
+msgstr "Crear relación"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.wiz_create_relationship_supervised_year_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_school
+#: model:ir.actions.act_window,name:hr_school.action_wiz_create_relationship_supervised_year
+msgid "Create relationship in supervised year"
+msgstr "Crear relación tutores por año"
 

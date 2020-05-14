@@ -9,6 +9,7 @@ class TestHrSchool(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestHrSchool, cls).setUpClass()
+        cls.wiz_model = cls.env['wiz.create.relationship.supervised.year']
         year_vals = {
             'name': '2019+2020',
             'date_start': '2019-09-01',
@@ -42,3 +43,12 @@ class TestHrSchool(common.SavepointCase):
             self.tutored.school_year_id.name, self.tutored.teacher_id.name,
             self.tutored.student_id.name)
         self.assertIn(lit, self.tutored.display_name)
+
+    def test_hr_school_wizard(self):
+        self.tutored.unlink()
+        wiz_vals = {'school_year_id': self.year.id,
+                    'teacher_id': self.employee.id}
+        wiz = self.wiz_model.create(wiz_vals)
+        wiz.with_context(
+            active_ids=self.student.ids).button_create_relationship()
+        self.assertEqual(self.employee.count_tutored_students, 1)
