@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 {
     "name": "Employees for School",
-    "version": "12.0.2.0.0",
+    "version": "12.0.2.1.0",
     "license": "AGPL-3",
     "depends": [
         "hr",
@@ -21,6 +21,7 @@
         "views/education_order_day_view.xml",
         "security/ir.model.access.csv",
         "security/hr_school_security.xml",
+        "wizard/wiz_create_relationship_supervised_year_view.xml",
     ],
     "installable": True,
 }
