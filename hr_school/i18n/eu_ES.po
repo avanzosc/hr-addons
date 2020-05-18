@@ -121,7 +121,7 @@ msgstr "Azken eguneraketa noiz"
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__meeting_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Meeting day"
-msgstr ""
+msgstr "Bilera eguna"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__month_id
@@ -134,14 +134,14 @@ msgstr "Hilabetea"
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__order_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_form
 msgid "Order of the day"
-msgstr ""
+msgstr "Gai-zerrenda"
 
 #. module: hr_school
 #: model:ir.actions.act_window,name:hr_school.action_education_order_day_view_form
 #: model:ir.ui.menu,name:hr_school.menu_education_order_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_tree
 msgid "Orders of the day"
-msgstr ""
+msgstr "Gai-zerrendak"
 
 #. module: hr_school
 #: model:ir.model.fields,help:hr_school.field_hr_employee_supervised_year__user_id
@@ -217,7 +217,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_tree_view
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_view_form
 msgid "Tutors per year"
-msgstr ""
+msgstr "Tutore urteko"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__type
