@@ -27,4 +27,17 @@
             </field>
         </field>
     </record>
+
+    <record id="hr_employee_view_kanban" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees" />
+        <field name="arch" type="xml">
+            <li id="last_login" position="after">
+                <li t-if="record.company_id.raw_value"><field name="company_id"/></li>
+                <li t-if="record.center_ids.raw_value"><field name="center_ids" widget="many2many_tags" /></li>
+                <li t-if="record.work_phone.raw_value"><field name="work_phone"/></li>
+                <li t-if="record.work_email.raw_value"><field name="work_email"/></li>
+            </li>
+        </field>
+    </record>
 </odoo>
