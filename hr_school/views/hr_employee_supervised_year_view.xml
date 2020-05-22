@@ -19,6 +19,9 @@
                 <field name="school_year_id" />
                 <field name="teacher_id" />
                 <field name="student_id" />
+                <separator />
+                <filter string="Current Academic Year" name="current_academic_year"
+                        domain="[('school_year_id.current','=',True)]" />
                 <group expand="1" string="Group By">
                     <filter string="School year" name="school_year_group"
                             domain="[]" context="{'group_by':'school_year_id'}"/>
@@ -55,6 +58,7 @@
         <field name="res_model">hr.employee.supervised.year</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_current_academic_year': True}</field>
     </record>
 
     <menuitem id="menu_hr_employee_supervised_year"
