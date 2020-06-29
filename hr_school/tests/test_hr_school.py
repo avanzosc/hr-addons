@@ -1,54 +1,31 @@
 # Copyright 2019 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
+from .common import TestHrSchoolCommon
 from odoo import _
 from odoo.tests import common
 
 
-class TestHrSchool(common.SavepointCase):
-
-    @classmethod
-    def setUpClass(cls):
-        super(TestHrSchool, cls).setUpClass()
-        cls.wiz_model = cls.env['wiz.create.relationship.supervised.year']
-        year_vals = {
-            'name': '2019+2020',
-            'date_start': '2019-09-01',
-            'date_end': '2020-06-30',
-        }
-        cls.year = cls.env['education.academic_year'].create(year_vals)
-        cls.employee = cls.env['hr.employee'].create({
-            'name': 'Teacher',
-            'user_id': cls.env.ref('base.user_admin').id,
-        })
-        # cls.employee.user_id = cls.env.ref('base.user_admin')
-        cls.student = cls.env['res.partner'].create({
-            'name': 'Student',
-            'educational_category': 'student',
-        })
-        tutored_vals = {
-            'school_year_id': cls.year.id,
-            'teacher_id': cls.employee.id,
-            'student_id': cls.student.id,
-        }
-        cls.tutored = cls.env['hr.employee.supervised.year'].create(
-            tutored_vals)
+@common.at_install(False)
+@common.post_install(True)
+class TestHrSchool(TestHrSchoolCommon):
 
     def test_hr_school(self):
-        self.assertEqual(self.employee.count_tutored_students, 1)
-        res = self.employee.button_show_tutored_students()
-        domain = [('teacher_id', '=', self.employee.id)]
-        self.assertEqual(res.get('domain'), domain)
-        self.assertEqual(self.student.allowed_user_ids, self.employee.user_id)
+        tutored = self.tutored_model.create(self.tutored_vals)
+        self.assertEqual(self.teacher.count_tutored_students, 1)
+        res = self.teacher.button_show_tutored_students()
+        self.assertIn(('teacher_id', '=', self.teacher.id),
+                      res.get('domain'))
+        self.assertIn(self.teacher.user_id, self.student.allowed_user_ids)
         lit = _(u"Academic year: {}, teacher: {}, student: {}").format(
-            self.tutored.school_year_id.name, self.tutored.teacher_id.name,
-            self.tutored.student_id.name)
-        self.assertIn(lit, self.tutored.display_name)
+            tutored.school_year_id.name, tutored.teacher_id.name,
+            tutored.student_id.name)
+        self.assertIn(lit, tutored.display_name)
 
     def test_hr_school_wizard(self):
-        self.tutored.unlink()
-        wiz_vals = {'school_year_id': self.year.id,
-                    'teacher_id': self.employee.id}
+        wiz_vals = {'school_year_id': self.academic_year.id,
+                    'teacher_id': self.teacher.id}
         wiz = self.wiz_model.create(wiz_vals)
         wiz.with_context(
             active_ids=self.student.ids).button_create_relationship()
-        self.assertEqual(self.employee.count_tutored_students, 1)
+        self.assertEqual(self.teacher.count_tutored_students, 1)
