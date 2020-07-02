@@ -1,28 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data>
-        <record id="wiz_create_relationship_supervised_year_view_form" model="ir.ui.view">
-            <field name="model">wiz.create.relationship.supervised.year</field>
-            <field name="arch" type="xml">
-                <form string="Create relationship in supervised year for selected students">
-                    <group colspan="4">
-                        <field name="school_year_id" />
-                        <field name="teacher_id" />
-                    </group>
-                    <footer>
-                        <button string="Create relationship"
-                            name="button_create_relationship"
-                            type="object" default_focus="1" class="btn-primary"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
+    <record id="wiz_create_relationship_supervised_year_view_form" model="ir.ui.view">
+        <field name="model">wiz.create.relationship.supervised.year</field>
+        <field name="arch" type="xml">
+            <form string="Create relationship in supervised year for selected students">
+                <group colspan="4">
+                    <field name="school_year_id" />
+                    <field name="teacher_id" />
+                </group>
+                <footer>
+                    <button string="Create relationship"
+                        name="button_create_relationship"
+                        type="object" default_focus="1" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
 
-        <act_window id="action_wiz_create_relationship_supervised_year"
-            multi="True"
-            key2="client_action_multi" name="Create relationship in supervised year"
-            res_model="wiz.create.relationship.supervised.year" src_model="res.partner"
-            view_mode="form" target="new" view_type="form"
-            groups="education.education_responsible"/>
-    </data>
+    <act_window id="action_wiz_create_relationship_supervised_year"
+                multi="True"
+                key2="client_action_multi"
+                name="Create relationship in supervised year"
+                res_model="wiz.create.relationship.supervised.year"
+                src_model="res.partner"
+                view_mode="form"
+                target="new"
+                view_type="form"
+                groups="education.education_responsible"/>
 </odoo>

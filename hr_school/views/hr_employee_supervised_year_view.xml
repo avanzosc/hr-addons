@@ -44,9 +44,10 @@
                 <sheet>
                     <group name="head" colspan="4">
                        <group>
-                            <field name="school_year_id" />
-                            <field name="teacher_id" />
-                            <field name="student_id" context="{'form_view_ref': 'education.res_partner_education_minimal_view_form'}"/>
+                           <field name="school_year_id" options="{'no_create': True, 'no_open': True}"/>
+                           <field name="teacher_id" options="{'no_create': True, 'no_open': True}" />
+                           <field name="student_id" options="{'no_create': True, 'no_open': True}"
+                                  context="{'form_view_ref': 'education.res_partner_education_minimal_view_form'}"/>
                        </group>
                     </group>
                 </sheet>
