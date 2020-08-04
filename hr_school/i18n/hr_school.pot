@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 15:51+0000\n"
-"PO-Revision-Date: 2020-06-03 15:51+0000\n"
+"POT-Creation-Date: 2020-08-04 13:26+0000\n"
+"PO-Revision-Date: 2020-08-04 13:26+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,13 @@ msgid "15"
 msgstr ""
 
 #. module: hr_school
-#: code:addons/hr_school/models/hr_employee.py:76
-#: code:addons/hr_school/tests/test_hr_school.py:42
+#: model_terms:ir.ui.view,arch_db:hr_school.report_education_group_document
+msgid "<span>Supervising Professor</span>"
+msgstr ""
+
+#. module: hr_school
+#: code:addons/hr_school/models/hr_employee.py:73
+#: code:addons/hr_school/tests/test_hr_school.py:20
 #, python-format
 msgid "Academic year: {}, teacher: {}, student: {}"
 msgstr ""
@@ -93,11 +98,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: hr_school
-#: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__center_id
-msgid "Education Center"
 msgstr ""
 
 #. module: hr_school
@@ -186,6 +186,12 @@ msgid "Related user name for the resource to manage its access."
 msgstr ""
 
 #. module: hr_school
+#: code:addons/hr_school/reports/education_group_xlsx_report.py:36
+#, python-format
+msgid "STUDENT LIST"
+msgstr ""
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__school_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "School"
@@ -213,6 +219,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__student_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Student"
+msgstr ""
+
+#. module: hr_school
+#: code:addons/hr_school/reports/education_group_xlsx_report.py:45
+#, python-format
+msgid "Supervising Professor"
 msgstr ""
 
 #. module: hr_school

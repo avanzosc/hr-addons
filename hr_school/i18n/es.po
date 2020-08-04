@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-03 15:52+0000\n"
-"PO-Revision-Date: 2020-06-03 15:52+0000\n"
+"POT-Creation-Date: 2020-08-04 13:27+0000\n"
+"PO-Revision-Date: 2020-08-04 13:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,13 @@ msgid "15"
 msgstr ""
 
 #. module: hr_school
-#: code:addons/hr_school/models/hr_employee.py:76
-#: code:addons/hr_school/tests/test_hr_school.py:42
+#: model_terms:ir.ui.view,arch_db:hr_school.report_education_group_document
+msgid "<span>Supervising Professor</span>"
+msgstr "<span>Tutor</span>"
+
+#. module: hr_school
+#: code:addons/hr_school/models/hr_employee.py:73
+#: code:addons/hr_school/tests/test_hr_school.py:20
 #, python-format
 msgid "Academic year: {}, teacher: {}, student: {}"
 msgstr "Año académico: {}, profesor: {}, estudiante: {}"
@@ -94,11 +99,6 @@ msgstr "Año académico actual"
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
-
-#. module: hr_school
-#: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__center_id
-msgid "Education Center"
-msgstr "Centro educativo"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__center_ids
@@ -186,6 +186,12 @@ msgid "Related user name for the resource to manage its access."
 msgstr "Usuario relacionado con el recurso para gestionar su acceso."
 
 #. module: hr_school
+#: code:addons/hr_school/reports/education_group_xlsx_report.py:36
+#, python-format
+msgid "STUDENT LIST"
+msgstr "LISTADO DE ALUMNOS"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__school_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "School"
@@ -214,6 +220,12 @@ msgstr "Buscar tutores por año"
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "Student"
 msgstr "Alumno"
+
+#. module: hr_school
+#: code:addons/hr_school/reports/education_group_xlsx_report.py:45
+#, python-format
+msgid "Supervising Professor"
+msgstr "Tutor"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__teacher_id

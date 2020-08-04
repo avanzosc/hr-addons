@@ -29,3 +29,9 @@ class TestHrSchool(TestHrSchoolCommon):
         wiz.with_context(
             active_ids=self.student.ids).button_create_relationship()
         self.assertEqual(self.teacher.count_tutored_students, 1)
+
+    def test_education_group_xlsx(self):
+        report_name = 'education.education_group_xlsx'
+        report_xlsx = self.env.ref(report_name).render(self.group.ids)
+        self.assertGreaterEqual(len(report_xlsx[0]), 1)
+        self.assertEqual(report_xlsx[1], 'xlsx')
