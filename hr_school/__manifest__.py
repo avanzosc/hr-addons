@@ -22,6 +22,7 @@
         "views/hr_employee_view.xml",
         "views/hr_employee_supervised_year_view.xml",
         "views/education_order_day_view.xml",
+        "views/report_education_group.xml",
         "wizard/wiz_create_relationship_supervised_year_view.xml",
     ],
     "installable": True,
