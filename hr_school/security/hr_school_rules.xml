@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
+<odoo noupdate="1">
 
     <record id="hr_rule_teacher_tutor" model="ir.rule">
         <field name="name">Teachers tutors tutored by year</field>
