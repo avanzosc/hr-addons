@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_attendance_resume_view_tree" model="ir.ui.view">
+        <field name="model">hr.attendance.resume</field>
+        <field name="inherit_id" ref="hr_attendance_resume.hr_attendance_resume_view_tree" />
+        <field name="arch" type="xml">
+            <field name="theoretical_time" position="after">
+                <field name="theoretical_time_final" widget="float_time"/>
+            </field>
+            <field name="theoretical_time" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="difference_minutes" position="after">
+                <field name="holiday_status_id" />
+                <field name="leave_id" />
+                <field name="holiday_hours" widget="float_time" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_attendance_resume_view_search" model="ir.ui.view">
+        <field name="model">hr.attendance.resume</field>
+        <field name="inherit_id" ref="hr_attendance_resume.hr_attendance_resume_view_search" />
+        <field name="arch" type="xml">
+            <field name="day_week" position="after">
+                <field name="holiday_status_id" />
+                <field name="leave_id" />
+            </field>
+            <filter name="group-day-week" position="after">
+                <filter string="Leave type" name="group-leave-type" domain="[]" context="{'group_by':'holiday_status_id'}"/>
+                <filter string="Leave" name="group-leave" domain="[]" context="{'group_by':'leave_id'}"/>
+            </filter>
+        </field>
+    </record>
+    <record id="hr_attendance_resume_view_form" model="ir.ui.view">
+        <field name="model">hr.attendance.resume</field>
+        <field name="inherit_id" ref="hr_attendance_resume.hr_attendance_resume_view_form" />
+        <field name="arch" type="xml">
+            <field name="theoretical_time" position="after">
+                <field name="theoretical_time_final" widget="float_time"/>
+            </field>
+            <field name="theoretical_time" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <group name="group1" position="after">
+                <group name="group-holidays" colspan="4" col="6">
+                    <field name="holiday_status_id" readonly="1"/>
+                    <field name="leave_id"
+                        context="{'default_employee_id': employee_id,'default_request_date_from': date, 'default_request_date_to': date,'request_date': date,'from_resume': True}"
+                        domain="[('employee_id', '=', employee_id)]" />
+                    <field name="holiday_hours" widget="float_time" readonly="1"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
