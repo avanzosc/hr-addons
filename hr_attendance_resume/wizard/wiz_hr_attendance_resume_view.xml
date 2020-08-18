@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="wiz_hr_attendance_resume_view_form" model="ir.ui.view">
+            <field name="model">wiz.hr.attendance.resume</field>
+            <field name="arch" type="xml">
+                <form string="Impute assistances in resume">
+                    <p class="oe_grey">
+                        You are going to impute in assistances resume
+                    </p>
+                    <footer>
+                        <button string="Impute" name="button_impute" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_wiz_hr_attendance_anomaly"
+            multi="True"
+            key2="client_action_multi" name="Impute in resume"
+            res_model="wiz.hr.attendance.resume" src_model="hr.attendance"
+            view_mode="form" target="new" view_type="form" />
+    </data>
+</odoo>
