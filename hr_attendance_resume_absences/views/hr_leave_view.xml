@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_leave_view_form" model="ir.ui.view">
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form" />
+        <field name="arch" type="xml">
+            <field name="request_unit_half" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="name" position="before">
+                <field name="show_hours" invisible="1"/>
+                <field name="old_request_date_from" invisible="1"/>
+                <label for="hour_from" string="Hour from"
+                    attrs="{'invisible': [('show_hours', '=', False)]}" />
+                <div>
+                    <div class="o_row o_row_readonly o_hr_holidays_dates">
+                         <field name="hour_from" class="oe_inline"
+                             widget="float_time"
+                             string="Hour from"
+                             options="{'horizontal': True}"
+                             attrs="{
+                                 'readonly': [('state', 'not in', ('draft', 'confirm'))],
+                                 'required': [('leave_type_request_unit', '!=', 'hour')],
+                                 'invisible': [('show_hours', '=', False)]}"/>
+                         <span class="oe_inline"
+                             attrs="{'invisible': [('show_hours', '=', False)]}">
+                             To
+                         </span>
+                         <field name="hour_to" class="oe_inline"
+                             widget="float_time"
+                             string="Hour to"
+                             options="{'horizontal': True}"
+                             attrs="{
+                                 'readonly': [('state', 'not in', ('draft', 'confirm'))],
+                                 'required': [('leave_type_request_unit', '!=', 'hour')],
+                                 'invisible': [('show_hours', '=', False)]}"/>
+                    </div>
+                </div>
+                <label for="hours_per_day" string="Hours per day"
+                    attrs="{'invisible': [('show_hours', '=', False)]}" />
+                <div>
+                    <div class="o_row o_row_readonly o_hr_holidays_dates">
+                         <field name="hours_per_day" class="oe_inline"
+                             widget="float_time"
+                             string="Hours per day"
+                             options="{'horizontal': True}"
+                             attrs="{
+                                 'readonly': [('state', 'not in', ('draft', 'confirm'))],
+                                 'required': [('leave_type_request_unit', '!=', 'hour')],
+                                 'invisible': [('show_hours', '=', False)]}"/>
+                    </div>
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>

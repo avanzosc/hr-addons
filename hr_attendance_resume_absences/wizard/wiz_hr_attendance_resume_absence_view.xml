@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="wiz_hr_attendance_resume_absence_view_form" model="ir.ui.view">
+            <field name="model">wiz.hr.attendance.resume.absence</field>
+            <field name="arch" type="xml">
+                <form string="Generate assignments of absences">
+                    <p class="oe_grey">
+                        You are going to generate assignments of absences
+                    </p>
+                    <footer>
+                        <button string="Generate" name="button_generate" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_wiz_hr_attendance_resume_absence"
+            multi="True"
+            key2="client_action_multi" name="Generate assignments of absences"
+            res_model="wiz.hr.attendance.resume.absence" src_model="hr.attendance.resume"
+            view_mode="form" target="new" view_type="form" />
+    </data>
+</odoo>
