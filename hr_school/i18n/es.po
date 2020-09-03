@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-04 13:27+0000\n"
-"PO-Revision-Date: 2020-08-04 13:27+0000\n"
+"POT-Creation-Date: 2020-09-03 12:54+0000\n"
+"PO-Revision-Date: 2020-09-03 12:54+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,7 @@ msgstr ""
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.report_education_group_document
+#: model_terms:ir.ui.view,arch_db:hr_school.report_education_schedule_document
 msgid "<span>Supervising Professor</span>"
 msgstr "<span>Tutor</span>"
 
@@ -109,6 +110,11 @@ msgstr "Centros educativos"
 #: model:ir.model,name:hr_school.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
+
+#. module: hr_school
+#: model:ir.model,name:hr_school.model_hr_employee_report
+msgid "Employee Report"
+msgstr "Informe de empleados"
 
 #. module: hr_school
 #: selection:education.order.day,type:0
@@ -284,6 +290,11 @@ msgstr "Usuario"
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_wiz_create_relationship_supervised_year
 msgid "Wizard for create relationship in supervised year"
+msgstr "Asistente para crear relación en año tutelado"
+
+#. module: hr_school
+#: model:ir.model,name:hr_school.model_report_education_education_group_xlsx
+msgid "report.education.education_group_xlsx"
 msgstr ""
 
 #. module: hr_school
