@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_education_schedule_document" inherit_id="education.report_education_schedule_document">
+        <th name="student_email_header" position="after">
+            <th name="student_tutor_header" class="text-left">
+                <span>Supervising Professor</span>
+            </th>
+        </th>
+         <td name="student_email" position="after">
+             <t t-set="tutor" t-value="student.year_tutor_ids.filtered(lambda t: t.school_year_id == o.academic_year_id)[:1]" />
+             <td name="student_tutor" class="text-left">
+                 <span t-field="tutor.teacher_id.display_name" />
+             </td>
+         </td>
+    </template>
+</odoo>
