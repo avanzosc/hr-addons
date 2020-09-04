@@ -5,3 +5,4 @@ access_hr_employee_supervised_year_manager,hr.employee.supervised.year manager,h
 access_education_order_day_portal,education.order.day portal,hr_school.model_education_order_day,base.group_portal,1,0,0,0
 access_education_order_day_user,education.order.day user,hr_school.model_education_order_day,base.group_user,1,0,0,0
 access_education_order_day_manager,education.order.day manager,hr_school.model_education_order_day,hr.group_hr_manager,1,1,1,1
+access_res_partner_supervised_employe,res_partner_supervised_employe all,hr_school.model_res_partner_supervised_employee,,1,0,0,0
