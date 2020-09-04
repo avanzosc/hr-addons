@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 12:54+0000\n"
-"PO-Revision-Date: 2020-09-03 12:54+0000\n"
+"POT-Creation-Date: 2020-09-04 10:01+0000\n"
+"PO-Revision-Date: 2020-09-04 10:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_school.report_education_schedule_document
 msgid "<span>Supervising Professor</span>"
 msgstr "<span>Tutor</span>"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__academic_year_id
+msgid "Academic Year"
+msgstr "Año académico"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Academic year"
+msgstr "Año académico"
 
 #. module: hr_school
 #: code:addons/hr_school/models/hr_employee.py:73
@@ -56,7 +66,9 @@ msgstr "Contacto"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__course_id
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__course_id
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Course"
 msgstr "Curso"
 
@@ -91,20 +103,45 @@ msgstr "Creado el"
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Current Academic Year"
 msgstr "Año académico actual"
 
 #. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Current Official Groups"
+msgstr "Grupos oficiales actuales"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__display_name
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__display_name
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__center_id
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Education Center"
+msgstr "Centro educativo"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__center_ids
 msgid "Education Centers"
 msgstr "Centros educativos"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__group_id
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Education Group"
+msgstr "Grupo educativo"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__group_type_id
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Educational Group Type"
+msgstr "Tipo de grupo"
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee
@@ -122,14 +159,21 @@ msgid "Family"
 msgstr "Familia"
 
 #. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_student_view_tree
+msgid "Firstname"
+msgstr "Nombre de pila"
+
+#. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__id
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__id
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__id
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__id
 msgid "ID"
 msgstr ""
@@ -137,6 +181,7 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day____last_update
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year____last_update
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee____last_update
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
@@ -156,6 +201,11 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_student_view_tree
+msgid "Lastname"
+msgstr "Apellido"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__meeting_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Meeting day"
@@ -171,6 +221,16 @@ msgstr "Mes"
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 msgid "My Tutored Students"
 msgstr "Mis alumnos tutelados"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Non Official Groups"
+msgstr "Grupos no oficiales"
+
+#. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
+msgid "Official Groups"
+msgstr "Grupos oficiales"
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_education_order_day
@@ -221,11 +281,38 @@ msgid "Search tutors per year"
 msgstr "Buscar tutores por año"
 
 #. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_student_view_tree
+msgid "Second Lastname"
+msgstr "Segundo apellido"
+
+#. module: hr_school
 #: selection:education.order.day,type:0
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__student_id
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__student_id
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Student"
 msgstr "Alumno"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__student_lastname
+msgid "Student's First Lastname"
+msgstr "Primer apellido de alumno"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__student_firstname
+msgid "Student's Firstname"
+msgstr "Nombre de alumno"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__student_lastname2
+msgid "Student's Second Lastname"
+msgstr "Segundo apellido de alumno"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__employee_id
+msgid "Supervised Proffesor"
+msgstr ""
 
 #. module: hr_school
 #: code:addons/hr_school/reports/education_group_xlsx_report.py:45
@@ -251,6 +338,11 @@ msgid "Tutor per year"
 msgstr "Tutor por año"
 
 #. module: hr_school
+#: model:ir.model,name:hr_school.model_res_partner_supervised_employee
+msgid "Tutored Report"
+msgstr ""
+
+#. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee_supervised_year
 msgid "Tutored by year"
 msgstr "Tutelado por año"
@@ -264,6 +356,12 @@ msgstr "Estudiantes tutelados"
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__tutored_student_ids
 msgid "Tutored students per year"
 msgstr "Estudiantes tutelados por año"
+
+#. module: hr_school
+#: model:ir.actions.act_window,name:hr_school.action_res_partner_supervised_employee
+#: model:ir.ui.menu,name:hr_school.res_partner_supervised_employee_menuitem
+msgid "Tutors List"
+msgstr ""
 
 #. module: hr_school
 #: model:ir.actions.act_window,name:hr_school.action_hr_employee_supervised_year_form

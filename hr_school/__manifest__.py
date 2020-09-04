@@ -24,6 +24,7 @@
         "views/education_order_day_view.xml",
         "views/report_education_group.xml",
         "views/report_education_schedule.xml",
+        "reports/res_partner_supervised_employee_view.xml",
         "wizard/wiz_create_relationship_supervised_year_view.xml",
     ],
     "installable": True,
