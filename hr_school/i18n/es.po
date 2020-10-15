@@ -361,7 +361,7 @@ msgstr "Estudiantes tutelados por año"
 #: model:ir.actions.act_window,name:hr_school.action_res_partner_supervised_employee
 #: model:ir.ui.menu,name:hr_school.res_partner_supervised_employee_menuitem
 msgid "Tutors List"
-msgstr "Lista de Tutores"
+msgstr "Tutores de curso"
 
 #. module: hr_school
 #: model:ir.actions.act_window,name:hr_school.action_hr_employee_supervised_year_form
@@ -373,7 +373,7 @@ msgstr "Lista de Tutores"
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_education_minimal_view_form
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_view_form
 msgid "Tutors per year"
-msgstr "Tutores por año"
+msgstr "Tutores personales"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__type
