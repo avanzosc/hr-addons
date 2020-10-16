@@ -4,9 +4,9 @@
         <field name="model">hr.employee.supervised.year</field>
         <field name="arch" type="xml">
             <tree string="Tutors per year">
-                <field name="school_year_id" options="{'no_open':True}" />
-                <field name="teacher_id" options="{'no_open':True}" />
                 <field name="student_id" options="{'no_open':True}" />
+                <field name="teacher_id" options="{'no_open':True}" />
+                <field name="school_year_id" options="{'no_open':True}" />
                 <field name="user_id" invisible="1"/>
             </tree>
         </field>
@@ -46,7 +46,7 @@
                        <group>
                            <field name="school_year_id" options="{'no_create': True, 'no_open': True}"/>
                            <field name="teacher_id" options="{'no_create': True, 'no_open': True}" />
-                           <field name="student_id" options="{'no_create': True, 'no_open': True}"
+                           <field name="student_id" options="{'no_create': True}"
                                   context="{'form_view_ref': 'education.res_partner_education_minimal_view_form'}"/>
                        </group>
                     </group>
