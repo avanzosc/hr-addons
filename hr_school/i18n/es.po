@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 10:01+0000\n"
-"PO-Revision-Date: 2020-09-04 10:01+0000\n"
+"POT-Creation-Date: 2020-11-18 15:07+0000\n"
+"PO-Revision-Date: 2020-11-18 15:07+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -113,6 +113,12 @@ msgid "Current Official Groups"
 msgstr "Grupos oficiales actuales"
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_res_partner__current_year_tutor_ids
+#: model:ir.model.fields,field_description:hr_school.field_res_users__current_year_tutor_ids
+msgid "Current Tutors"
+msgstr "Tutores actuales
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__display_name
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__display_name
 #: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__display_name
@@ -147,11 +153,6 @@ msgstr "Tipo de grupo"
 #: model:ir.model,name:hr_school.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
-
-#. module: hr_school
-#: model:ir.model,name:hr_school.model_hr_employee_report
-msgid "Employee Report"
-msgstr "Informe de empleados"
 
 #. module: hr_school
 #: selection:education.order.day,type:0
@@ -247,6 +248,11 @@ msgid "Orders of the day"
 msgstr "Órdenes del día"
 
 #. module: hr_school
+#: model_terms:ir.ui.view,arch_db:hr_school.res_partner_education_minimal_view_form
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#. module: hr_school
 #: model:ir.model.fields,help:hr_school.field_hr_employee_supervised_year__user_id
 msgid "Related user name for the resource to manage its access."
 msgstr "Usuario relacionado con el recurso para gestionar su acceso."
@@ -340,7 +346,7 @@ msgstr "Tutor por año"
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_res_partner_supervised_employee
 msgid "Tutored Report"
-msgstr ""
+msgstr "Informe tutelado"
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_hr_employee_supervised_year

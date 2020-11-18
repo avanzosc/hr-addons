@@ -11,7 +11,9 @@ from odoo.tests import common
 class TestHrSchool(TestHrSchoolCommon):
 
     def test_hr_school(self):
+        self.assertTrue(self.academic_year.current)
         tutored = self.tutored_model.create(self.tutored_vals)
+        self.assertIn(self.teacher, self.student.current_year_tutor_ids)
         self.assertEqual(self.teacher.count_tutored_students, 1)
         res = self.teacher.button_show_tutored_students()
         self.assertIn(('teacher_id', '=', self.teacher.id),
