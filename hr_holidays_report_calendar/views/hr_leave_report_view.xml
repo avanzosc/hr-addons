@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_leave_report_view_calendar" model="ir.ui.view">
+        <field name="model">hr.leave.report</field>
+        <field name="arch" type="xml">
+            <calendar string="Leave Request" date_start="date_from" date_stop="date_to" mode="month" quick_add="False" color="employee_id">
+                <field name="display_name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="hr_holidays.open_company_allocation" model="ir.actions.act_window">
+        <field name="view_mode">calendar,tree,kanban,form</field>
+    </record>
+</odoo>
