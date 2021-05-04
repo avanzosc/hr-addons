@@ -6,6 +6,7 @@ from odoo import models, fields
 class EducationOrderDay(models.Model):
     _name = 'education.order.day'
     _description = 'Order of the day'
+    _inherit = 'mail.thread'
 
     school_id = fields.Many2one(
         comodel_name='res.partner', string='School',
