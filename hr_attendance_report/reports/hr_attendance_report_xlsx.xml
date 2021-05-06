@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report id="hr_attendance_report_xlsx"
+            string="Attendance XLSX report"
+            model="hr.attendance"
+            report_type="xlsx"
+            name="hr_attendance.report_xlsx"
+            file="hr_attendance_report.hr_attendance_report"
+    />
+
+</odoo>
