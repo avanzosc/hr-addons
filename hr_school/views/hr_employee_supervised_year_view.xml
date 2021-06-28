@@ -72,8 +72,13 @@
               groups="hr.group_hr_manager"
               sequence="90" parent="hr.menu_hr_root"/>
 
+    <menuitem id="supervised_year_education_menuitem"
+              name="Tutored"
+              parent="education.education_menuitem"
+              sequence="4" />
+
     <menuitem id="hr_employee_supervised_year_education_menuitem"
-              parent="education.faculty_menuitem"
+              parent="supervised_year_education_menuitem"
               action="action_hr_employee_supervised_year_form"
-              sequence="10" />
+              sequence="1" />
 </odoo>

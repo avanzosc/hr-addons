@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-20 13:24+0000\n"
-"PO-Revision-Date: 2020-11-20 13:24+0000\n"
+"POT-Creation-Date: 2021-06-28 14:46+0000\n"
+"PO-Revision-Date: 2021-06-28 14:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__count_tutored_students
 msgid "# Tutored students"
-msgstr ""
+msgstr "Tutoretzako ikasleak"
 
 #. module: hr_school
 #: selection:education.order.day,meeting_day:0
@@ -49,10 +49,20 @@ msgid "Academic year: {}, teacher: {}, student: {}"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_needaction
+msgid "Action Needed"
+msgstr "Beharrezko ekintza"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_res_partner__allowed_user_ids
 #: model:ir.model.fields,field_description:hr_school.field_res_users__allowed_user_ids
 msgid "Allowed users"
 msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_attachment_count
+msgid "Attachment Count"
+msgstr "Eranskin kontagailua"
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.wiz_create_relationship_supervised_year_view_form
@@ -130,12 +140,12 @@ msgstr "Izena erakutsi"
 #: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__center_id
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Education Center"
-msgstr " "
+msgstr "Ikastetxea"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee__center_ids
 msgid "Education Centers"
-msgstr " "
+msgstr "Ikastetxeak"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_res_partner_supervised_employee__group_id
@@ -165,6 +175,21 @@ msgid "Firstname"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Jarraitzaileak (kanalak)"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Jarraitzaileak (Lagunak)"
+
+#. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_search_view
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
@@ -178,6 +203,26 @@ msgstr "Taldekatu"
 #: model:ir.model.fields,field_description:hr_school.field_wiz_create_relationship_supervised_year__id
 msgid "ID"
 msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_is_follower
+msgid "Is Follower"
+msgstr "Jarraitzailea da"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day____last_update
@@ -207,10 +252,25 @@ msgid "Lastname"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Eranskin nagusia"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__meeting_day
 #: model_terms:ir.ui.view,arch_db:hr_school.education_order_day_view_search
 msgid "Meeting day"
 msgstr "Bilera eguna"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_has_error
+msgid "Message Delivery error"
+msgstr "Mezua igortzean errorea"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_ids
+msgid "Messages"
+msgstr "Mezuak"
 
 #. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_education_order_day__month_id
@@ -227,6 +287,31 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
 msgid "Non Official Groups"
 msgstr ""
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Akzio kopurua"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_has_error_counter
+msgid "Number of error"
+msgstr "Errore kopurua"
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Ekintza bat eskatzen duen mezu kopurua"
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Bidaltzean errorea eman duten mezu kopurua"
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Irakurri gabeko mezu kopurua"
 
 #. module: hr_school
 #: model_terms:ir.ui.view,arch_db:hr_school.res_partner_supervised_employee_view_search
@@ -344,6 +429,11 @@ msgid "Tutor per year"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.ui.menu,name:hr_school.supervised_year_education_menuitem
+msgid "Tutored"
+msgstr "Tutoretzak"
+
+#. module: hr_school
 #: model:ir.model,name:hr_school.model_res_partner_supervised_employee
 msgid "Tutored Report"
 msgstr ""
@@ -387,9 +477,29 @@ msgid "Type"
 msgstr "Mota"
 
 #. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_unread
+msgid "Unread Messages"
+msgstr "Irakurri gabeko mezuak"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Irakurri gabeko mezuen kontagailua"
+
+#. module: hr_school
 #: model:ir.model.fields,field_description:hr_school.field_hr_employee_supervised_year__user_id
 msgid "User"
 msgstr "Erabiltzailea"
+
+#. module: hr_school
+#: model:ir.model.fields,field_description:hr_school.field_education_order_day__website_message_ids
+msgid "Website Messages"
+msgstr "Webgune mezuak  "
+
+#. module: hr_school
+#: model:ir.model.fields,help:hr_school.field_education_order_day__website_message_ids
+msgid "Website communication history"
+msgstr "Webgunearen komunikazioen historia "
 
 #. module: hr_school
 #: model:ir.model,name:hr_school.model_wiz_create_relationship_supervised_year
