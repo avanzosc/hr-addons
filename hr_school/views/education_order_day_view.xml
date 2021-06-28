@@ -75,8 +75,8 @@
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem id="menu_education_order_day"
-        action="action_education_order_day_view_form"
-        name="Orders of the day"
-        groups="hr.group_hr_manager"
-        sequence="120" parent="education.schedule_table_menuitem"/>
+              action="action_education_order_day_view_form"
+              name="Orders of the day"
+              groups="hr.group_hr_manager"
+              sequence="120" parent="education.education_center_menuitem"/>
 </odoo>
