@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_applicant_view_form" model="ir.ui.view">
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </field>
+            <field name="emp_id" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="crm_case_tree_view_job" model="ir.ui.view">
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
+        <field name="arch" type="xml">
+            <field name="partner_name" position="before">
+                <field name="emp_id" optional="show" />
+                <field name="partner_id" optional="show" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_applicant_view_search_bis" model="ir.ui.view">
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_search_bis"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="emp_id" />
+                <field name="partner_id" />
+            </field>
+            <filter name="responsible" position="after">
+                <filter string="Employee" name="employee" domain="[]" context="{'group_by': 'emp_id'}"/>
+                <filter string="Contact" name="partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+            </filter>
+        </field>
+    </record>
+    <record id="hr_applicant_view_search" model="ir.ui.view">
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_search"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="emp_id" />
+                <field name="partner_id" />
+            </field>
+            <filter name="User" position="after">
+                <filter string="Employee" name="employee" domain="[]" context="{'group_by': 'emp_id'}"/>
+                <filter string="Contact" name="partner" domain="[]" context="{'group_by': 'partner_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
