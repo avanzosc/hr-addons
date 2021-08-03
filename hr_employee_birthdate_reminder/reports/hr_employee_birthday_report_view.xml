@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_birthday_report_view_tree" model="ir.ui.view">
+        <field name="model">hr.employee.birthday.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="birthdate" />
+                <field name="birthdate_day" invisible="True"/>
+                <field name="birthdate_month" invisible="True"/>
+                <field name="birthdate_year" invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_birthday_report_view_search" model="ir.ui.view">
+        <field name="model">hr.employee.birthday.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" />
+                <field name="birthdate" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_birthday_report" model="ir.actions.act_window">
+        <field name="name">Employee's Birthdays</field>
+        <field name="res_model">hr.employee.birthday.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id"
+               ref="hr_employee_birthday_report_view_search"/>
+    </record>
+
+    <menuitem id="action_hr_employee_birthday_report_menuitem"
+              parent="hr.menu_hr_reporting_timesheet"
+              action="action_hr_employee_birthday_report"
+              sequence="101" />
+</odoo>

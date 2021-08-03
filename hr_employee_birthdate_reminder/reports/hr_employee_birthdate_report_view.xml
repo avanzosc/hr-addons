@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_birthdate_report_view_tree" model="ir.ui.view">
+        <field name="model">hr.employee.birthdate.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="birthdate" />
+                <field name="birthdate_day" invisible="True"/>
+                <field name="birthdate_month" invisible="True"/>
+                <field name="birthdate_year" invisible="True"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_birthdate_report_view_search" model="ir.ui.view">
+        <field name="model">hr.employee.birthdate.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" />
+                <field name="birthdate" />
+                <filter name="today" string="Today"
+                        domain="[
+                            ('birthdate_day','=',context_today().strftime('%d')),
+                            ('birthdate_month','=',context_today().strftime('%m'))
+                        ]"/>
+                <filter name="current_month" string="Current Month"
+                        domain="[
+                            ('birthdate_month','=',context_today().strftime('%m'))
+                        ]"/>
+                <separator />
+                <filter name="january" string="January"
+                        domain="[('birthdate_month','=',1)]" />
+                <filter name="february" string="February"
+                        domain="[('birthdate_month','=',2)]" />
+                <filter name="march" string="March"
+                        domain="[('birthdate_month','=',3)]" />
+                <filter name="april" string="April"
+                        domain="[('birthdate_month','=',4)]" />
+                <filter name="may" string="May"
+                        domain="[('birthdate_month','=',5)]" />
+                <filter name="june" string="June"
+                        domain="[('birthdate_month','=',6)]" />
+                <filter name="july" string="July"
+                        domain="[('birthdate_month','=',7)]" />
+                <filter name="august" string="August"
+                        domain="[('birthdate_month','=',8)]" />
+                <filter name="september" string="September"
+                        domain="[('birthdate_month','=',9)]" />
+                <filter name="october" string="October"
+                        domain="[('birthdate_month','=',10)]" />
+                <filter name="november" string="November"
+                        domain="[('birthdate_month','=',11)]" />
+                <filter name="december" string="December"
+                        domain="[('birthdate_month','=',12)]" />
+                <group>
+                    <filter name="month" string="Month"
+                            context="{'group_by':'birthdate_month'}" />
+                    <filter name="year" string="Year"
+                            context="{'group_by':'birthdate_year'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_birthdate_report" model="ir.actions.act_window">
+        <field name="name">Employee's Birthdate</field>
+        <field name="res_model">hr.employee.birthdate.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id"
+               ref="hr_employee_birthdate_report_view_search"/>
+    </record>
+
+    <menuitem id="action_hr_employee_birthdate_report_menuitem"
+              parent="hr.menu_hr_reporting_timesheet"
+              action="action_hr_employee_birthdate_report"
+              sequence="100" />
+</odoo>
