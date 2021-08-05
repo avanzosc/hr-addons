@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-28 14:46+0000\n"
-"PO-Revision-Date: 2021-06-28 14:46+0000\n"
+"POT-Creation-Date: 2021-08-04 14:49+0000\n"
+"PO-Revision-Date: 2021-08-04 14:49+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -429,6 +429,7 @@ msgid "Tutor per year"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.ui.menu,name:hr_school.supervised_year_education_historic_menuitem
 #: model:ir.ui.menu,name:hr_school.supervised_year_education_menuitem
 msgid "Tutored"
 msgstr "Tutoretzak"
@@ -460,9 +461,11 @@ msgid "Tutors List"
 msgstr ""
 
 #. module: hr_school
+#: model:ir.actions.act_window,name:hr_school.action_hr_employee_supervised_year_current_form
 #: model:ir.actions.act_window,name:hr_school.action_hr_employee_supervised_year_form
 #: model:ir.model.fields,field_description:hr_school.field_res_partner__year_tutor_ids
 #: model:ir.model.fields,field_description:hr_school.field_res_users__year_tutor_ids
+#: model:ir.ui.menu,name:hr_school.hr_employee_supervised_year_education_historic_menuitem
 #: model:ir.ui.menu,name:hr_school.hr_employee_supervised_year_education_menuitem
 #: model:ir.ui.menu,name:hr_school.menu_hr_employee_supervised_year
 #: model_terms:ir.ui.view,arch_db:hr_school.hr_employee_supervised_year_tree_view
