@@ -1,6 +1,7 @@
 # Copyright 2019 Alfredo de la fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 from odoo.models import expression
 from odoo.tools.safe_eval import safe_eval
 
@@ -53,7 +54,7 @@ class HrEmployeeSupervisedYear(models.Model):
     _description = 'Tutored by year'
 
     school_year_id = fields.Many2one(
-        string='School year', comodel_name='education.academic_year',
+        string='Academic Year', comodel_name='education.academic_year',
         required=True)
     teacher_id = fields.Many2one(
         string='Teacher', comodel_name='hr.employee',
@@ -66,6 +67,11 @@ class HrEmployeeSupervisedYear(models.Model):
         string='User', comodel_name='res.users', store=True,
         related='teacher_id.user_id')
 
+    _sql_constraints = [
+        ('teacher_unique', 'unique (school_year_id, student_id)',
+         "There only can be one supervising teacher per academic year!"),
+    ]
+
     @api.multi
     def name_get(self):
         result = []
@@ -76,3 +82,29 @@ class HrEmployeeSupervisedYear(models.Model):
                     year.student_id.name)
             result.append((year.id, name))
         return result
+
+    @api.model
+    def _find_or_create_supervised(
+            self, student, academic_year=False, teacher=False):
+        if not academic_year:
+            academic_year = self.env["education.academic_year"].search([
+                ("current", "=", True),
+            ], limit=1)
+        supervised = self.get_supervised(student, academic_year)
+        if supervised and supervised.teacher_id != teacher:
+            raise ValidationError(
+                _("There is another supervising teacher currently defined"))
+        if not supervised and teacher:
+            supervised = self.create({
+                "school_year_id": academic_year.id,
+                "student_id": student.id,
+                "teacher_id": teacher.id,
+            })
+        return supervised
+
+    @api.model
+    def get_supervised(self, student, academic_year):
+        return self.search([
+            ("student_id", "=", student.id),
+            ("school_year_id", "=", academic_year.id),
+        ])

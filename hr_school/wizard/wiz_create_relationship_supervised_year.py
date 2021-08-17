@@ -23,13 +23,7 @@ class WizCreateRelationshipSupervisedYear(models.TransientModel):
         students = partners.filtered(
             lambda x: x.educational_category == 'student')
         for student in students:
-            cond = [('school_year_id', '=', self.school_year_id.id),
-                    ('teacher_id', '=', self.teacher_id.id),
-                    ('student_id', '=', student.id)]
-            year = year_obj.search(cond)
-            if not year:
-                vals = {'school_year_id': self.school_year_id.id,
-                        'teacher_id': self.teacher_id.id,
-                        'student_id': student.id}
-                year_obj.create(vals)
+            year_obj._find_or_create_supervised(
+                student, academic_year=self.school_year_id,
+                teacher=self.teacher_id)
         return {'type': 'ir.actions.act_window_close'}
