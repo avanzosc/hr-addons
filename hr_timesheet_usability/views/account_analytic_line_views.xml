@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="hr_timesheet_line_tree" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="time_stop" position="after">
+            <button
+                attrs="{'invisible':[('unit_amount','!=',00.00)]}"
+                icon="fa-hand-pointer-o"
+                name="action_button_end"
+                string="End"
+                type="object"
+            />
+            </field>
+        </field>
+    </record>
+</odoo>
