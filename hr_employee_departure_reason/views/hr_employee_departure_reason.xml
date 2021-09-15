@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_hr_employee_departure_reason_tree" model="ir.ui.view">
+        <field name="name">hr.employee.departure.reason.tree</field>
+        <field name="model">hr.employee.departure.reason</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Departure Reason" editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_departure_reason" model="ir.actions.act_window">
+         <field name="name">Hr Employee Departure Reason</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_mode">tree</field>
+         <field name="res_model">hr.employee.departure.reason</field>
+         <field name="domain">[]</field>
+         <field name="context">{}</field>
+    </record>
+
+    <menuitem id="menu_hr_employee_departure_reason"
+        action="action_hr_employee_departure_reason"
+        name="Employee departure reason" parent="hr.menu_human_resources_configuration"
+        sequence="0"/>
+
+</odoo>
