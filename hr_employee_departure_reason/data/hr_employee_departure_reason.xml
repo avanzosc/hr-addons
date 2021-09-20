@@ -1,0 +1,22 @@
+<odoo>
+    <data noupdate="1">
+        <record forcecreate="True" id="contract_expiration" model="hr.employee.departure.reason">
+            <field name="name">Contract Expiration</field>
+        </record>
+        <record forcecreate="True" id="not_passed" model="hr.employee.departure.reason">
+            <field name="name">Failed The Probationary Period</field>
+        </record>
+        <record forcecreate="True" id="resignation_within_period" model="hr.employee.departure.reason">
+            <field name="name">Voluntary Resignation Within The Probationary Period</field>
+        </record>
+        <record forcecreate="True" id="resignation_outside_period" model="hr.employee.departure.reason">
+            <field name="name">Voluntary Resignation Outside The Probationary Period</field>
+        </record>
+        <record forcecreate="True" id="dismissed" model="hr.employee.departure.reason">
+            <field name="name">Dismissed</field>
+        </record>
+        <record forcecreate="True" id="other" model="hr.employee.departure.reason">
+            <field name="name">Other Reasons</field>
+        </record>
+    </data>
+</odoo>
