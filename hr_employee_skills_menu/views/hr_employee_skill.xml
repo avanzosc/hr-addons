@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="hr_employee_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.skill.tree</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Skill">
+                <field name="employee_id"/>
+                <field name="skill_type_id"/>
+                <field name="skill_id"/>
+                <field name="skill_level_id"/>
+                <field name="level_progress" widget="progressbar"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_skill_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.skill.form</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <form string="Employee Skill">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="employee_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="employee_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="skill_type_id"/>
+                        <field name="skill_id"/>
+                        <field name="skill_level_id"/>
+                        <field name="level_progress" widget="progressbar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="hr_employee_skill_view_search" model="ir.ui.view">
+            <field name="name">hr.employee.skill.view.search</field>
+            <field name="model">hr.employee.skill</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="skill_type_id"/>
+                    <field name="skill_id"/>
+                    <field name="skill_level_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>
+                        <filter string="Skill Type" name="skill_type_id" context="{'group_by':'skill_type_id'}"/>
+                        <filter string="Skill" name="skill_id" context="{'group_by':'skill_id'}"/>
+                        <filter string="Skill Level" name="skill_level_id" context="{'group_by':'skill_level_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="hr_employee_skill_action" model="ir.actions.act_window">
+        <field name="name">Employee Skill</field>
+        <field name="res_model">hr.employee.skill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="hr_employee_skill_menu"
+        name="Employee Skills"
+        action="hr_employee_skill_action"
+        parent="hr.menu_human_resources_configuration_employee"
+        sequence="4"/>
+
+</odoo>
