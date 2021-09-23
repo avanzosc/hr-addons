@@ -1,0 +1,117 @@
+# Copyright 2021 Alfredo de la Fuente - AvanzOSC
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo.tests import common, tagged
+from odoo import fields
+from dateutil.relativedelta import relativedelta
+
+
+@tagged("post_install", "-at_install")
+class TestHrTimesheetSheetEventExpense(common.SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestHrTimesheetSheetEventExpense, cls).setUpClass()
+        cls.sheet_obj = cls.env['hr_timesheet.sheet']
+        cls.analytic_line_obj = cls.env['account.analytic.line']
+        cls.product_obj = cls.env['product.product']
+        cls.sale_order_line_obj = cls.env['sale.order.line']
+        cls.uom_unit = cls.env.ref('uom.product_uom_unit')
+        cls.customer = cls.env.ref('base.res_partner_12')
+        cls.resource_calendar = cls.env.ref('resource.resource_calendar_std')
+        cls.event_confirmed_stage = cls.env.ref('event.event_stage_announced')
+        cls.company = cls.env['res.company']._company_default_get('sale.order')
+        vals = {'name': 'User event timesheet_sheet_event_expense',
+                'login': 'evenhrexpensessheet@avanzosc.es'}
+        user = cls.env['res.users'].create(vals)
+        vals = {'name': 'employee event imesheet_sheet_event_expense',
+                'user_id': user.id}
+        cls.employee = cls.env['hr.employee'].create(vals)
+        cls.displacement_product = cls.product_obj.create({
+            'name': 'Displacement event timesheet_sheet_event_expense',
+            'default_code': 'DISPLACEMENTHRESHEET',
+            'uom_id': cls.uom_unit.id,
+            'uom_po_id': cls.uom_unit.id,
+            'type': 'service',
+            'service_policy': 'delivered_timesheet',
+            'service_tracking': 'task_in_project',
+            'can_be_expensed': False})
+        cls.expense_product = cls.product_obj.create({
+            'name': 'Expense event timesheet_sheet_event_expense',
+            'default_code': 'EXPENSEHRESHEET',
+            'uom_id': cls.uom_unit.id,
+            'uom_po_id': cls.uom_unit.id,
+            'type': 'service',
+            'can_be_expensed': True})
+        cls.product = cls.product_obj.create({
+            'name': 'Urban camp evet timesheet_sheet_event_expense',
+            'default_code': 'URBANCAMPHRE',
+            'uom_id': cls.uom_unit.id,
+            'uom_po_id': cls.uom_unit.id,
+            'type': 'service',
+            'service_policy': 'delivered_timesheet',
+            'service_tracking': 'task_in_project',
+            'event_ok': True,
+            'can_be_expensed': False})
+        cls.event = cls.env['event.event'].create({
+            'name': 'Avanzosc Event timesheet_sheet_event_expense',
+            'date_begin': fields.Date.today(),
+            'date_end': fields.Date.today() + relativedelta(days=+7),
+            'customer_id': cls.customer.id,
+            'resource_calendar_id': cls.resource_calendar.id,
+            'main_responsible_id': user.id,
+            'event_ticket_ids': [(0, 0, {'product_id': cls.product.id,
+                                         'name': cls.product.name,
+                                         'price': 55})]
+            })
+        track_vals = {'event_id': cls.event.id,
+                      'name': 'Session 1',
+                      'date': fields.Date.today(),
+                      'partner_id': user.partner_id.id}
+        cls.env['event.track'].create(track_vals)
+        sale_vals = {
+            "partner_id": cls.customer.id,
+            "partner_invoice_id": cls.customer.id,
+            "partner_shipping_id": cls.customer.id,
+            "company_id": cls.company.id}
+        cls.sale = cls.env['sale.order'].create(sale_vals)
+        sale_line_vals = {
+            'order_id': cls.sale.id,
+            'product_id': cls.product.id,
+            'name': cls.product.name,
+            'product_uom_qty': 1,
+            'product_uom': cls.product.uom_id.id,
+            'price_unit': 100,
+            'event_id': cls.event.id,
+            'event_ticket_id': cls.event.event_ticket_ids[0].id}
+        cls.sale_order_line_obj.create(sale_line_vals)
+        sale_line_vals = {
+            'order_id': cls.sale.id,
+            'product_id': cls.displacement_product.id,
+            'name': cls.displacement_product.name,
+            'product_uom_qty': 1,
+            'product_uom': cls.displacement_product.uom_id.id,
+            'price_unit': 25}
+        cls.sale_order_line_obj.create(sale_line_vals)
+        sale_line_vals = {
+            'order_id': cls.sale.id,
+            'product_id': cls.expense_product.id,
+            'name': cls.expense_product.name,
+            'product_uom_qty': 1,
+            'product_uom': cls.expense_product.uom_id.id,
+            'price_unit': 25}
+        cls.sale_order_line_obj.create(sale_line_vals)
+        cond = [('is_done', '=', True)]
+        cls.track_done_state = cls.env['event.track.stage'].search(
+            cond, limit=1)
+
+    def test_hr_timesheet_sheet_event_expense(self):
+        self.sale.action_confirm()
+        self.event.stage_id = self.event_confirmed_stage.id
+        self.assertEqual(len(self.event.displacement_product_ids), 2)
+        self.event.track_ids[0].stage_id = self.track_done_state.id
+        sheet_vals = {'employee_id': self.employee.id,
+                      'date_start':  fields.Date.today(),
+                      'date_end': fields.Date.today() + relativedelta(days=+7)}
+        sheet = self.sheet_obj.create(sheet_vals)
+        cond = sheet._get_timesheet_sheet_lines_domain()
+        analytic_lines = self.analytic_line_obj.search(cond)
+        self.assertEqual(len(analytic_lines), 2)
