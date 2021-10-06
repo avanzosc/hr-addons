@@ -26,15 +26,14 @@ class AccountAnalyticLine(models.Model):
         if self.expense_id:
             self.expense_id.unlink()
         expense_vals = self.catch_values_for_create_expense()
-        expense_obj.create(expense_vals)
+        self.expense_id = expense_obj.create(expense_vals)
 
     def catch_values_for_create_expense(self):
         cond = [('partner_id', '=', self.partner_id.id)]
         user = self.env['res.users'].search(cond, limit=1)
         cond = [('user_id', '=', user.id)]
         employee = self.env['hr.employee'].search(cond, limit=1)
-        vals = {'expense_id': self.id,
-                'name': self.name,
+        vals = {'name': self.name,
                 'date': self.date,
                 'quantity': 1,
                 'unit_amount': self.amount}
