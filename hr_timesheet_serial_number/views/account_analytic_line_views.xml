@@ -5,8 +5,8 @@
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
         <field name="arch" type="xml">
             <field name="date" position="after">
-                <field name="sale_order_id" options="{'no_create': True, 'no_quick_create': True, 'no_create_edit':True}"/>
-                <field name="serial_number_id"/>
+                <field name="sale_order_id"/>
+                <field name="lot_id"/>
             </field>
         </field>
     </record>
@@ -16,11 +16,25 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="sale_order_id"/>
-                <field name="serial_number_id"/>
+                <field name="lot_id"/>
             </field>
             <filter name="groupby_task" position="after">
                 <filter string="Sale Order" name="sale_order" domain="[]" context="{'group_by':'sale_order_id'}"/>
-                <filter string="Lot/Serial Number" name="serial_number" domain="[]" context="{'group_by':'serial_number_id'}"/>
+                <filter string="Lot/Serial Number" name="lot" domain="[]" context="{'group_by':'lot_id'}"/>
+            </filter>
+        </field>
+    </record>
+    <record id="view_account_analytic_line_filter" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_line_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="sale_order_id"/>
+                <field name="lot_id"/>
+            </field>
+            <filter name="account_id" position="after">
+                <filter string="Sale Order" name="sale_order" domain="[]" context="{'group_by':'sale_order_id'}"/>
+                <filter string="Lot/Serial Number" name="lot" domain="[]" context="{'group_by':'lot_id'}"/>
             </filter>
         </field>
     </record>
