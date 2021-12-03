@@ -10,8 +10,10 @@ class ResPartner(models.Model):
         comodel_name='hr.employee.supervised.year',
         inverse_name='student_id', string='Tutors per year')
     current_year_tutor_ids = fields.Many2many(
-        comodel_name="hr.employee", compute="_compute_current_year_tutor_ids",
-        string="Current Tutors")
+        comodel_name="hr.employee",
+        compute="_compute_current_year_tutor_ids",
+        string="Current Tutors",
+        compute_sudo=True)
     allowed_user_ids = fields.Many2many(
         comodel_name='res.users', relation='rel_res_partner_users',
         column1='partner_id', column2='user_id', string='Allowed users',
@@ -20,8 +22,8 @@ class ResPartner(models.Model):
 
     @api.depends("year_tutor_ids")
     def _compute_current_year_tutor_ids(self):
-        for partner in self.filtered("year_tutor_ids"):
-            tutors = partner.year_tutor_ids.filtered(
+        for partner in self:
+            tutors = partner.sudo().year_tutor_ids.filtered(
                 lambda t: t.school_year_id.current)
             partner.current_year_tutor_ids = tutors.mapped("teacher_id")
 
