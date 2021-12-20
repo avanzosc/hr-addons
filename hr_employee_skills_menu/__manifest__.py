@@ -10,7 +10,8 @@
         "hr_skills",
     ],
     "data": [
-        "views/hr_employee_skill.xml"
+        "views/hr_employee_skill.xml",
+        "views/hr_employee.xml"
     ],
     "license": "AGPL-3",
     'installable': True,
