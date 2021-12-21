@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_timesheet_line_tree_user" model="ir.ui.view">
+        <field name="name">account.analytic.line.tree.user</field>
+        <field name="model">account.analytic.line</field>
+        <field name="arch" type="xml">
+            <tree editable="top" string="Timesheet Activities" import="false">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="project_id" required="1"/>
+                <field name="partner_id" domain="[('customer','=',True)]"/>
+                <field name="task_id" context="{'default_project_id': project_id}" domain="[('project_id', '=', project_id)]"/>
+                <field name="employee_id" invisible="1"/>
+                <field name="time_start" widget="float_time" invisible="1"/>
+                <field name="time_stop" widget="float_time" invisible="1"/>
+                <field name="unit_amount" widget="timesheet_uom" sum="Total" readonly="1"/>
+                <button attrs="{'invisible':[('unit_amount','!=',00.00)]}"
+                    icon="fa-hand-pointer-o" name="action_button_end"
+                    string="End" type="object" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_line_search_inh_stop_button" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search" />
+        <field name="arch" type="xml">
+            <field name="employee_id" position="after">
+                <field name="partner_id" />
+            </field>
+            <filter name="groupby_employee" position="after">
+                <filter string="Customer" name="groupby_customer" domain="[]" context="{'group_by':'partner_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="hr_timesheet_line_tree_inh_stop_button" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
+        <field name="arch" type="xml">
+            <field name="project_id" position="before">
+                <field name="partner_id" domain="[('customer','=',True)]"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_timesheet.act_hr_timesheet_line_view_tree" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="4"/>
+        <field name="view_id" ref="hr_timesheet_line_tree_user"/>
+        <field name="act_window_id" ref="hr_timesheet.act_hr_timesheet_line"/>
+    </record>
+</odoo>
