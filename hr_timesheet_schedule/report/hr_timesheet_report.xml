@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_timesheet_inh_with_start_hour" inherit_id="hr_timesheet.report_timesheet">
+        <xpath expr="//thead//th[1]" position="after">
+            <th class="align-middle"><span>Schedule</span></th>
+        </xpath>
+        <xpath expr="//tbody//td[1]" position="after">
+            <td>
+               <span t-field="l.session_schedule" />
+            </td>
+        </xpath>
+        <span t-field="l.user_id.partner_id.name" position="attributes">
+            <attribute name="t-if">not l.employee_id</attribute>
+        </span>
+        <span t-field="l.employee_id" position="attributes">
+            <attribute name="t-if">l.employee_id</attribute>
+        </span>
+        <t t-set="nbCols" position="attributes">
+            <attribute name="t-value">5</attribute>
+        </t>
+    </template>
+</odoo>
