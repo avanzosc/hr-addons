@@ -1,5 +1,5 @@
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HrEmployee(models.Model):
@@ -7,14 +7,14 @@ class HrEmployee(models.Model):
 
     last_resume_line_ids = fields.One2many(
         'hr.resume.line', 'employee_id', string="Last resumé lines",
-        compute="_compute_last_resume_lines", store=True
+        compute="_compute_last_resume_lines",
     )
 
-    @api.depends('resume_line_ids')
     def _compute_last_resume_lines(self):
         for record in self:
             line_channels = record.resume_line_ids.mapped('channel_id')
-            unique_last_resume_line_ids = []
+            unique_last_resume_line_ids = record.resume_line_ids.filtered(
+                lambda r: r.channel_id == False).ids
             for channel in line_channels:
                 unique_last_resume_line = max(record.resume_line_ids.filtered(
                     lambda r: r.channel_id == channel),
