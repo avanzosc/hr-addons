@@ -7,6 +7,7 @@ HR Employee Resume Line
 =======================
 
 * Limit Employee resume line visualization.
+
 Show only one line per slide channel.
 
 
