@@ -14,9 +14,7 @@ class ProjectTask(models.Model):
     employee_id = fields.Many2one(
         string='Employee', comodel_name='hr.employee')
 
-    @api.multi
     def _compute_show_init_task(self):
-        self.ensure_one()
         for task in self:
             if not task.timesheet_ids:
                 task.show_init_task = True
@@ -29,7 +27,6 @@ class ProjectTask(models.Model):
                 else:
                     task.show_init_task = True
 
-    @api.multi
     def action_button_initiate_task(self):
         self.ensure_one()
         timezone = pytz.timezone(self._context.get('tz') or 'UTC')
@@ -59,7 +56,6 @@ class ProjectTask(models.Model):
         return self.env['account.analytic.line'].create(
             initiate_timesheet_vals)
 
-    @api.multi
     def action_button_end_task(self):
         self.ensure_one()
         lines = self.timesheet_ids.filtered(

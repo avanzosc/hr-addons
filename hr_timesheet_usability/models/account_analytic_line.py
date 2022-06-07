@@ -9,7 +9,6 @@ from datetime import timedelta
 class AccountAnalyticLine(models.Model):
     _inherit = 'account.analytic.line'
 
-    @api.multi
     def action_button_end(self):
         self.ensure_one()
         for line in self:
