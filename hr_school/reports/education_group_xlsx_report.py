@@ -49,7 +49,7 @@ class EducationGroupXlsx(models.AbstractModel):
     def fill_student_row_data(self, sheet, row, student, academic_year):
         super(EducationGroupXlsx, self).fill_student_row_data(
             sheet, row, student, academic_year)
-        supervised_proffesor = student.year_tutor_ids.filtered(
+        supervised_proffesor = student.sudo().year_tutor_ids.filtered(
             lambda t: t.school_year_id == academic_year)
         sheet.write(
             "F" + str(row), supervised_proffesor[:1].teacher_id.display_name)
