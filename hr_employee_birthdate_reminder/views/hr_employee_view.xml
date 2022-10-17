@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_employee_view_kanban" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees" />
+        <field name="arch" type="xml">
+            <field name="id" position="after">
+                <field name="birthday" />
+            </field>
+            <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+                <div t-if="record.birthday and moment(record.birthday.raw_value).format('MMM')==moment(Date()).format('MMM')">
+                    <img src='/hr_employee_birthdate_reminder/static/src/img/birthdaycake.png' alt="birthdate cake"/>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_kanban_details')]" position="inside">
+                <div t-if="record.birthday and moment(record.birthday.raw_value).format('MMM')==moment(Date()).format('MMM')">
+                    <span t-esc="moment(record.birthday.raw_value).format('DD-MMM')" style="color:green" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_employee_view_search" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter" />
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <separator />
+                <filter string="Birthday's today" name="birthday_today"
+                        domain="[('birthday_today','=',True)]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>
