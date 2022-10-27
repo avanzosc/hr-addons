@@ -10,7 +10,8 @@
     "website": "http://www.avanzosc.es",
     "depends": [
         "hr_timesheet_activity_begin_end",
-        "custom_descarga"
+        "custom_descarga",
+        "hr_timesheet_begin_end_usability"
     ],
     "data": [
         "data/project.xml",
