@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <page name="descarga" position="inside">
                 <group string="Times">
-                    <field name="timesheet_ids" options="{'create': false}" nolabel="1" attrs="{'readonly': [('is_canceled', '=', True)]}">
+                    <field name="timesheet_ids" options="{'create': false, 'delete': false}" nolabel="1" attrs="{'readonly': [('is_canceled', '=', True)]}">
                         <tree editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="date" optional="show" force_save="1"/>
