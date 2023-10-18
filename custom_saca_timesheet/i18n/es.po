@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-17 14:39+0000\n"
-"PO-Revision-Date: 2023-01-17 14:39+0000\n"
+"POT-Creation-Date: 2023-09-22 09:57+0000\n"
+"PO-Revision-Date: 2023-09-22 09:57+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Duración"
 #. module: custom_saca_timesheet
 #: model:ir.model,name:custom_saca_timesheet.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Línea Analítica"
+msgstr "Línea analítica"
 
 #. module: custom_saca_timesheet
 #: model:ir.model.fields,field_description:custom_saca_timesheet.field_account_analytic_line__classified
@@ -35,7 +35,7 @@ msgstr "Clasificado"
 #: model:ir.model.fields,field_description:custom_saca_timesheet.field_project_task__display_name
 #: model:ir.model.fields,field_description:custom_saca_timesheet.field_saca_line__display_name
 msgid "Display Name"
-msgstr "Nombre mostrado"
+msgstr "Mostrar nombre"
 
 #. module: custom_saca_timesheet
 #: model:ir.model.fields,field_description:custom_saca_timesheet.field_account_analytic_line__id
@@ -72,6 +72,11 @@ msgstr "Línea de saca"
 #: model:ir.model.fields,field_description:custom_saca_timesheet.field_account_analytic_line__sequence
 msgid "Sequence"
 msgstr "Secuencia"
+
+#. module: custom_saca_timesheet
+#: model:ir.model.fields,field_description:custom_saca_timesheet.field_account_analytic_line__speed
+msgid "Speed"
+msgstr "Velocidad"
 
 #. module: custom_saca_timesheet
 #: model:ir.model,name:custom_saca_timesheet.model_project_task
