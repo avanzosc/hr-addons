@@ -20,6 +20,18 @@ class AccountAnalyticLine(models.Model):
     classified = fields.Boolean(
         string="Classified",
         default=False)
+    speed = fields.Float(
+        string="Speed",
+        compute="_compute_speed",
+        store=True)
+
+    @api.depends("saca_line_id", "saca_line_id.download_unit", "unit_amount")
+    def _compute_speed(self):
+        for line in self:
+            speed = 0
+            if line.saca_line_id and line.unit_amount != 0:
+                speed = line.saca_line_id.download_unit / line.unit_amount
+            line.speed = speed
 
     @api.onchange("time_start", "time_stop")
     def onchange_time_start(self):
@@ -37,13 +49,16 @@ class AccountAnalyticLine(models.Model):
         for line in self:
             chofer = self.env["account.analytic.line"].search(
                 [("saca_line_id", "=", line.saca_line_id.id),
-                 ("name", "ilike", "Chofer")], limit=1)
+                 ("name", "=", u'{} {}'.format(
+                     line.project_id.name, "Chofer"))], limit=1)
             matanza = line.env["account.analytic.line"].search(
                 [("saca_line_id", "=", line.saca_line_id.id),
-                 ("name", "ilike", "Matanza")], limit=1)
+                 ("name", "=", u'{} {}'.format(
+                     line.project_id.name, "Matanza"))], limit=1)
             espera = line.env["account.analytic.line"].search(
                 [("saca_line_id", "=", line.saca_line_id.id),
-                 ("name", "ilike", "Espera")], limit=1)
+                 ("name", "=", u'{} {}'.format(
+                     line.project_id.name, "Espera"))], limit=1)
             if ("time_start" in values and line.id == matanza.id) or (
                 "time_stop" in values and line.id == chofer.id) and (
                     chofer.time_stop) and matanza.time_start and espera:
