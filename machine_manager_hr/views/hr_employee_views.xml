@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <page name="hr_settings" position="after">
+                    <page name="machines" string="Machines the employee works on">
+                        <field name="machine_ids" nolabel="1">
+                            <tree name="tree-machines" string="Machines">
+                                <field name="name" />
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="view_employee_tree" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree" />
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="machine_ids" widget="many2many_tags" optional="show"/>
+                </field>
+            </field>
+        </record>
+
+        <!--
+        <record id="view_employee_filter" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter" />
+            <field name="arch" type="xml">
+                <field name="job_id" position="after">
+                    <field name="machine_id"/>
+                </field>
+                <filter name="group_job" position="after">
+                    <filter name="group_machine" string="Machine" domain="[]"
+                        context="{'group_by': 'machine_id'}"/>
+                </filter>
+            </field>
+        </record>
+        -->
+    </data>
+</odoo>
