@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="employee_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="employee_id" />
+            </field>
+            <filter name="partner" position="after">
+                <filter string="Employee" name="employee" domain="[]"
+                    context="{'group_by': 'employee_id'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
