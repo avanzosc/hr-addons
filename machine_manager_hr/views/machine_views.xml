@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="machine_form_view" model="ir.ui.view">
+            <field name="model">machine</field>
+            <field name="inherit_id" ref="machine_manager.machine_form_view" />
+            <field name="arch" type="xml">
+                <page name="finalcial-details" position="after">
+                    <page name="machine-users" string="Machine Users">
+                        <field name="employee_ids" nolabel="1">
+                            <tree name="tree-employee" string="Machine User">
+                                <field name="name" />
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="machine_tree_view" model="ir.ui.view">
+            <field name="model">machine</field>
+            <field name="inherit_id" ref="machine_manager.machine_tree_view" />
+            <field name="arch" type="xml">
+                <field name="serial_id" position="after">
+                    <field name="employee_ids" widget="many2many_tags" optional="show" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
