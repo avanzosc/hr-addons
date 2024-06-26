@@ -1,7 +1,6 @@
-[![Build Status](https://travis-ci.org/avanzosc/sale-addons.svg?branch=14.0)](https://travis-ci.org/avanzosc/sale-addons)
-[![Coverage Status](https://coveralls.io/repos/avanzosc/sale-addons/badge.svg?branch=14.0)](https://coveralls.io/github/avanzosc/sale-addons?branch=14.0)
+[![pre-commit](https://github.com/avanzosc/hr-addons/actions/workflows/pre-commit.yml/badge.svg?branch=14.0)](https://github.com/avanzosc/hr-addons/actions/workflows/pre-commit.yml)
 
-Sale Odoo addons
-================
+HR Odoo addons
+==============
 
-Sale modules for Odoo
+HR modules for Odoo
