@@ -8,9 +8,11 @@ class ProjectTask(models.Model):
 
     saca_line_id = fields.Many2one(
         string="Saca Line",
-        comodel_name="saca.line")
+        comodel_name="saca.line",
+    )
     saca_id = fields.Many2one(
         string="Saca",
         comodel_name="saca",
         related="saca_line_id.saca_id",
-        store=True)
+        store=True,
+    )
