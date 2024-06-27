@@ -6,7 +6,7 @@
     "category": "Human Resources/Employees",
     "license": "AGPL-3",
     "author": "Avanzosc",
-    "website": "https://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/hr-addons",
     "depends": [
         "stock_picking_create_repair",
         "hr",
