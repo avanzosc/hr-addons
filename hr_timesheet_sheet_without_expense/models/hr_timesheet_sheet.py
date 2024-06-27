@@ -4,13 +4,12 @@ from odoo import models
 
 
 class HrTimesheetSheet(models.Model):
-    _inherit = 'hr_timesheet.sheet'
+    _inherit = "hr_timesheet.sheet"
 
     def _get_timesheet_sheet_lines_domain(self):
         self.ensure_one()
-        cond = super(
-            HrTimesheetSheet, self)._get_timesheet_sheet_lines_domain()
-        cond.append('|')
-        cond.append(('product_id', '=', False))
-        cond.append(('product_id.can_be_expensed', '=', False))
+        cond = super(HrTimesheetSheet, self)._get_timesheet_sheet_lines_domain()
+        cond.append("|")
+        cond.append(("product_id", "=", False))
+        cond.append(("product_id.can_be_expensed", "=", False))
         return cond
