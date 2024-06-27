@@ -2,7 +2,7 @@
 <odoo>
     <record id="timesheet_view_tree_user" model="ir.ui.view">
         <field name="model">account.analytic.line</field>
-        <field name="inherit_id" ref="hr_timesheet.timesheet_view_tree_user"/>
+        <field name="inherit_id" ref="hr_timesheet.timesheet_view_tree_user" />
         <field name="arch" type="xml">
             <field name="employee_id" position="attributes">
                 <attribute name="required">0</attribute>

@@ -1,7 +1,8 @@
 # Copyright 2022 Berezi Amubieta - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import _, api, exceptions, fields, models
 from datetime import timedelta
+
+from odoo import _, api, exceptions, fields, models
 from odoo.tools.float_utils import float_compare
 
 
@@ -12,7 +13,8 @@ class AccountAnalyticLine(models.Model):
         string="Date End",
         required=True,
         index=True,
-        default=fields.Date.context_today)
+        default=fields.Date.context_today,
+    )
 
     @api.constrains("time_start", "time_stop", "unit_amount")
     def _check_time_start_stop(self):
@@ -36,12 +38,12 @@ class AccountAnalyticLine(models.Model):
                         _(
                             "The duration (%s) must be equal to the difference "
                             "between the hours (%s)."
-                            )
+                        )
                         % (
                             value_to_html(line.unit_amount, None),
                             value_to_html(hours, None),
-                            )
                         )
+                    )
             # check if lines overlap
             if self.user_id:
                 others = self.search(
@@ -73,6 +75,5 @@ class AccountAnalyticLine(models.Model):
         start = timedelta(hours=self.time_start)
         stop = timedelta(hours=self.time_stop)
         if stop < start:
-            self.unit_amount = (
-                stop + timedelta(hours=24) - start).seconds / 3600
+            self.unit_amount = (stop + timedelta(hours=24) - start).seconds / 3600
         return result
