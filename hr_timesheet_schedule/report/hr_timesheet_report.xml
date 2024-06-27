@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="report_timesheet_inh_with_start_hour" inherit_id="hr_timesheet.report_timesheet">
+    <template
+    id="report_timesheet_inh_with_start_hour"
+    inherit_id="hr_timesheet.report_timesheet"
+  >
         <xpath expr="//thead//th[1]" position="after">
             <th class="align-middle"><span>Schedule</span></th>
         </xpath>
