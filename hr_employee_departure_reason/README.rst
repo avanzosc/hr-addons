@@ -2,9 +2,9 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-==========================
-Hr employee departure reason
-==========================
+=========================
+Employee departure reason
+=========================
 
 * New object employee departure reason in employee.
 
