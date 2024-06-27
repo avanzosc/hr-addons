@@ -7,11 +7,11 @@
     "category": "Services/Timesheets",
     "license": "AGPL-3",
     "author": "AvanzOSC",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/hr-addons",
     "depends": [
         "hr_timesheet_activity_begin_end",
         "custom_descarga",
-        "hr_timesheet_begin_end_usability"
+        "hr_timesheet_begin_end_usability",
     ],
     "data": [
         "data/project.xml",

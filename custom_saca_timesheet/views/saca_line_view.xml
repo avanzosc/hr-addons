@@ -2,22 +2,40 @@
 <odoo>
     <record id="saca_line_form_view" model="ir.ui.view">
         <field name="model">saca.line</field>
-        <field name="inherit_id" ref="custom_saca.saca_line_form_view"/>
+        <field name="inherit_id" ref="custom_saca.saca_line_form_view" />
         <field name="arch" type="xml">
             <page name="descarga" position="inside">
                 <group string="Times">
-                    <field name="timesheet_ids" options="{'create': false, 'delete': false}" nolabel="1" attrs="{'readonly': [('is_canceled', '=', True)]}">
+                    <field
+            name="timesheet_ids"
+            options="{'create': false, 'delete': false}"
+            nolabel="1"
+            attrs="{'readonly': [('is_canceled', '=', True)]}"
+          >
                         <tree editable="bottom">
-                            <field name="sequence" widget="handle"/>
-                            <field name="date" optional="show" force_save="1"/>
-                            <field name="date_end" optional="show" force_save="1"/>
-                            <field name="project_id" optional="show" readonly="1"/>
-                            <field name="task_id" optional="show" readonly="1"/>
-                            <field name="time_start" optional="show" widget="float_time"/>
-                            <field name="time_stop" optional="show" widget="float_time"/>
-                            <field name="unit_amount" optional="show" widget="float_time" sum="Amount Duration"/>
-                            <field name="speed"/>
-                            <field name="company_id" invisible="1"/>
+                            <field name="sequence" widget="handle" />
+                            <field name="date" optional="show" force_save="1" />
+                            <field name="date_end" optional="show" force_save="1" />
+                            <field name="project_id" optional="show" readonly="1" />
+                            <field name="task_id" optional="show" readonly="1" />
+                            <field
+                name="time_start"
+                optional="show"
+                widget="float_time"
+              />
+                            <field
+                name="time_stop"
+                optional="show"
+                widget="float_time"
+              />
+                            <field
+                name="unit_amount"
+                optional="show"
+                widget="float_time"
+                sum="Amount Duration"
+              />
+                            <field name="speed" />
+                            <field name="company_id" invisible="1" />
                         </tree>
                     </field>
                 </group>
