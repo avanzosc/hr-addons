@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="repair.view_repair_order_tree" />
         <field name="arch" type="xml">
             <field name="user_id" position="after">
-                <field name="employee_id" optional="show"/>
+                <field name="employee_id" optional="show" />
             </field>
         </field>
     </record>
@@ -29,8 +29,12 @@
                 <field name="employee_id" />
             </field>
             <filter name="partner" position="after">
-                <filter string="Employee" name="employee" domain="[]"
-                    context="{'group_by': 'employee_id'}"/>
+                <filter
+          string="Employee"
+          name="employee"
+          domain="[]"
+          context="{'group_by': 'employee_id'}"
+        />
             </filter>
         </field>
     </record>
