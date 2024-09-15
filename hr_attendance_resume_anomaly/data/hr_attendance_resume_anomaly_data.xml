@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="hr_attendance_anomaly_without_calendar_day" model="hr.attendance.resume.anomaly">
+        <field name="name">There are attendances in day that do not apply</field>
+    </record>
+    <record id="hr_attendance_anomaly_with_leave" model="hr.attendance.resume.anomaly">
+        <field name="name">Have absence</field>
+    </record>
+    <record id="hr_attendance_anomaly_festive_worked" model="hr.attendance.resume.anomaly">
+        <field name="name">Festive worked</field>
+    </record>
+    <record id="hr_attendance_anomaly_with_approved_absence" model="hr.attendance.resume.anomaly">
+        <field name="name">There is an approved absence and there is no attendance</field>
+    </record>
+    <record id="hr_attendance_anomaly_entry_without_exit" model="hr.attendance.resume.anomaly">
+        <field name="name">Entry without exit</field>
+    </record>
+    <record id="hr_attendance_anomaly_entry_very_often" model="hr.attendance.resume.anomaly">
+        <field name="name">Attendances very often</field>
+    </record>
+    <record id="hr_attendance_anomaly_entry_no_attendance" model="hr.attendance.resume.anomaly">
+        <field name="name">There is no attendance in day that corresponds</field>
+    </record>
+    <record id="hr_attendance_anomaly_entry_percentage_day" model="hr.attendance.resume.anomaly">
+        <field name="name">Real working day greater or less than the percentage over the planned day</field>
+    </record>
+    <record id="hr_attendance_anomaly_negative_time" model="hr.attendance.resume.anomaly">
+        <field name="name">Negative imputable time</field>
+    </record>
+</odoo>
