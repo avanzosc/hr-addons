@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_attendance_resume_of_view_tree" model="ir.ui.view">
+        <field name="model">hr.attendance.resume</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" />
+                <field name="employee_id"/>
+                <field name="date"/>
+                <field name="day_week_literal"/>
+                <field name="markings_of"/>
+                <field name="planned_rest" widget="float_time"/>
+                <field name="presence_time_of" widget="float_time" />
+                <field name="rest_number"/>
+                <field name="rest_time" widget="float_time"/>
+                <field name="rest_exceeded" widget="float_time"/>
+                <field name="work_time_of" widget="float_time"/>
+                <field name="bonus_hours" widget="float_time"/>
+                <field name="imputable_time_of" widget="float_time"/>
+                <field name="theoretical_time_final_of" widget="float_time"/>
+                <field name="difference_hours_of" widget="float_time"/>
+                <field name="difference_minutes_of"/>
+            </tree>
+        </field>
+    </record>
+    <record id="hr_attendance_resume_of_view_form" model="ir.ui.view">
+        <field name="model">hr.attendance.resume</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="employee_id" />
+                        <h1>
+                            <field name="employee_id" required="1"/>
+                        </h1>
+                    </div>
+                    <group name="group1" colspan="4">
+                        <group>
+                            <field name="date" required="1"/>
+                            <field name="day_week" readonly="1"/>
+                            <field name="planned_rest" widget="float_time"/>
+                            <field name="presence_time_of" widget="float_time"/>
+                            <field name="work_time_of" widget="float_time"/>
+                            <field name="rest_number" readonly="1" />
+                            <field name="rest_time" widget="float_time" readonly="1"/>
+                            <field name="rest_exceeded" widget="float_time" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="bonus_hours" widget="float_time"/>
+                            <field name="imputable_time_of" widget="float_time" readonly="1"/>
+                            <field name="theoretical_time_final_of" widget="float_time"/>
+                            <field name="difference_hours_of" widget="float_time" readonly="1"/>
+                            <field name="difference_minutes_of" readonly="1"/>
+                        </group>
+                        <field name="markings_of" colspan="4" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_hr_attendance_resume_of">
+        <field name="name">Imputations resume R</field>
+        <field name="res_model">hr.attendance.resume</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="hr_attendance_resume_of_view_tree" />
+    </record>
+    <record id="action_hr_attendance_resume_of_tree" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="hr_attendance_resume_of_view_tree"/>
+        <field name="act_window_id" ref="action_hr_attendance_resume_of"/>
+    </record>
+
+    <record id="action_hr_attendance_resume_of_form" model="ir.actions.act_window.view">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_attendance_resume_of_view_form"/>
+        <field name="act_window_id" ref="action_hr_attendance_resume_of"/>
+    </record>
+    <menuitem id="hr_attendance_resume_of_group_view" name="Imputations resume R"
+            action="action_hr_attendance_resume_of"
+            parent="hr_attendance.menu_hr_attendance_manage_attendances"
+            sequence="15" groups="hr_attendance.group_hr_attendance_user"/>
+</odoo>
