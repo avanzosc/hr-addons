@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_attendance_tree" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="entry_without_exit" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_attendance_view_filter" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter" />
+        <field name="arch" type="xml">
+            <filter name="employee" position="after">
+                <filter name="group-with-exit" string="Entry without exit" context="{'group_by':'entry_without_exit'}"/>
+            </filter>
+            <filter name="myattendances" position="after">
+                <filter string="Entry with exit" name="filter-with-exit" domain="[('entry_without_exit', '=', False)]"/>
+                <filter string="Entry without exit" name="filter-without-exit" domain="[('entry_without_exit', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
