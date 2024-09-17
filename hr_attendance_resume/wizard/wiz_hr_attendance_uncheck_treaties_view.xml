@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="wiz_hr_attendance_uncheck_treaties_view_form" model="ir.ui.view">
+            <field name="model">wiz.hr.attendance.uncheck.treaties</field>
+            <field name="arch" type="xml">
+                <form string="Uncheck treaties">
+                    <p class="oe_grey">
+                        You are going to uncheck treaties
+                    </p>
+                    <footer>
+                        <button string="Uncheck" name="button_uncheck" type="object" default_focus="1" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_wiz_hr_attendance_uncheck_treaties"
+            multi="True"
+            key2="client_action_multi" name="Uncheck treaties"
+            res_model="wiz.hr.attendance.uncheck.treaties" src_model="hr.attendance"
+            view_mode="form" target="new" view_type="form" />
+    </data>
+</odoo>

@@ -1,0 +1,351 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_resume
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-18 08:52+0000\n"
+"PO-Revision-Date: 2019-11-18 08:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_hr_attendance
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__hr_attendance_ids
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_resume_view_form
+msgid "Attendances"
+msgstr "Asistencias"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_employee__count_attendances_resumes
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.view_employee_form_inherit_hr_attendance
+msgid "Attendances resume"
+msgstr "Resumen asistencias"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__bonus_hours
+msgid "Bonus hours"
+msgstr "Horas bonificadas"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_resume_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_uncheck_treaties_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__check_in_without_hour
+msgid "Check in without hour"
+msgstr "Entrada sin salida"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__create_uid
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__create_date
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__create_date
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__date
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_resume_view_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__day_week
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__day_week_literal
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_resume_view_search
+msgid "Day week"
+msgstr "Día semana"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__difference_hours
+msgid "Difference hours"
+msgstr "Diferencia horas"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__difference_minutes
+msgid "Difference minutes"
+msgstr "Diferencia minutos"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__display_name
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__display_name
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_hr_employee
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_resume_view_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:60
+#, python-format
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_resume_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__hour_gap
+msgid "Hour gap"
+msgstr "Margen hora"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__attendance_resume_id
+msgid "Hours imputations resume"
+msgstr "Resumen imputaciones horas"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__id
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__id
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__imputable_time
+msgid "Imputable time"
+msgstr "Tiempo imputable"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__imputation_date
+msgid "Imputation date"
+msgstr "Fecha imputación"
+
+#. module: hr_attendance_resume
+#: model:ir.actions.act_window,name:hr_attendance_resume.action_hr_attendance_resume
+#: model:ir.ui.menu,name:hr_attendance_resume.hr_attendance_resume_group_view
+msgid "Imputations resume"
+msgstr "Resumen imputaciones"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_employee__attendance_resume_ids
+msgid "Imputations resumes"
+msgstr "Resumenes imputaciones"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_resume_view_form
+msgid "Impute"
+msgstr "Imputar"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_resume_view_form
+msgid "Impute assistances in resume"
+msgstr "Imputar asistencias en resumen"
+
+#. module: hr_attendance_resume
+#: model:ir.actions.act_window,name:hr_attendance_resume.action_wiz_hr_attendance_anomaly
+msgid "Impute in resume"
+msgstr "Imputar en resumen"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume____last_update
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume____last_update
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__write_uid
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__write_date
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_resume__write_date
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_wiz_hr_attendance_uncheck_treaties__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__markings
+msgid "Markings (E=Entrance, O=Output)"
+msgstr "Fichajes (E=Entrada, S=Salida)"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:52
+#, python-format
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_view_filter
+msgid "No treated"
+msgstr "No tratado"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__planned_rest
+msgid "Planned rest"
+msgstr "Descanso planificado"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__presence_time
+msgid "Presence time"
+msgstr "Tiempo presencia"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__rest_exceeded
+msgid "Rest exceeded"
+msgstr "Descanso excedido"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__rest_number
+msgid "Rest number"
+msgstr "Núm. Descansos"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__rest_time
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__rest_time
+msgid "Rest time"
+msgstr "Tiempo descanso"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:62
+#, python-format
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:64
+#, python-format
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__theoretical_time
+msgid "Theoretical time"
+msgstr "Tiempo teorico"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:58
+#, python-format
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance__treated
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.hr_attendance_view_filter
+msgid "Treated"
+msgstr "Tratado"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:54
+#, python-format
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_uncheck_treaties_view_form
+msgid "Uncheck"
+msgstr "Desmarcar"
+
+#. module: hr_attendance_resume
+#: model:ir.actions.act_window,name:hr_attendance_resume.action_wiz_hr_attendance_uncheck_treaties
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_uncheck_treaties_view_form
+msgid "Uncheck treaties"
+msgstr "Desmarcar tratados"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/_common.py:56
+#, python-format
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_wiz_hr_attendance_uncheck_treaties
+msgid "Wizard for uncheck attendances treaties"
+msgstr "Asistente para desmarcar asistencias tratadas"
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_wiz_hr_attendance_resume
+msgid "Wizard to impute assistances resume"
+msgstr "Asistente para imputar en resumen de asistencias"
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: hr_attendance_resume
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_hr_attendance_resume__work_time
+#: model:ir.model.fields,field_description:hr_attendance_resume.field_resource_calendar_attendance__work_time
+msgid "Work time"
+msgstr "Tiempo trabajo"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_resume_view_form
+msgid "You are going to impute in assistances resume"
+msgstr "Usted va a imputar en resumen de asistencias"
+
+#. module: hr_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume.wiz_hr_attendance_uncheck_treaties_view_form
+msgid "You are going to uncheck treaties"
+msgstr "Usted va a desmarcar los tratados"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/models/hr_attendance.py:95
+#, python-format
+msgid "You cannot delete the hours imputations resume with date {},  of the employee {}, because he has assigned an allocation"
+msgstr "No puede borrar resumen de imputaciones con fecha {}, del empleado {}, porque tiene asignado/a una asignación de ausencia."
+
+#. module: hr_attendance_resume
+#: model:ir.model,name:hr_attendance_resume.model_hr_attendance_resume
+msgid "hr.attendance.resume"
+msgstr ""
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/models/hr_attendance.py:213
+#, python-format
+msgid "{} (Bonus {}%)"
+msgstr "{} (Bonificado {}%)"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/models/hr_attendance.py:241
+#, python-format
+msgid "{}/{}:{}E{}:{}O"
+msgstr "{}/{}:{}E{}:{}S"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/models/hr_attendance.py:229
+#, python-format
+msgid "{}:{}E{}:{}O"
+msgstr "{}:{}E{}:{}S"
+
+#. module: hr_attendance_resume
+#: code:addons/hr_attendance_resume/models/hr_attendance.py:235
+#, python-format
+msgid "{}{}:{}E{}:{}O"
+msgstr "{}{}:{}E{}:{}S"
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_attendance_tree" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="treated" />
+                <field name="notes" />
+            </field>
+        </field>
+    </record>
+    <record id="hr_attendance_view_filter" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter" />
+        <field name="arch" type="xml">
+            <filter name="employee" position="after">
+                <filter name="group-treated" string="Treated" context="{'group_by':'treated'}"/>
+            </filter>
+            <filter name="myattendances" position="after">
+                <filter string="Treated" name="filter-treated" domain="[('treated', '=', True)]"/>
+                <filter string="No treated" name="filter-notreated" domain="[('treated', '=', False)]"/>
+            </filter>
+        </field>
+    </record>
+    <record id="hr_attendance_view_form" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="treated" />
+                <field name="notes" colspan="4"/>
+            </field>
+            <field name="employee_id" position="attributes">
+                <attribute name="attrs">{'readonly': [('treated', '=', True)]}</attribute>
+            </field>
+            <field name="check_in" position="attributes">
+                <attribute name="attrs">{'readonly': [('treated', '=', True)]}</attribute>
+            </field>
+            <field name="check_out" position="attributes">
+                <attribute name="attrs">{'readonly': [('treated', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
