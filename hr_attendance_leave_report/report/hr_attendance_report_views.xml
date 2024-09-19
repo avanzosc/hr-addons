@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="hr_attendance_report_view_pivot" model="ir.ui.view">
+        <field name="name">hr.attendance.report.view.pivot</field>
+        <field name="model">hr.attendance.report</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_report_view_pivot" />
+        <field name="arch" type="xml">
+            <field name="check_in" position="after">
+                <field name="hours_to_work" type="measure" widget="float_time" />
+            </field>
+            <field name="overtime_hours" position="after">
+                <field name="leave_hours" type="measure" widget="float_time" />
+                <field name="worked_leave_hours" type="measure" widget="float_time" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_attendance_report_view_graph" model="ir.ui.view">
+        <field name="name">hr.attendance.report.view.graph</field>
+        <field name="model">hr.attendance.report</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_report_view_graph" />
+        <field name="arch" type="xml">
+            <field name="check_in" position="after">
+                <field name="hours_to_work" type="measure" widget="float_time" />
+            </field>
+            <field name="worked_hours" position="after">
+                <field name="leave_hours" type="measure" />
+                <field name="worked_leave_hours" type="measure" />
+            </field>
+        </field>
+    </record>
+</odoo>
