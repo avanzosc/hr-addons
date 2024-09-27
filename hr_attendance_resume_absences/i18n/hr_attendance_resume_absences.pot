@@ -1,0 +1,239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_resume_absences
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-18 08:56+0000\n"
+"PO-Revision-Date: 2019-11-18 08:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_leave.py:66
+#, python-format
+msgid ", hours: {}"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_leave_view_form
+msgid "<span class=\"oe_inline\" attrs=\"{'invisible': [('show_hours', '=', False)]}\">\n"
+"                             To\n"
+"                         </span>"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_attendance_resume__hr_leave_allocation_id
+msgid "Allocation"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_attendance_resume_view_search
+msgid "Allocation leave"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_leave.py:61
+#, python-format
+msgid "Allocation of {}: Employee {}, {} {}"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave_allocation__attendance_resume_date
+msgid "Attendance resume date"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.wiz_hr_attendance_resume_absence_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave_allocation__created_from_attendance_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.view_hr_leave_allocation_filter
+msgid "Created from attendance resume"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave_allocation__creation_date_from_resume
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.view_hr_leave_allocation_filter
+msgid "Creation date from resume"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave_allocation__difference_hours
+msgid "Difference hours"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.wiz_hr_attendance_resume_absence_view_form
+msgid "Generate"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.actions.act_window,name:hr_attendance_resume_absences.action_wiz_hr_attendance_resume_absence
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.wiz_hr_attendance_resume_absence_view_form
+msgid "Generate assignments of absences"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave__hour_from
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_leave_view_form
+msgid "Hour from"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave__hour_to
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_leave_view_form
+msgid "Hour to"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave__hours_per_day
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_leave_view_form
+msgid "Hours per day"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_wiz_hr_attendance_resume_absence__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model,name:hr_attendance_resume_absences.model_hr_leave
+msgid "Leave"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model,name:hr_attendance_resume_absences.model_hr_leave_type
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model,name:hr_attendance_resume_absences.model_hr_leave_allocation
+msgid "Leaves Allocation"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.view_hr_leave_allocation_filter
+msgid "No created from attendance resume"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_attendance_resume_view_search
+msgid "No treated"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave__old_request_date_from
+msgid "Old request date"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_leave__show_hours
+msgid "Show hours"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: sql_constraint:hr.leave.allocation:0
+msgid "The number of days is cero."
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:hr.leave.type,name:hr_attendance_resume_absences.hr_leave_type_holiday_bonus
+msgid "Time difference"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_attendance.py:66
+#, python-format
+msgid "Time difference by hours"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model.fields,field_description:hr_attendance_resume_absences.field_hr_attendance_resume__treated
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_attendance_resume_view_search
+msgid "Treated"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.hr_attendance_resume_view_search
+msgid "With allocacion leave"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model,name:hr_attendance_resume_absences.model_wiz_hr_attendance_resume_absence
+msgid "Wizard to impute absences from attendance resume"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_absences.wiz_hr_attendance_resume_absence_view_form
+msgid "You are going to generate assignments of absences"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_leave.py:82
+#, python-format
+msgid "You cannot delete an leave type created by the system."
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_attendance.py:17
+#: code:addons/hr_attendance_resume_absences/models/hr_attendance.py:29
+#, python-format
+msgid "You cannot delete the hours imputations resume with date {},  of the employee {}, because he has assigned an allocation"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_leave.py:60
+#, python-format
+msgid "days"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: code:addons/hr_attendance_resume_absences/models/hr_leave.py:57
+#, python-format
+msgid "hours"
+msgstr ""
+
+#. module: hr_attendance_resume_absences
+#: model:ir.model,name:hr_attendance_resume_absences.model_hr_attendance_resume
+msgid "hr.attendance.resume"
+msgstr ""
+

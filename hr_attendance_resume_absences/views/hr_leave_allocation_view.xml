@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_leave_allocation_view_tree" model="ir.ui.view">
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_tree" />
+        <field name="arch" type="xml">
+            <field name="duration_display" position="after">
+                <field name="created_from_attendance_resume" />
+                <field name="creation_date_from_resume" />
+                <field name="difference_hours" widget="float_time"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_hr_leave_allocation_filter" model="ir.ui.view">
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.view_hr_leave_allocation_filter" />
+        <field name="arch" type="xml">
+            <field name="accrual" position="after">
+                <field name="creation_date_from_resume" />
+                <separator/>
+                <filter name="filter-created-from" string="Created from attendance resume"
+                    domain="[('created_from_attendance_resume', '=', True)]" />
+                <filter name="filter-no-created-from" string="No created from attendance resume"
+                    domain="[('created_from_attendance_resume', '=', False)]" />
+            </field>
+            <filter name="group_type" position="after">
+                <filter string="Created from attendance resume" name="group-created-from" domain="[]" context="{'group_by':'created_from_attendance_resume'}"/>
+                <filter string="Creation date from resume" name="group-resume-date" domain="[]" context="{'group_by':'creation_date_from_resume'}"/>
+            </filter>
+        </field>
+    </record>
+    <record id="hr_leave_allocation_view_form" model="ir.ui.view">
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form" />
+        <field name="arch" type="xml">
+            <group name="alloc_right_col" position="before">
+                <group name="attendance-resume-info">
+                    <field name="created_from_attendance_resume" readonly="1"/>
+                    <field name="creation_date_from_resume" readonly="1"/>
+                    <field name="difference_hours" widget="float_time" readonly="1"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
