@@ -1,0 +1,262 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_attendance_leave_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-25 07:17+0000\n"
+"PO-Revision-Date: 2024-10-25 07:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_leave_report
+#: model:ir.actions.server,name:hr_attendance_leave_report.ir_cron_today_in_hr_attendance_leave_report_ir_actions_server
+#: model:ir.cron,cron_name:hr_attendance_leave_report.ir_cron_today_in_hr_attendance_leave_report
+msgid "Activate today's day in Attendances And Absences"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.ui.menu,name:hr_attendance_leave_report.menu_hr_attendance2_report
+msgid "Attendances"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.actions.act_window,name:hr_attendance_leave_report.action_hr_attendance_leave_manager
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_attendance_leave
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_employee__attendance_leave_ids
+#: model:ir.ui.menu,name:hr_attendance_leave_report.menu_hr_attendance_leave_manager
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_calendar_view
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_form_view
+msgid "Attendances And Absences"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance__check_in_without_hour
+msgid "Check In Without Hour"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance__check_out_without_hour
+msgid "Check Out Without Hour"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_contract
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__contract_id
+msgid "Contract"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Day Type"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__day_type
+msgid "Day type"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__department_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Department"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_employee
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__display_name
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__employee_id
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__user_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_leave__date_to_without_hour
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_resource_calendar_leaves__date_to_without_hour
+msgid "End Date Without Hour"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#. odoo-python
+#: code:addons/hr_attendance_leave_report/models/hr_contract.py:0
+#, python-format
+msgid ""
+"Error generating today day in hr_attendance_leave, employee: %(employee)s, "
+"contract: %(contract)s, error: %(error)s."
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__extra_hours
+msgid "Extra hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__calendar_leave_id
+msgid "Festive"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__hours_to_work
+msgid "Hours To Work"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__is_normal_day
+msgid "Is Normal Day"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__leave_type_id
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#. odoo-python
+#: code:addons/hr_attendance_leave_report/models/hr_leave_type.py:0
+#, python-format
+msgid ""
+"Leave type: '%s', exists in any absence of a worker. You can disable this "
+"one, and create a new one."
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__non_remunerated_hours
+msgid "Non Remunerated Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#. odoo-python
+#: code:addons/hr_attendance_leave_report/models/hr_attendance_leave.py:0
+#, python-format
+msgid "Normal Day"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,help:hr_attendance_leave_report.field_hr_attendance_leave__user_id
+msgid "Related user name for the resource to manage its access."
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__remunerated_hours
+msgid "Remunerated Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_resource_calendar_leaves
+msgid "Resource Time Off Detail"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Search Attendances And Absences"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_leave__date_from_without_hour
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_resource_calendar_leaves__date_from_without_hour
+msgid "Start Date Without Hour"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_leave
+msgid "Time Off"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_leave_type
+msgid "Time Off Type"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_tree_view
+msgid "Total Extra Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_tree_view
+msgid "Total Hours To Work"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_tree_view
+msgid "Total Non Remunerated Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_tree_view
+msgid "Total Remunerated Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_tree_view
+msgid "Total Worked Hours"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.actions.act_window,name:hr_attendance_leave_report.action_hr_attendance_leave_user
+#: model:ir.ui.menu,name:hr_attendance_leave_report.menu_hr_attendance_leave
+msgid "User Attendances And Absences"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__work_day
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
+msgid "Work Day"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__worked_hours
+msgid "Worked hours"
+msgstr ""

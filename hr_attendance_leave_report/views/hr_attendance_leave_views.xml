@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="hr_attendance_leave_tree_view">
+        <field name="name">hr.attendance.leave.tree.view</field>
+        <field name="model">hr.attendance.leave</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="work_day" optional="show" />
+                <field name="user_id" optional="show" />
+                <field name="department_id" optional="hide" />
+                <field name="day_type" optional="show" />
+                <field
+          name="hours_to_work"
+          widget="float_time"
+          optional="show"
+          sum="Total Hours To Work"
+        />
+                <field
+          name="worked_hours"
+          widget="float_time"
+          optional="show"
+          sum="Total Worked Hours"
+        />
+                <field
+          name="remunerated_hours"
+          widget="float_time"
+          optional="show"
+          sum="Total Remunerated Hours"
+        />
+                <field
+          name="non_remunerated_hours"
+          widget="float_time"
+          optional="show"
+          sum="Total Non Remunerated Hours"
+        />
+                <field
+          name="extra_hours"
+          widget="float_time"
+          optional="show"
+          sum="Total Extra Hours"
+        />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_leave_form_view">
+       <field name="name">hr.attendance.leave.tree.view</field>
+       <field name="model">hr.attendance.leave</field>
+       <field name="arch" type="xml">
+           <form string="Attendances And Absences">
+               <sheet>
+                   <group>
+                       <group>
+                           <field name="work_day" readonly="1" />
+                           <field name="user_id" readonly="1" />
+                           <field
+                name="contract_id"
+                readonly="1"
+                groups="hr_contract.group_hr_contract_employee_manager"
+              />
+                           <field name="department_id" readonly="1" />
+                       </group>
+                       <group>
+                           <field name="day_type" readonly="1" />
+                           <field
+                name="hours_to_work"
+                readonly="1"
+                widget="float_time"
+              />
+                           <field
+                name="worked_hours"
+                readonly="1"
+                widget="float_time"
+              />
+                           <field
+                name="remunerated_hours"
+                readonly="1"
+                widget="float_time"
+              />
+                           <field
+                name="non_remunerated_hours"
+                readonly="1"
+                widget="float_time"
+              />
+                           <field name="extra_hours" readonly="1" widget="float_time" />
+                       </group>
+                   </group>
+                </sheet>
+           </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_leave_calendar_view">
+        <field name="name">hr.attendance.leave.calendar.view</field>
+        <field name="model">hr.attendance.leave</field>
+        <field name="arch" type="xml">
+            <calendar
+        date_start="work_day"
+        string="Attendances And Absences"
+        color="day_type"
+        mode="month"
+        delete="0"
+        create="0"
+      >
+                <field name="day_type" />
+                <field name="hours_to_work" widget="float_time" />
+                <field name="worked_hours" widget="float_time" />
+                <field name="remunerated_hours" widget="float_time" />
+                <field name="non_remunerated_hours" widget="float_time" />
+                <field name="extra_hours" widget="float_time" />
+                <field name="day_type" filters="1" invisible="1" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="hr_attendance_leave_search_view" model="ir.ui.view">
+        <field name="name">hr.attendance.leave.search.view</field>
+        <field name="model">hr.attendance.leave</field>
+        <field name="arch" type="xml">
+            <search string="Search Attendances And Absences">
+                <field name="work_day" />
+                <field name="user_id" />
+                <field name="department_id" />
+                <field name="day_type" />
+                <group expand="0" string="Group By">
+                    <filter
+            string="Work Day"
+            name="workday"
+            domain="[]"
+            context="{'group_by': 'work_day'}"
+          />
+                    <filter
+            string="Employee"
+            name="userid"
+            domain="[]"
+            context="{'group_by': 'user_id'}"
+          />
+                    <filter
+            string="Department"
+            name="department"
+            domain="[]"
+            context="{'group_by': 'department_id'}"
+          />
+                    <filter
+            string="Day Type"
+            name="day_type"
+            domain="[]"
+            context="{'group_by': 'day_type'}"
+          />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_attendance_leave_user" model="ir.actions.act_window">
+        <field name="name">User Attendances And Absences</field>
+        <field name="res_model">hr.attendance.leave</field>
+        <field name="view_mode">calendar,tree</field>
+        <field name="domain">[('user_id','=',uid)]</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_tree_view"
+    />
+    </record>
+
+    <record
+    id="action_hr_attendance_leave_calendar_user"
+    model="ir.actions.act_window.view"
+  >
+        <field name="sequence" eval="1" />
+        <field name="view_mode">calendar</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_calendar_view"
+    />
+        <field name="act_window_id" ref="action_hr_attendance_leave_user" />
+    </record>
+
+    <record
+    id="action_hr_attendance_leave_tree_user"
+    model="ir.actions.act_window.view"
+  >
+        <field name="sequence" eval="2" />
+        <field name="view_mode">tree</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_tree_view"
+    />
+        <field name="act_window_id" ref="action_hr_attendance_leave_user" />
+    </record>
+
+    <menuitem
+    id="menu_hr_attendance_leave"
+    name="User Attendances And Absences"
+    parent="hr_attendance.menu_hr_attendance_root"
+    sequence="25"
+    groups="base.group_user"
+    action="action_hr_attendance_leave_user"
+  />
+
+    <record id="action_hr_attendance_leave_manager" model="ir.actions.act_window">
+        <field name="name">Attendances And Absences</field>
+        <field name="res_model">hr.attendance.leave</field>
+        <field name="view_mode">tree,calendar</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_tree_view"
+    />
+    </record>
+
+    <record
+    id="action_hr_attendance_leave_tree_manager"
+    model="ir.actions.act_window.view"
+  >
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_tree_view"
+    />
+        <field name="act_window_id" ref="action_hr_attendance_leave_manager" />
+    </record>
+
+    <record
+    id="action_hr_attendance_leave_calendar_manager"
+    model="ir.actions.act_window.view"
+  >
+        <field name="sequence" eval="2" />
+        <field name="view_mode">calendar</field>
+        <field
+      name="view_id"
+      ref="hr_attendance_leave_report.hr_attendance_leave_calendar_view"
+    />
+        <field name="act_window_id" ref="action_hr_attendance_leave_manager" />
+    </record>
+
+    <menuitem
+    id="menu_hr_attendance_leave_manager"
+    name="Attendances And Absences"
+    parent="hr_attendance.menu_hr_attendance_report"
+    sequence="20"
+    groups="hr_attendance.group_hr_attendance_user"
+    action="action_hr_attendance_leave_manager"
+  />
+</odoo>
