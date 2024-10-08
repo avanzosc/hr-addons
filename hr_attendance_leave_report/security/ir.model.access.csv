@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_leave_internal_user,hr.attendance.leave.internal.user,model_hr_attendance_leave,base.group_user,1,1,1,1
+access_hr_attendance_leave_attendance_user,hr.attendance.leave.attendance.user,model_hr_attendance_leave,hr_attendance.group_hr_attendance_user,1,1,1,1
+access_hr_contract_base_group_user,hr.contract.base.group.user,hr_contract.model_hr_contract,base.group_user,1,0,0,0
+access_hr_employee_base_group_user,hr.employee.base.group.user,hr.model_hr_employee,base.group_user,1,0,0,0
