@@ -4,10 +4,23 @@
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
         <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="default_order">saca_id desc</attribute>
+            </tree>
             <field name="task_id" position="after">
                 <field name="saca_id" optional="show" />
                 <field name="saca_line_id" optional="show" />
             </field>
+        </field>
+    </record>
+
+    <record id="view_account_analytic_line_tree" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_line_tree" />
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="default_order">saca_id desc</attribute>
+            </tree>
         </field>
     </record>
 
