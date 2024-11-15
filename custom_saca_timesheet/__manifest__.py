@@ -12,6 +12,7 @@
         "hr_timesheet_activity_begin_end",
         "custom_descarga",
         "hr_timesheet_begin_end_usability",
+        "analytic",
     ],
     "data": [
         "data/project.xml",
