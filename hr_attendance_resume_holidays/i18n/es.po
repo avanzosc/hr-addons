@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_resume_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-18 09:05+0000\n"
+"PO-Revision-Date: 2019-11-18 09:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model,name:hr_attendance_resume_holidays.model_hr_attendance
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: hr_attendance_resume_holidays
+#: model_terms:ir.actions.act_window,help:hr_attendance_resume_holidays.action_open_hr_leave_report_from_manager
+msgid "Create a new leave request"
+msgstr "Crear una nueva petición de ausencia"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_attendance_resume__created_from_holidays
+msgid "Created from holidays"
+msgstr "Creado desde vacaciones"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_leave__date_to
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:17
+#, python-format
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_attendance_resume__holiday_hours
+msgid "Holiday hours"
+msgstr "Horas vacaciones"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model,name:hr_attendance_resume_holidays.model_hr_leave
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_attendance_resume__leave_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_holidays.hr_attendance_resume_view_search
+msgid "Leave"
+msgstr "Ausencia"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_attendance_resume__holiday_status_id
+#: model_terms:ir.ui.view,arch_db:hr_attendance_resume_holidays.hr_attendance_resume_view_search
+msgid "Leave type"
+msgstr "Tipo ausencia"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.actions.act_window,name:hr_attendance_resume_holidays.action_open_hr_leave_report_from_manager
+msgid "Leaves Summary"
+msgstr "Resumen de ausencias"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:9
+#, python-format
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:19
+#, python-format
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_leave__date_from
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.ui.menu,name:hr_attendance_resume_holidays.menu_hr_leave_report_from_manager
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:21
+#, python-format
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model.fields,field_description:hr_attendance_resume_holidays.field_hr_attendance_resume__theoretical_time_final
+msgid "Theoretical time"
+msgstr "Tiempo teorico"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:15
+#, python-format
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:11
+#, python-format
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: hr_attendance_resume_holidays
+#: code:addons/hr_attendance_resume_holidays/_common.py:13
+#, python-format
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: hr_attendance_resume_holidays
+#: model:ir.model,name:hr_attendance_resume_holidays.model_hr_attendance_resume
+msgid "hr.attendance.resume"
+msgstr ""
+
