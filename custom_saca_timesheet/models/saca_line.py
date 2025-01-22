@@ -103,29 +103,6 @@ class SacaLine(models.Model):
                     ],
                 }
             )
-            self.env["project.task"].create(
-                {
-                    "project_id": project.id,
-                    "name": "Matanza(Parte II)",
-                    "saca_line_id": self.id,
-                    "timesheet_ids": [
-                        (
-                            0,
-                            0,
-                            {
-                                "sequence": 5,
-                                "saca_line_id": self.id,
-                                "date": self.saca_id.date,
-                                "date_end": self.saca_id.date,
-                                "name": "{} {}".format(
-                                    project.name, "Matanza(Parte II)"
-                                ),
-                                "project_id": project.id,
-                            },
-                        )
-                    ],
-                }
-            )
             for line in self.timesheet_ids:
                 line.employee_id = False
                 line.user_id = False
