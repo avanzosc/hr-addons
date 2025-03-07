@@ -47,7 +47,7 @@
        <field name="name">hr.attendance.leave.tree.view</field>
        <field name="model">hr.attendance.leave</field>
        <field name="arch" type="xml">
-           <form string="Attendances And Absences">
+           <form string="Time Control">
                <sheet>
                    <group>
                        <group>
@@ -96,7 +96,7 @@
         <field name="arch" type="xml">
             <calendar
         date_start="work_day"
-        string="Attendances And Absences"
+        string="Time Control"
         color="day_type"
         mode="month"
         delete="0"
@@ -117,7 +117,7 @@
         <field name="name">hr.attendance.leave.search.view</field>
         <field name="model">hr.attendance.leave</field>
         <field name="arch" type="xml">
-            <search string="Search Attendances And Absences">
+            <search string="Search Time Control">
                 <field name="work_day" />
                 <field name="user_id" />
                 <field name="department_id" />
@@ -199,7 +199,7 @@
   />
 
     <record id="action_hr_attendance_leave_manager" model="ir.actions.act_window">
-        <field name="name">Attendances And Absences</field>
+        <field name="name">Time Control</field>
         <field name="res_model">hr.attendance.leave</field>
         <field name="view_mode">tree,calendar</field>
         <field
@@ -236,7 +236,7 @@
 
     <menuitem
     id="menu_hr_attendance_leave_manager"
-    name="Attendances And Absences"
+    name="Time Control"
     parent="hr_attendance.menu_hr_attendance_report"
     sequence="20"
     groups="hr_attendance.group_hr_attendance_user"
