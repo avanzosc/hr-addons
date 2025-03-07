@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 07:17+0000\n"
-"PO-Revision-Date: 2024-10-25 07:17+0000\n"
+"POT-Creation-Date: 2025-03-07 06:55+0000\n"
+"PO-Revision-Date: 2025-03-07 06:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -32,12 +32,8 @@ msgid "Attendances"
 msgstr ""
 
 #. module: hr_attendance_leave_report
-#: model:ir.actions.act_window,name:hr_attendance_leave_report.action_hr_attendance_leave_manager
 #: model:ir.model,name:hr_attendance_leave_report.model_hr_attendance_leave
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_employee__attendance_leave_ids
-#: model:ir.ui.menu,name:hr_attendance_leave_report.menu_hr_attendance_leave_manager
-#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_calendar_view
-#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_form_view
 msgid "Attendances And Absences"
 msgstr ""
 
@@ -57,7 +53,6 @@ msgid "Company"
 msgstr ""
 
 #. module: hr_attendance_leave_report
-#: model:ir.model,name:hr_attendance_leave_report.model_hr_contract
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__contract_id
 msgid "Contract"
 msgstr ""
@@ -98,6 +93,11 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_attendance_leave_report
+#: model:ir.model,name:hr_attendance_leave_report.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_attendance_leave_report
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_leave__date_to_without_hour
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_resource_calendar_leaves__date_to_without_hour
 msgid "End Date Without Hour"
@@ -105,6 +105,7 @@ msgstr ""
 
 #. module: hr_attendance_leave_report
 #. odoo-python
+#: code:addons/hr_attendance_leave_report/models/hr_contract.py:0
 #: code:addons/hr_attendance_leave_report/models/hr_contract.py:0
 #, python-format
 msgid ""
@@ -165,6 +166,7 @@ msgstr ""
 #. module: hr_attendance_leave_report
 #. odoo-python
 #: code:addons/hr_attendance_leave_report/models/hr_leave_type.py:0
+#: code:addons/hr_attendance_leave_report/models/hr_leave_type.py:0
 #, python-format
 msgid ""
 "Leave type: '%s', exists in any absence of a worker. You can disable this "
@@ -178,6 +180,7 @@ msgstr ""
 
 #. module: hr_attendance_leave_report
 #. odoo-python
+#: code:addons/hr_attendance_leave_report/models/hr_attendance_leave.py:0
 #: code:addons/hr_attendance_leave_report/models/hr_attendance_leave.py:0
 #, python-format
 msgid "Normal Day"
@@ -200,13 +203,21 @@ msgstr ""
 
 #. module: hr_attendance_leave_report
 #: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_search_view
-msgid "Search Attendances And Absences"
+msgid "Search Time Control"
 msgstr ""
 
 #. module: hr_attendance_leave_report
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_leave__date_from_without_hour
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_resource_calendar_leaves__date_from_without_hour
 msgid "Start Date Without Hour"
+msgstr ""
+
+#. module: hr_attendance_leave_report
+#: model:ir.actions.act_window,name:hr_attendance_leave_report.action_hr_attendance_leave_manager
+#: model:ir.ui.menu,name:hr_attendance_leave_report.menu_hr_attendance_leave_manager
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_calendar_view
+#: model_terms:ir.ui.view,arch_db:hr_attendance_leave_report.hr_attendance_leave_form_view
+msgid "Time Control"
 msgstr ""
 
 #. module: hr_attendance_leave_report
