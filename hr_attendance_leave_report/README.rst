@@ -6,8 +6,8 @@
 Hr attendance leave report
 ==========================
 
-* For users in Attendances new menu option: "User Attendances And Absences", the
-  user can see their own attendances and absences.
+* For users in Attendances new menu option: "Time Control", the user can see
+  their own attendances and absences.
 * For manager in Attendances, Reporting, new menu option: "Time Control", for
   see all users attendances and Absences.
 * With this new option, the worker's information will be displayed, with days
