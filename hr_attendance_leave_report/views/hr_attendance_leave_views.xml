@@ -153,7 +153,7 @@
     </record>
 
     <record id="action_hr_attendance_leave_user" model="ir.actions.act_window">
-        <field name="name">User Attendances And Absences</field>
+        <field name="name">Time Control</field>
         <field name="res_model">hr.attendance.leave</field>
         <field name="view_mode">calendar,tree</field>
         <field name="domain">[('user_id','=',uid)]</field>
@@ -191,7 +191,7 @@
 
     <menuitem
     id="menu_hr_attendance_leave"
-    name="User Attendances And Absences"
+    name="Time Control"
     parent="hr_attendance.menu_hr_attendance_root"
     sequence="25"
     groups="base.group_user"
