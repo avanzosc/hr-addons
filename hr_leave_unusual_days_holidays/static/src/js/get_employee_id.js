@@ -1,4 +1,4 @@
-odoo.define("your_module.fetch_unusual_days", function (require) {
+odoo.define("hr_leave_unusual_days_holidays.fetch_unusual_days", function (require) {
   "use strict";
 
   const CalendarModel = require("@web/views/calendar/calendar_model");
