@@ -4,6 +4,10 @@ odoo.define("hr_leave_unusual_days_holidays.fetch_unusual_days", function (requi
   const CalendarModel = require("@web/views/calendar/calendar_model");
   const {serializeDateTime} = require("@web/core/l10n/dates");
 
+  if (!CalendarModel || !CalendarModel.prototype) {
+    return;
+  }
+
   /**
    * Modify the fetchUnusualDays method of the CalendarModel to add context properties
    */
