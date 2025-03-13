@@ -1,9 +1,6 @@
-/** @odoo-module **/
-
-odoo.define("hr_attendance.my_attendances", function (require) {
+odoo.define("hr_attendance_reason_custom.my_attendances", function (require) {
   "use strict";
   const MyAttendances = require("hr_attendance.my_attendances");
-  const {_t} = require("web.core");
 
   MyAttendances.include({
     update_attendance: function () {
@@ -44,11 +41,9 @@ odoo.define("hr_attendance.my_attendances", function (require) {
               ((this.employee.attendance_state === "checked_out" && hasEntryReasons) ||
                 (this.employee.attendance_state === "checked_in" && hasExitReasons))
             ) {
-              this.displayNotification({
-                title: _t("Please, select a reason"),
-                type: "danger",
-              });
+              superCallback();
             } else {
+              this.employee.required_reason_on_attendance_screen = false;
               superCallback();
             }
           });
