@@ -1,12 +1,13 @@
-odoo.define("hr_attendance_reason_custom.my_attendances", function (require) {
+odoo.define("hr_attendance_reason_custom.kiosk_confirm", function (require) {
   "use strict";
-  const MyAttendances = require("hr_attendance.my_attendances");
 
-  MyAttendances.include({
-    update_attendance: function () {
+  const KioskConfirm = require("hr_attendance.kiosk_confirm");
+
+  KioskConfirm.include({
+    update_attendance: function (event_func) {
       this.attendance_reason_id = parseInt(this.$(".o_hr_attendance_reason").val(), 10);
 
-      const superCallback = this._super.bind(this);
+      const superCallback = this._super ? this._super.bind(this) : function () {};
 
       // Save the current value of required_reason_on_attendance_screen
       const wasRequiredReason = this.employee.required_reason_on_attendance_screen;
@@ -45,18 +46,17 @@ odoo.define("hr_attendance_reason_custom.my_attendances", function (require) {
               ((this.employee.attendance_state === "checked_out" && hasEntryReasons) ||
                 (this.employee.attendance_state === "checked_in" && hasExitReasons))
             ) {
-              superCallback();
+              superCallback(event_func);
             } else {
               this.employee.required_reason_on_attendance_screen = false;
-              superCallback();
+              superCallback(event_func);
+              // Restore the original value of required_reason_on_attendance_screen
+              this.employee.required_reason_on_attendance_screen = wasRequiredReason;
             }
-
-            // Restore the original value of required_reason_on_attendance_screen
-            this.employee.required_reason_on_attendance_screen = wasRequiredReason;
           });
         } else {
           this.employee.required_reason_on_attendance_screen = false;
-          superCallback();
+          superCallback(event_func);
 
           // Restore the original value of required_reason_on_attendance_screen
           this.employee.required_reason_on_attendance_screen = wasRequiredReason;
