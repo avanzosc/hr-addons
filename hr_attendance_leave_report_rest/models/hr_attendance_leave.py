@@ -13,9 +13,9 @@ class HrAttendanceLeave(models.Model):
         rest_hours = self._catch_rest_hours_on_work_date(employee, work_date)
         vals["rest_hours"] = rest_hours
         if rest_hours > 0.25:
-            diff = rest_hours - 0.25
-            vals["worked_hours"] = vals.get("worked_hours") - diff
-            vals["extra_hours"] = vals.get("extra_hours") - diff
+            vals["worked_hours"] = vals.get("worked_hours") + 0.25
+        else:
+            vals["worked_hours"] = vals.get("worked_hours") + rest_hours
         return contract, vals
 
     def _catch_worked_hours_on_work_date(self, employee, work_date):
