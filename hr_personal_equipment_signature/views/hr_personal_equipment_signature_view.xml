@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+   <record
+    id="view_hr_personal_equipment_request_form_inherit_signature"
+    model="ir.ui.view"
+  >
+    <field name="name">hr.personal.equipment.request.form.signature</field>
+    <field name="model">hr.personal.equipment.request</field>
+    <field
+      name="inherit_id"
+      ref="hr_personal_equipment_request.hr_personal_equipment_request_form_view"
+    />
+    <field name="arch" type="xml">
+        <xpath expr="//sheet/group" position="inside">
+            <group>
+                <field
+            name="signature"
+            widget="signature"
+            options="{'width': 400, 'height': 150}"
+          />
+            </group>
+        </xpath>
+    </field>
+</record>
+</odoo>
