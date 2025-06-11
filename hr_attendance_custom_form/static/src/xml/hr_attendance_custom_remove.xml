@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template>
+    <t t-name="hr_attendance_custom_form.FormControlPanelRemoved" t-inherit="web.FormControlPanel" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div" position="after">
+            <div class="env_debug">
+                <t t-if="env.config">
+                    <t t-foreach="Object.keys(env.config)" t-as="key" t-key="key">
+                        <p><t t-esc="key" />: <t t-esc="env.config[key]" /></p>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="hr_attendance_custom_form.ControlPanelRemoved" t-inherit="web.ControlPanel" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div" position="after">
+            <div class="env_debug">
+                <t t-if="env.config">
+                    <t t-foreach="Object.keys(env.config)" t-as="key" t-key="key">
+                        <p><t t-esc="key" />: <t t-esc="env.config[key]" /></p>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="hr_attendance_custom_form.NavBarRemoved" t-inherit="web.NavBar" t-inherit-mode="extension" owl="1">
+        <xpath expr="//header" position="after">
+            <div class="env_debug">
+                <t t-if="env.config">
+                    <t t-foreach="Object.keys(env.config)" t-as="key" t-key="key">
+                        <p><t t-esc="key" />: <t t-esc="env.config[key]" /></p>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </t>
+</template>
