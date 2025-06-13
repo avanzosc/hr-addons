@@ -7,17 +7,23 @@
                     <div class="row g-0">
                         <div class="col-12 mb8 mt8">
                             <input
-                                class="o_hr_attendance_PINbox border-0 bg-white fs-1 text-center"
-                                type="password"
-                                disabled="true"
-                            />
+                class="o_hr_attendance_PINbox border-0 bg-white fs-1 text-center"
+                type="password"
+                disabled="true"
+              />
                         </div>
                     </div>
                         <div class="row g-0">
-<t t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', ['C', 'btn-warning'], '0', ['ok', 'btn-primary'], ['Go to employee profile', 'btn-secondary o_hr_attendance_pin_pad_button_Go_to_employee_profile'], ['Go to calendar', 'btn-secondary o_hr_attendance_pin_pad_button_Go_to_calendar']]" t-as="btn_name">
+<t
+              t-foreach="['1', '2', '3', '4', '5', '6', '7', '8', '9', ['C', 'btn-warning'], '0', ['ok', 'btn-primary'], ['Go to employee profile', 'btn-secondary o_hr_attendance_pin_pad_button_Go_to_employee_profile'], ['Go to calendar', 'btn-secondary o_hr_attendance_pin_pad_button_Go_to_calendar']]"
+              t-as="btn_name"
+            >
                                 <div class="col-4 p-1">
-                                    <a href="#" t-attf-class="o_hr_attendance_PINbox_button btn {{btn_name[1]? btn_name[1] : 'btn-secondary border'}} btn-block btn-lg {{ 'o_hr_attendance_pin_pad_button_' + btn_name[0] }} d-flex align-items-center justify-content-center">
-                                        <t t-esc="btn_name[0]"/>
+                                    <a
+                  href="#"
+                  t-attf-class="o_hr_attendance_PINbox_button btn {{btn_name[1]? btn_name[1] : 'btn-secondary border'}} btn-block btn-lg {{ 'o_hr_attendance_pin_pad_button_' + btn_name[0] }} d-flex align-items-center justify-content-center"
+                >
+                                        <t t-esc="btn_name[0]" />
                                     </a>
                                 </div>
                             </t>

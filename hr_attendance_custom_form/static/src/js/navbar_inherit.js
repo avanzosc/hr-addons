@@ -1,18 +1,24 @@
-/** @odoo-module **/
+odoo.define(
+  "hr_attendance_custom_form.systray_items_patch",
+  ["web.NavBar", "web.utils"],
+  function (require) {
+    "use strict";
 
-import { NavBar as parentNavBar } from "@web/webclient/navbar/navbar";
-import { patch } from "@web/core/utils/patch";
+    const NavBar = require("web.NavBar");
+    const {patch} = require("web.utils");
 
-patch(parentNavBar.prototype, "hr_attendance_custom_form.systray_items_patch", {
-    get systrayItems() {
-        const menuItems = this._super();
+    patch(NavBar.prototype, "hr_attendance_custom_form.systray_items_patch", {
+      get systrayItems() {
+        const menuItems = this._super(...arguments);
         console.log("Original systrayItems:", menuItems);
         if (!Array.isArray(menuItems)) {
-            console.warn("systrayItems is not an array or is undefined:", menuItems);
-            return [];
+          console.warn("systrayItems is not an array or is undefined:", menuItems);
+          return [];
         }
-        const filteredItems = menuItems.filter(item => item.key === "web.user_menu");
+        const filteredItems = menuItems.filter((item) => item.key === "web.user_menu");
         console.log("Filtered systrayItems (web.user_menu):", filteredItems);
         return filteredItems;
-    }
-});
+      },
+    });
+  }
+);
