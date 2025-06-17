@@ -7,6 +7,7 @@ Hr Personal Equipment Signature
 ===============================
 
 * Adds a signature field to personal equipment request
+* Adds validation to prevent accepting a request without a signature
 
 Bug Tracker
 ===========
@@ -26,4 +27,5 @@ Contributors
 
 * Ana Juaristi <anajuaristi@avanzosc.es>
 * Aner Arregi <aneravanzosc@gmail.com>
+* Ane Gurruchaga <aneavanzosc@gmail.com>
 
