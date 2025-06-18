@@ -1,0 +1,12 @@
+<odoo>
+  <record id="view_analytic_line_form_estimated_sale" model="ir.ui.view">
+    <field name="name">account.analytic.line.form.estimated.sale</field>
+    <field name="model">account.analytic.line</field>
+    <field name="inherit_id" ref="hr_timesheet.timesheet_view_form_user" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='unit_amount']" position="after">
+        <field name="estimated_sale_amount" string="Importe estimado venta" />
+      </xpath>
+    </field>
+  </record>
+</odoo>
