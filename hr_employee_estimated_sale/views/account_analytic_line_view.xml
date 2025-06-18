@@ -2,10 +2,10 @@
   <record id="view_account_analytic_line_form_estimated_sale" model="ir.ui.view">
     <field name="name">account.analytic.line.form.estimated.sale</field>
     <field name="model">account.analytic.line</field>
-    <field name="inherit_id" ref="analytic.view_account_analytic_line_form" />
+    <field name="inherit_id" ref="analytic.view_account_analytic_line_form"/>
     <field name="arch" type="xml">
-      <xpath expr="//group[@name='amount']" position="inside">
-        <field name="estimated_sale_amount" string="Importe estimado venta" />
+      <xpath expr="//field[@name='amount']" position="after">
+        <field name="estimated_sale_amount" string="Importe estimado venta"/>
       </xpath>
     </field>
   </record>
