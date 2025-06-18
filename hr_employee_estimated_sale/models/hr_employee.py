@@ -1,9 +1,9 @@
-from odoo import fields, models
-
+from odoo import models, fields
 
 class HrEmployee(models.Model):
-    _inherit = "hr.employee"
+    _inherit = 'hr.employee'
 
     estimated_sale_price = fields.Monetary(
-        string="Precio estimado venta", currency_field="currency_id"
+        string='Precio estimado venta',
+        currency_field='currency_id'
     )
