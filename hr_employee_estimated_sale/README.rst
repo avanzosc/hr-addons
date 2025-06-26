@@ -5,7 +5,8 @@ HR Employee Estimated Sale
 * Adds a new field in Employee: "Estimated Sale Price".
 * Adds a new computed field in Analytic Lines: "Estimated Sale Amount".
 * "Estimated Sale Amount" is calculated as: `unit_amount * employee.estimated_sale_price`.
-* The field is stored and visible on the analytic line form.
+* The field is stored and visible on the analytic line form and list views (optional in tree view).
+
 
 Bug Tracker
 ===========
