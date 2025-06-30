@@ -7,7 +7,7 @@
   >
         <xpath expr="//header" position="replace">
             <t
-              t-if="this.__owl__.app.env.services.user.userId === 65"
+              t-if="this.__owl__.app.env.services.user.is_punching_user"
             >
                 <header class="o_navbar" t-ref="root">
                 <nav class="o_main_navbar" data-command-category="navbar">
@@ -83,7 +83,7 @@
   >
         <xpath expr="//div" position="replace">
             <t
-              t-if="this.__owl__.app.env.services.user.userId === 65"
+              t-if="this.__owl__.app.env.services.user.is_punching_user"
             >
             </t>
             <t t-else="">
@@ -146,7 +146,7 @@
     t-inherit-mode="extension"
   >
         <xpath expr="//div" position="replace">
-            <t t-if="this.__owl__.app.env.services.user.userId === 65">
+            <t t-if="this.__owl__.app.env.services.user.is_punching_user">
             </t>
             <t t-else="">
                 <div class="o_control_panel" t-ref="root">

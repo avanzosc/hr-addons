@@ -13,6 +13,9 @@
             "hr_attendance_custom_form/static/src/xml/**/*",
         ],
     },
+    'data': [
+        'views/res_users_views.xml',
+    ],
     "installable": True,
     "application": False,
     "auto_install": False,
