@@ -23,7 +23,7 @@ class AccountAnalyticLine(models.Model):
             start = timedelta(hours=line.time_start)
             stop = timedelta(hours=line.time_stop)
             hours = (stop - start).seconds / 3600
-            if stop < start:
+            if stop < start and line.time_stop != 0.0:
                 line.date_end = line.date + timedelta(days=1)
                 hours = (stop + timedelta(hours=24) - start).seconds / 3600
             rounding = self.env.ref("uom.product_uom_hour").rounding
