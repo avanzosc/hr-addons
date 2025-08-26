@@ -6,12 +6,17 @@ from odoo import _, api, fields, models
 class HrAttendanceLeave(models.Model):
     _name = "hr.attendance.leave"
     _description = "Attendances And Absences"
-    _rec_name = "day_type"
-    _order = "work_day desc, display_name asc"
+    _order = "work_day desc, employee_id asc"
 
-    work_day = fields.Date(copy=False, index=True)
+    work_day = fields.Date(
+        copy=False,
+        index=True,
+    )
     employee_id = fields.Many2one(
-        string="Employee", comodel_name="hr.employee", copy=False, index=True
+        string="Employee",
+        comodel_name="hr.employee",
+        copy=False,
+        index=True,
     )
     company_id = fields.Many2one(
         string="Company",
@@ -28,10 +33,15 @@ class HrAttendanceLeave(models.Model):
         related="employee_id.user_id",
     )
     display_name = fields.Char(
-        string="Employee", related="user_id.name", copy=False, store=True
+        string="Employee",
+        related="user_id.name",
+        copy=False,
+        store=True,
     )
     contract_id = fields.Many2one(
-        string="Contract", comodel_name="hr.contract", copy=False
+        string="Contract",
+        comodel_name="hr.contract",
+        copy=False,
     )
     department_id = fields.Many2one(
         string="Department",
@@ -40,18 +50,42 @@ class HrAttendanceLeave(models.Model):
         store=True,
         copy=False,
     )
-    day_type = fields.Char(string="Day type", copy=False, translate=True)
-    is_normal_day = fields.Boolean(default=False, copy=False)
+    day_type = fields.Char(
+        string="Day type",
+        copy=False,
+        translate=True,
+    )
+    is_normal_day = fields.Boolean(
+        default=False,
+        copy=False,
+    )
     leave_type_id = fields.Many2one(
-        string="Leave Type", comodel_name="hr.leave.type", copy=False
+        string="Leave Type",
+        comodel_name="hr.leave.type",
+        copy=False,
     )
     calendar_leave_id = fields.Many2one(
-        string="Festive", comodel_name="resource.calendar.leaves", copy=False
+        string="Festive",
+        comodel_name="resource.calendar.leaves",
+        copy=False,
     )
-    hours_to_work = fields.Float(default=0.0, copy=False)
-    worked_hours = fields.Float(string="Worked hours", default=0.0, copy=False)
-    remunerated_hours = fields.Float(default=0.0, copy=False)
-    non_remunerated_hours = fields.Float(default=0.0, copy=False)
+    hours_to_work = fields.Float(
+        default=0.0,
+        copy=False,
+    )
+    worked_hours = fields.Float(
+        string="Worked hours",
+        default=0.0,
+        copy=False,
+    )
+    remunerated_hours = fields.Float(
+        default=0.0,
+        copy=False,
+    )
+    non_remunerated_hours = fields.Float(
+        default=0.0,
+        copy=False,
+    )
     extra_hours = fields.Float(
         compute="_compute_attendance_leave_info",
         compute_sudo=True,
