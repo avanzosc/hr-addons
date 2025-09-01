@@ -38,17 +38,31 @@ class AccountAnalyticLine(models.Model):
                 speed = line.saca_line_id.download_unit / line.unit_amount
             line.speed = speed
 
-    @api.onchange("time_start", "time_stop")
-    def onchange_time_start(self):
+    @api.onchange("time_start", "time_stop", "date", "date_end")
+    def onchange_time_date_start_stop(self):
         chofer = self.saca_line_id.timesheet_ids.filtered(
             lambda c: c.task_id.name == "Chofer"
         )
-        if self.time_stop > self.time_start:
-            self.date_end = self.date
-        if chofer and self.time_start < chofer.time_start:
-            self.date = chofer.date + timedelta(days=1)
-        if chofer and self.time_stop < chofer.time_start:
-            self.date_end = chofer.date + timedelta(days=1)
+        espera = self.saca_line_id.timesheet_ids.filtered(
+            lambda c: c.task_id.name == "Espera"
+        )
+        matanza = self.saca_line_id.timesheet_ids.filtered(
+            lambda c: c.task_id.name == "Matanza"
+        )
+        for line in self:
+            if "Chofer" in line.task_id.name:
+                espera.time_start = line.time_stop
+                espera.date = line.date_end
+            if "Matanza" in line.task_id.name:
+                espera.time_stop = line.time_start
+                espera.date_end = line.date
+            if "Espera" in line.task_id.name:
+                line.time_start = chofer.time_stop
+                line.date = chofer.date_end
+                line.time_stop = matanza.time_start
+                line.date_end = matanza.date
+            if line.time_stop < line.time_start and line.date == line.date_end:
+                line.date_end = line.date + timedelta(days=1)
 
     def write(self, values):
         result = super(AccountAnalyticLine, self).write(values)
@@ -98,4 +112,5 @@ class AccountAnalyticLine(models.Model):
                         "unit_amount": amount,
                     }
                 )
+
         return result
