@@ -114,7 +114,7 @@ class HrContract(models.Model):
     def _clean_hr_attendance_leave_info(self):
         for contract in self:
             attendance_leaves = contract.employee_id.attendance_leave_ids.filtered(
-                lambda x: x.contract_id == contract
+                lambda x, contract=contract: x.contract_id == contract
             )
             if attendance_leaves:
                 attendance_leaves.unlink()
@@ -246,7 +246,9 @@ class HrContract(models.Model):
                 except Exception as e:
                     message = _(
                         "Error generating today day in hr_attendance_leave, "
-                        "employee: %(employee)s, contract: %(contract)s, error: %(error)s."
+                        "employee: %(employee)s, "
+                        "contract: %(contract)s, "
+                        "error: %(error)s."
                     ) % {
                         "employee": contract.employee_id.name,
                         "contract": contract.name,
