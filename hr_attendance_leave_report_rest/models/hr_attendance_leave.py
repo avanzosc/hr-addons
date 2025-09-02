@@ -6,7 +6,7 @@ from odoo import fields, models
 class HrAttendanceLeave(models.Model):
     _inherit = "hr.attendance.leave"
 
-    rest_hours = fields.Float(default=0.0, copy=False)
+    rest_hours = fields.Float(default=0.0, copy=False, store=True)
 
     def _initialize_vals(self, employee, work_date):
         contract, vals = super()._initialize_vals(employee, work_date)

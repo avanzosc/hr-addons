@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="hr_attendance_leave_tree_view">
-        <field name="model">hr.attendance.leave</field>
-        <field
+  <record model="ir.ui.view" id="hr_attendance_leave_tree_view">
+    <field name="model">hr.attendance.leave</field>
+    <field
       name="inherit_id"
       ref="hr_attendance_leave_report.hr_attendance_leave_tree_view"
     />
-        <field name="arch" type="xml">
-            <field name="worked_hours" position="after">
-                <field
+    <field name="arch" type="xml">
+      <field name="worked_hours" position="after">
+        <field
           name="rest_hours"
           widget="float_time"
           optional="show"
           sum="Total Rest Hours"
         />
-            </field>
-        </field>
-    </record>
+      </field>
+    </field>
+  </record>
 
-    <record model="ir.ui.view" id="hr_attendance_leave_form_view">
-       <field name="model">hr.attendance.leave</field>
-       <field
+  <record model="ir.ui.view" id="hr_attendance_leave_form_view">
+    <field name="model">hr.attendance.leave</field>
+    <field
       name="inherit_id"
       ref="hr_attendance_leave_report.hr_attendance_leave_form_view"
     />
-       <field name="arch" type="xml">
-           <field name="worked_hours" position="after">
-               <field name="rest_hours" readonly="1" widget="float_time" />
-           </field>
-        </field>
-    </record>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='worked_hours']" position="after">
+        <field name="rest_hours" readonly="1" widget="float_time" />
+      </xpath>
+    </field>
+  </record>
 
-    <record model="ir.ui.view" id="hr_attendance_leave_calendar_view">
-       <field name="model">hr.attendance.leave</field>
-       <field
+  <record model="ir.ui.view" id="hr_attendance_leave_calendar_view">
+    <field name="model">hr.attendance.leave</field>
+    <field
       name="inherit_id"
       ref="hr_attendance_leave_report.hr_attendance_leave_calendar_view"
     />
-       <field name="arch" type="xml">
-           <field name="worked_hours" position="after">
-               <field name="rest_hours" widget="float_time" />
-           </field>
-        </field>
-    </record>
+    <field name="arch" type="xml">
+      <field name="worked_hours" position="after">
+        <field name="rest_hours" widget="float_time" />
+      </field>
+    </field>
+  </record>
 </odoo>
