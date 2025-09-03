@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="print_employee_badge_inherit" inherit_id="hr.print_employee_badge">
+        <xpath expr="//td[img[contains(@t-att-src, 'barcode')]]" position="inside">
+            <div align="center" style="font-size:9pt; margin-top:2pt;">
+                <t t-if="employee.address_home_id and employee.address_home_id.ref">
+                    <t t-esc="employee.address_home_id.ref[-4:]" />
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>
