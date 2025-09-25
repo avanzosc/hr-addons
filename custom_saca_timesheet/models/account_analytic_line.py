@@ -40,29 +40,33 @@ class AccountAnalyticLine(models.Model):
 
     @api.onchange("time_start", "time_stop", "date", "date_end")
     def onchange_time_date_start_stop(self):
-        chofer = self.saca_line_id.timesheet_ids.filtered(
-            lambda c: c.task_id.name == "Chofer"
-        )
-        espera = self.saca_line_id.timesheet_ids.filtered(
-            lambda c: c.task_id.name == "Espera"
-        )
-        matanza = self.saca_line_id.timesheet_ids.filtered(
-            lambda c: c.task_id.name == "Matanza"
-        )
+        if self.saca_line_id:
+            chofer = self.saca_line_id.timesheet_ids.filtered(
+                lambda c: c.task_id.name == "Chofer"
+            )
+            matanza = self.saca_line_id.timesheet_ids.filtered(
+                lambda c: c.task_id.name == "Matanza"
+            )
         for line in self:
-            if "Chofer" in line.task_id.name:
-                espera.time_start = line.time_stop
-                espera.date = line.date_end
-            if "Matanza" in line.task_id.name:
-                espera.time_stop = line.time_start
-                espera.date_end = line.date
-            if "Espera" in line.task_id.name:
-                line.time_start = chofer.time_stop
-                line.date = chofer.date_end
-                line.time_stop = matanza.time_start
-                line.date_end = matanza.date
-            if line.time_stop < line.time_start and line.date == line.date_end:
-                line.date_end = line.date + timedelta(days=1)
+            if line.task_id:
+
+                if "Matanza" in line.task_id.name and chofer:
+                    line.date = (
+                        chofer.date_end + timedelta(days=1)
+                        if line.time_start < chofer.time_stop
+                        else chofer.date_end
+                    )
+                    line.date_end = line.date
+                if "Espera" in line.task_id.name and matanza and chofer:
+                    line.time_start = chofer.time_stop
+                    line.date = chofer.date_end
+                    line.time_stop = matanza.time_start
+                    line.date_end = matanza.date
+
+                if line.time_stop < line.time_start and line.date == line.date_end:
+                    line.date_end = line.date + timedelta(days=1)
+                elif line.time_stop >= line.time_start and line.date != line.date_end:
+                    line.date_end = line.date
 
     def write(self, values):
         result = super(AccountAnalyticLine, self).write(values)
