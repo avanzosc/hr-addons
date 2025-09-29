@@ -1,0 +1,19 @@
+# Copyright 2025 Ane Gurruchaga - AvanzOSC
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
+{
+    "name": "Custom HR Employee Badge",
+    "version": "14.0.1.0.0",
+    "category": "Human Resources/Employees",
+    "license": "AGPL-3",
+    "author": "AvanzOSC",
+    "website": "https://github.com/avanzosc/hr-addons",
+    "depends": [
+        "hr",
+        "hr_employee_badge_address_home",
+    ],
+    "data": [
+        "report/hr_employee_badge.xml",
+    ],
+    "installable": True,
+}
