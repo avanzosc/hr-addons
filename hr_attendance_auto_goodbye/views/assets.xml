@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+    id="assets_backend"
+    name="Auto Goodbye JS"
+    inherit_id="web.assets_backend"
+  >
+        <xpath expr="." position="inside">
+            <script
+        type="text/javascript"
+        src="/hr_attendance_auto_goodbye/static/src/js/auto_goodbye.js"
+      />
+        </xpath>
+    </template>
+</odoo>
