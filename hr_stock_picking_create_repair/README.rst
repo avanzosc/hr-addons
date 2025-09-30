@@ -7,6 +7,7 @@ Hr Stock picking create repair
 ==============================
 
 * Employee in repair order created from picking.
+* When this module is migrated it will be called "repair_hr".
 
 Bug Tracker
 ===========
