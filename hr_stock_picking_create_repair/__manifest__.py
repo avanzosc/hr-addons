@@ -8,12 +8,12 @@
     "author": "Avanzosc",
     "website": "https://github.com/avanzosc/hr-addons",
     "depends": [
-        "stock_picking_create_repair",
+        "repair",
         "hr",
     ],
     "data": [
         "views/repair_order_views.xml",
     ],
     "installable": True,
-    "auto_install": True,
+    "auto_install": False,
 }
