@@ -12,10 +12,10 @@ class HrAttendanceLeave(models.Model):
         contract, vals = super()._initialize_vals(employee, work_date)
         rest_hours = self._catch_rest_hours_on_work_date(employee, work_date)
         vals["rest_hours"] = rest_hours
-        if rest_hours > 0.25:
-            vals["worked_hours"] = vals.get("worked_hours") + 0.25
-        else:
-            vals["worked_hours"] = vals.get("worked_hours") + rest_hours
+        # if rest_hours > 0.25:
+        #     vals["worked_hours"] = vals.get("worked_hours") + 0.25
+        # else:
+        #     vals["worked_hours"] = vals.get("worked_hours") + rest_hours
         return contract, vals
 
     def _catch_worked_hours_on_work_date(self, employee, work_date):
