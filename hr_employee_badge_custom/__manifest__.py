@@ -1,19 +1,19 @@
-# Copyright 2024 Alfredo de la Fuente - AvanzOSC
+# Copyright 2025 Ane Gurruchaga - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 {
-    "name": "HR Stock Picking Create Repair",
+    "name": "Custom HR Employee Badge",
     "version": "14.0.1.0.0",
     "category": "Human Resources/Employees",
     "license": "AGPL-3",
-    "author": "Avanzosc",
+    "author": "AvanzOSC",
     "website": "https://github.com/avanzosc/hr-addons",
     "depends": [
-        "repair",
         "hr",
+        "hr_employee_badge_address_home",
     ],
     "data": [
-        "views/repair_order_views.xml",
+        "report/hr_employee_badge.xml",
     ],
     "installable": True,
-    "auto_install": False,
 }
