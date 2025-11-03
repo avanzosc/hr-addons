@@ -9,13 +9,15 @@
             ${object.equipment_request_id.employee_id.work_email or
             object.equipment_request_id.employee_id.private_email or ''}
         </field>
-        <field name="body_html"><![CDATA[
+        <field
+      name="body_html"
+    ><![CDATA[
             <div>
                 <p>
                     Dear <strong>
                         <a href="${object.get_base_url()}/web#id=${object.equipment_request_id.employee_id.id}&model=hr.employee&view_type=form">
-                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip()) 
-                              if ',' in object.equipment_request_id.employee_id.name 
+                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip())
+                              if ',' in object.equipment_request_id.employee_id.name
                               else object.equipment_request_id.employee_id.name}
                         </a>
                     </strong>,
