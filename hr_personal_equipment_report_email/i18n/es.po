@@ -1,0 +1,221 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_personal_equipment_report_email
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-03 08:20+0000\n"
+"PO-Revision-Date: 2025-11-03 08:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_personal_equipment_report_email
+#: model:mail.template,body_html:hr_personal_equipment_report_email.mail_template_ppe_delivery
+msgid ""
+"\n"
+"            <div>\n"
+"                <p>\n"
+"                    Dear <strong>\n"
+"                        <a href=\"${object.get_base_url()}/web#id=${object.equipment_request_id.employee_id.id}&model=hr.employee&view_type=form\">\n"
+"                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip()) \n"
+"                              if ',' in object.equipment_request_id.employee_id.name \n"
+"                              else object.equipment_request_id.employee_id.name}\n"
+"                        </a>\n"
+"                    </strong>,\n"
+"                </p>\n"
+"\n"
+"                <p>\n"
+"                    Please find attached the list of Personal Protective Equipment (PPE) items delivered to you,\n"
+"                    signed on <strong>${format_date(object.custom_date_done or object.date_done)}</strong>.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"\n"
+"            <div>\n"
+"                <p>\n"
+"                    Estimado/a <strong>\n"
+"                        <a href=\"${object.get_base_url()}/web#id=${object.equipment_request_id.employee_id.id}&model=hr.employee&view_type=form\">\n"
+"                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip()) \n"
+"                              if ',' in object.equipment_request_id.employee_id.name \n"
+"                              else object.equipment_request_id.employee_id.name}\n"
+"                        </a>\n"
+"                    </strong>,\n"
+"                </p>\n"
+"\n"
+"                <p>\n"
+"                    Adjuntamos copia del listado de EPIs que le hemos entregado,\n"
+"                    firmado por usted a fecha <strong>${format_date(object.custom_date_done or object.date_done)}</strong>.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.actions.report,print_report_name:hr_personal_equipment_report_email.action_personal_equipment_report
+msgid ""
+"             'PPR_Request_' + (                 "
+"(object.equipment_request_id.employee_id.name.split(',')[0].strip().replace('"
+" ', '_') + '_' +                  "
+"object.equipment_request_id.employee_id.name.split(',')[1].strip().replace('"
+" ', '_'))                 if ',' in "
+"object.equipment_request_id.employee_id.name                 else "
+"object.equipment_request_id.employee_id.name.strip().replace(' ', '_')"
+"             )         "
+msgstr ""
+"             'Solicitud_EPI_' + (                 "
+"(object.equipment_request_id.employee_id.name.split(',')[0].strip().replace('"
+" ', '_') + '_' +                  "
+"object.equipment_request_id.employee_id.name.split(',')[1].strip().replace('"
+" ', '_'))                 if ',' in "
+"object.equipment_request_id.employee_id.name                 else "
+"object.equipment_request_id.employee_id.name.strip().replace(' ', '_')"
+"             )         "
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"<span style=\"font-style:italic; color:#888;\">No\n"
+"                                    signature available</span>"
+msgstr ""
+"<span style=\"font-style:italic; color:#888;\">No\n"
+"                                    hay firma disponible</span>"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid "<strong>DATE:</strong>"
+msgstr "<strong>FECHA:</strong>"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid "<strong>EMPLOYEE NAME:</strong>"
+msgstr "<strong>NOMBRE EMPLEADO:</strong>"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid "<strong>SECTION:</strong> CLASSIFIED"
+msgstr "<strong>SECCIÓN:</strong> CLASIFICADO"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"<strong>SIGNATURE:</strong>\n"
+"                            <br/>"
+msgstr ""
+"<strong>FIRMA:</strong>\n"
+"                            <br/>"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"Consult any doubts regarding its proper use, and\n"
+"                                ensure its correct condition and maintenance."
+msgstr ""
+"Consultar cualquier duda sobre su correcta utilización, así como\n"
+"                                cuidar de su correcto estado de uso y conservación."
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_move__display_name
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_move__id
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_picking__id
+msgid "ID"
+msgstr "Identificador"
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_move____last_update
+#: model:ir.model.fields,field_description:hr_personal_equipment_report_email.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid "PERSONAL PROTECTIVE EQUIPMENT"
+msgstr ""
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.actions.report,name:hr_personal_equipment_report_email.action_personal_equipment_report
+msgid "Personal Protective Equipment"
+msgstr "Equipo de protección individual"
+
+#. module: hr_personal_equipment_report_email
+#: model:mail.template,subject:hr_personal_equipment_report_email.mail_template_ppe_delivery
+msgid ""
+"Personal Protective Equipment Delivery\n"
+"            Confirmation"
+msgstr ""
+"Confirmación de entrega de\n"
+"            equipo de protección individual"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid "QUANTITY / SIZE / MODEL"
+msgstr "CANTIDAD / TALLA / MODELO"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"Report any loss or damage of the equipment and\n"
+"                                request a replacement immediately."
+msgstr ""
+"Informar en caso de pérdida o deterioro del equipo y \n"
+"                                solicitar uno nuevo de inmediato."
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.model,name:hr_personal_equipment_report_email.model_stock_move
+msgid "Stock Move"
+msgstr "Operaciones"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"Store it at the designated location at the end\n"
+"                                of the workday."
+msgstr ""
+"Guardarlo al finalizar la jornada laboral en el\n"
+"                                lugar asignado para ello."
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"The necessary and precise instructions and\n"
+"                            information for the correct use and maintenance of\n"
+"                            the equipment are provided, along with the\n"
+"                            commitment to use it properly, as stated in Article\n"
+"                            29 of Law 31/95. The undersigned acknowledges having\n"
+"                            been informed about the tasks and areas where the\n"
+"                            equipment must be used, as well as having received\n"
+"                            the necessary instructions and training for its\n"
+"                            proper use, accepting the commitment to:"
+msgstr ""
+"Se acompañan las instrucciones e informaciones precisas y necesarias\n"
+"                            para su correcto uso y mantenimiento con el\n"
+"                            compromiso de utilizarlos correctamente, tal y como se\n"
+"                            indica en el art.  29 de la Ley 31/95. Reconociendo que\n"
+"                            ha sido informado de los trabajos y áreas donde deberá\n"
+"                            utilizarlos, así como de haber recibido las instrucciones\n"
+"                            y formación necesaria para su correcta utilización,\n"
+"                            aceptando el compromiso de:\n"
+
+#. module: hr_personal_equipment_report_email
+#: model:ir.model,name:hr_personal_equipment_report_email.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: hr_personal_equipment_report_email
+#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
+msgid ""
+"Use the equipment whenever accessing areas where\n"
+"                                its use is mandatory."
+msgstr ""
+"Utilizar el equipo siempre que acceda a las zonas y\n"
+"                                áreas de obligado cumplimiento."

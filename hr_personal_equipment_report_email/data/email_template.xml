@@ -1,0 +1,31 @@
+<odoo>
+    <record id="mail_template_ppe_delivery" model="mail.template">
+        <field name="name">PPE Delivery Email</field>
+        <field name="model_id" ref="stock.model_stock_picking" />
+        <field name="subject">Personal Protective Equipment Delivery
+            Confirmation</field>
+        <field name="email_from">${user.email or ''}</field>
+        <field name="email_to">
+            ${object.equipment_request_id.employee_id.work_email or
+            object.equipment_request_id.employee_id.private_email or ''}
+        </field>
+        <field name="body_html"><![CDATA[
+            <div>
+                <p>
+                    Dear <strong>
+                        <a href="${object.get_base_url()}/web#id=${object.equipment_request_id.employee_id.id}&model=hr.employee&view_type=form">
+                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip()) 
+                              if ',' in object.equipment_request_id.employee_id.name 
+                              else object.equipment_request_id.employee_id.name}
+                        </a>
+                    </strong>,
+                </p>
+
+                <p>
+                    Please find attached the list of Personal Protective Equipment (PPE) items delivered to you,
+                    signed on <strong>${format_date(object.custom_date_done or object.date_done)}</strong>.
+                </p>
+            </div>
+        ]]></field>
+    </record>
+</odoo>
