@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="personal_equipment_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="col-6 text-left" name="custom_header">
+                        <t t-set="full_name"
+                            t-value="o.equipment_request_id.employee_id.name" />
+                        <t t-set="surnames"
+                            t-value="full_name.split(',')[0].strip()" />
+                        <t t-set="name"
+                            t-value="full_name.split(',')[1].strip()" />
+                        <p>
+                            <strong>EMPLOYEE NAME:</strong>
+                            <span t-esc="name + ' ' + surnames" />
+                        </p>
+                        <p><strong>SECTION:</strong> CLASSIFIED</p>
+                        <p>
+                            <strong>DATE:</strong>
+                            <t t-if="o.custom_date_done">
+                                <span t-field="o.custom_date_done"
+                                    t-options='{"widget": "date", "format": "dd/MM/yyyy"}' />
+                            </t>
+                            <t
+                                t-elif="o.move_ids_without_package and o.move_ids_without_package[0].date">
+                                <span
+                                    t-field="o.move_ids_without_package[0].date"
+                                    t-options='{"widget": "date", "format": "dd/MM/yyyy"}' />
+                            </t>
+                        </p>
+                        <p>
+                            <strong>SIGNATURE:</strong>
+                            <br />
+                            <t t-if="o.equipment_request_id.signature">
+                                <span t-field="o.equipment_request_id.signature"
+                                    t-options='{"widget": "image", "style": "width: 300px; height: auto; object-fit: contain;"}' />
+                            </t>
+                            <t t-else="">
+                                <span style="font-style:italic; color:#888;">No
+                                    signature available</span>
+                            </t>
+                        </p>
+                    </div>
+                    <table class="table table-sm" name="ppe_table">
+                        <thead>
+                            <tr>
+                                <th>PERSONAL PROTECTIVE EQUIPMENT</th>
+                                <th>QUANTITY / SIZE / MODEL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.move_ids_without_package"
+                                t-as="line">
+                                <tr>
+                                    <t t-set="name_size"
+                                        t-value="line.get_name_and_size()" />
+                                    <td>
+                                        <span t-esc="name_size[0]" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.quantity_done" />
+                                        <span t-esc="name_size[1]" />
+                                        <t t-if="name_size[2]"> - T: <span
+                                                t-esc="name_size[2]" /></t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div class="mt-4 mb-2"
+                        style="font-size:16px; line-height:1.5;">
+                        <p>
+                            The necessary and precise instructions and
+                            information for the correct use and maintenance of
+                            the equipment are provided, along with the
+                            commitment to use it properly, as stated in Article
+                            29 of Law 31/95. The undersigned acknowledges having
+                            been informed about the tasks and areas where the
+                            equipment must be used, as well as having received
+                            the necessary instructions and training for its
+                            proper use, accepting the commitment to:
+                        </p>
+                        <ul style="margin-left:15px;">
+                            <li>Use the equipment whenever accessing areas where
+                                its use is mandatory.</li>
+                            <li>Consult any doubts regarding its proper use, and
+                                ensure its correct condition and maintenance.</li>
+                            <li>Store it at the designated location at the end
+                                of the workday.</li>
+                            <li>Report any loss or damage of the equipment and
+                                request a replacement immediately.</li>
+                        </ul>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="action_personal_equipment_report"
+        model="stock.picking"
+        string="Personal Protective Equipment"
+        report_type="qweb-pdf"
+        name="hr_personal_equipment_report_email.personal_equipment_report_template"
+        file="hr_personal_equipment_report_email.personal_equipment_report_template"
+        print_report_name="
+            'PPR_Request_' + (
+                (object.equipment_request_id.employee_id.name.split(',')[0].strip().replace(' ', '_') + '_' +
+                 object.equipment_request_id.employee_id.name.split(',')[1].strip().replace(' ', '_'))
+                if ',' in object.equipment_request_id.employee_id.name
+                else object.equipment_request_id.employee_id.name.strip().replace(' ', '_')
+            )
+        " />
+</odoo>
