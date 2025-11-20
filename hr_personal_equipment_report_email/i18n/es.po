@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 07:50+0000\n"
-"PO-Revision-Date: 2025-11-10 07:50+0000\n"
+"POT-Creation-Date: 2025-11-20 13:16+0000\n"
+"PO-Revision-Date: 2025-11-20 13:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,8 +23,8 @@ msgid ""
 "                <p>\n"
 "                    Dear <strong>\n"
 "                        <a href=\"${object.get_base_url()}/web#id=${object.equipment_request_id.employee_id.id}&model=hr.employee&view_type=form\">\n"
-"                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip()) \n"
-"                              if ',' in object.equipment_request_id.employee_id.name \n"
+"                            ${(object.equipment_request_id.employee_id.name.split(',')[1].strip() + ' ' + object.equipment_request_id.employee_id.name.split(',')[0].strip())\n"
+"                              if ',' in object.equipment_request_id.employee_id.name\n"
 "                              else object.equipment_request_id.employee_id.name}\n"
 "                        </a>\n"
 "                    </strong>,\n"
@@ -188,6 +188,12 @@ msgid ""
 msgstr ""
 "Guardarlo al finalizar la jornada laboral en el\n"
 "                                lugar asignado para ello."
+
+#. module: hr_personal_equipment_report_email
+#: code:addons/hr_personal_equipment_report_email/models/stock_picking.py:0
+#, python-format
+msgid "The employee %(employee)s has no email address. No email will be sent."
+msgstr "El empleado %(employee)s no tiene correo electrónico definido. No se enviará ningún correo."
 
 #. module: hr_personal_equipment_report_email
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
