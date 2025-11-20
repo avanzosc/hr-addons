@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 import base64
 
-from odoo import models
+from odoo import _, models
 
 
 class StockPicking(models.Model):
@@ -16,6 +16,24 @@ class StockPicking(models.Model):
                 and picking.equipment_request_id.employee_id
             ):
                 employee = picking.equipment_request_id.employee_id
+
+                employee_email = employee.work_email or employee.private_email or False
+
+                if not employee_email:
+                    warning_msg = _(
+                        "The employee %(employee)s has no email address. No email will be sent."
+                    ) % {"employee": employee.name}
+                    return {
+                        "type": "ir.actions.client",
+                        "tag": "display_notification",
+                        "params": {
+                            "title": "No Email Address",
+                            "message": warning_msg,
+                            "type": "warning",
+                            "sticky": False,
+                            "next": {"type": "ir.actions.act_window_close"},
+                        },
+                    }
 
                 if "," in employee.name:
                     parts = [p.strip() for p in employee.name.split(",")]
@@ -31,7 +49,7 @@ class StockPicking(models.Model):
                 report_action = self.env.ref(
                     "hr_personal_equipment_report_email.action_personal_equipment_report"
                 )
-                pdf_content, _ = report_action._render_qweb_pdf([picking.id])
+                pdf_content, pdf = report_action._render_qweb_pdf([picking.id])
 
                 attachment = self.env["ir.attachment"].create(
                     {
