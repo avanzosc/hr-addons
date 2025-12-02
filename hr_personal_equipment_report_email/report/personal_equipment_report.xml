@@ -73,12 +73,23 @@
               t-set="full_name"
               t-value="o.equipment_request_id.employee_id.name"
             />
-                        <t t-set="surnames" t-value="full_name.split(',')[0].strip()" />
-                        <t t-set="name" t-value="full_name.split(',')[1].strip()" />
-                        <p>
-                            <strong>EMPLOYEE NAME:</strong>
-                            <span t-esc="name + ' ' + surnames" />
-                        </p>
+                        <t t-if="',' in full_name">
+                            <t
+                t-set="surnames"
+                t-value="full_name.split(',')[0].strip()"
+              />
+                            <t t-set="name" t-value="full_name.split(',')[1].strip()" />
+                            <p>
+                                <strong>EMPLOYEE NAME:</strong>
+                                <span t-esc="name + ' ' + surnames" />
+                            </p>
+                        </t>
+                        <t t-else="">
+                            <p>
+                                <strong>EMPLOYEE NAME:</strong>
+                                <span t-esc="full_name" />
+                            </p>
+                        </t>
                         <p><strong>SECTION:</strong> CLASSIFIED</p>
                         <p>
                             <strong>DATE:</strong>
