@@ -145,7 +145,7 @@ class HrAttendanceLeave(models.Model):
             and attendance_leave
             and (vals.get("hours_to_work") != 0 or vals.get("worked_hours") != 0)
         ):
-            attendance_leave.write(vals)
+            attendance_leave.with_context(lang=self.env.user.lang).write(vals)
         if (
             contract
             and not attendance_leave
@@ -153,7 +153,7 @@ class HrAttendanceLeave(models.Model):
         ):
             vals["work_day"] = work_date
             vals["employee_id"] = employee.id
-            attendance_leave.create(vals)
+            attendance_leave.with_context(lang=self.env.user.lang).create(vals)
 
     def _initialize_vals(self, employee, work_date):
         hours_to_work, contract = self._catch_hours_of_work_schedule(
