@@ -23,10 +23,16 @@ class HrLeave(models.Model):
                 vals["date_from_without_hour"] = _get_local_date(
                     vals.get("date_from"), self.env.user.tz
                 )
+            else:
+                if "request_date_from" in vals:
+                    vals["date_from_without_hour"] = vals.get("request_date_from")
             if "date_to" in vals:
                 vals["date_to_without_hour"] = _get_local_date(
                     vals.get("date_to"), self.env.user.tz
                 )
+            else:
+                if "request_date_to" in vals:
+                    vals["date_to_without_hour"] = vals.get("request_date_to")
         leaves = super().create(vals_list)
         employees_dates = leaves._catch_employees_check_in_out_dates([])
         if employees_dates:
@@ -39,15 +45,25 @@ class HrLeave(models.Model):
             vals["date_from_without_hour"] = _get_local_date(
                 vals.get("date_from"), self.env.user.tz
             )
+        else:
+            if "request_date_from" in vals:
+                vals["date_from_without_hour"] = vals.get("request_date_from")
         if "date_to" in vals:
             vals["date_to_without_hour"] = _get_local_date(
                 vals.get("date_to"), self.env.user.tz
             )
+        else:
+            if "request_date_to" in vals:
+                vals["date_to_without_hour"] = vals.get("request_date_to")
         employees_dates = self._catch_employees_check_in_out_dates([])
         result = super().write(vals)
         if (
             "date_from_without_hour" in vals
+            or "request_date_from" in vals
             or "date_to_without_hour" in vals
+            or "request_date_to" in vals
+            or "request_hour_from" in vals
+            or "request_hour_to" in vals
             or "state" in vals
         ):
             employees_dates = self._catch_employees_check_in_out_dates(employees_dates)
