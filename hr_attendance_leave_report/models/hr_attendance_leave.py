@@ -89,8 +89,6 @@ class HrAttendanceLeave(models.Model):
         extra_hours = 0
         if self.worked_hours == 0:
             extra_hours = self.hours_to_work * -1
-        elif self.worked_hours <= self.hours_to_work:
-            extra_hours = self.worked_hours - self.hours_to_work
         else:
             extra_hours = self.worked_hours - self.hours_to_work
         return extra_hours
@@ -99,14 +97,12 @@ class HrAttendanceLeave(models.Model):
         extra_hours = 0
         if self.worked_hours == 0:
             extra_hours = (self.hours_to_work - self.remunerated_hours) * -1
-        elif self.worked_hours <= self.remunerated_hours:
-            extra_hours = (
-                self.hours_to_work - self.remunerated_hours + self.worked_hours
-            )
         else:
-            extra_hours = self.worked_hours - (
-                self.hours_to_work - self.remunerated_hours
-            )
+            worked_hours = self.worked_hours + self.remunerated_hours
+            if worked_hours >= self.hours_to_work:
+                extra_hours = worked_hours - self.hours_to_work
+            else:
+                extra_hours = (self.hours_to_work - worked_hours) * -1
         return extra_hours
 
     def _treat_employee_dates(self, employees_dates):
@@ -239,10 +235,7 @@ class HrAttendanceLeave(models.Model):
         if leave:
             hours = vals.get("hours_to_work")
             if leave.holiday_status_id.request_unit != "day":
-                difference = leave.date_to - leave.date_from
-                hours_difference = difference.total_seconds() / 3600
-                if hours_difference < hours:
-                    hours = hours_difference
+                hours = leave.number_of_hours
             vals["leave_type_id"] = leave.holiday_status_id.id
             vals["day_type"] = leave.holiday_status_id.name
             if leave.holiday_status_id.time_type == "other":
