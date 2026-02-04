@@ -10,7 +10,6 @@
     "depends": ["resource", "hr_attendance", "hr_contract", "hr_holidays"],
     "data": [
         "security/ir.model.access.csv",
-        "security/hr_attendance_leave_report_security.xml",
         "data/scheduled_action.xml",
         "views/hr_attendance_views.xml",
         "views/hr_attendance_leave_views.xml",
