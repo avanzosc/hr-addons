@@ -124,7 +124,7 @@ class HrAttendanceLeave(models.Model):
             and not vals.get("calendar_leave_id") not in vals
         ):
             vals["is_normal_day"] = True
-        attendance_leave = employee.attendance_leave_ids.filtered(
+        attendance_leave = employee.sudo().attendance_leave_ids.filtered(
             lambda x: x.work_day == work_date and x.employee_id == employee
         )
         if not contract and attendance_leave:
@@ -170,7 +170,7 @@ class HrAttendanceLeave(models.Model):
         return contract, vals
 
     def _catch_hours_of_work_schedule(self, employee, work_date):
-        contract = employee.contract_ids.filtered(
+        contract = employee.sudo().contract_ids.filtered(
             lambda x: x.company_id == employee.company_id
             and x.state in ("open", "close")
             and x.date_start <= work_date
@@ -191,7 +191,7 @@ class HrAttendanceLeave(models.Model):
         return hours_to_work, contract
 
     def _catch_worked_hours_on_work_date(self, employee, work_date):
-        attendances = employee.attendance_ids.filtered(
+        attendances = employee.sudo().attendance_ids.filtered(
             lambda x: x.check_in_without_hour == work_date and x.check_out_without_hour
         )
         if not attendances:
