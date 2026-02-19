@@ -231,15 +231,18 @@ class HrAttendanceLeave(models.Model):
             ("date_to_without_hour", ">=", work_date),
             ("state", "=", "validate"),
         ]
-        leave = self.env["hr.leave"].search(cond, limit=1)
-        if leave:
-            hours = vals.get("hours_to_work")
-            if leave.holiday_status_id.request_unit != "day":
-                hours = leave.number_of_hours
-            vals["leave_type_id"] = leave.holiday_status_id.id
-            vals["day_type"] = leave.holiday_status_id.name
-            if leave.holiday_status_id.time_type == "other":
-                vals["remunerated_hours"] = hours
-            if leave.holiday_status_id.time_type != "other":
-                vals["non_remunerated_hours"] = hours
+        leaves = self.env["hr.leave"].search(cond)
+        if leaves:
+            names = []
+            for leave in leaves:
+                hours = vals.get("hours_to_work")
+                if leave.holiday_status_id.request_unit != "day":
+                    hours = leave.number_of_hours
+                vals["leave_type_id"] = leave.holiday_status_id.id
+                names.append(leave.holiday_status_id.name)
+                if leave.holiday_status_id.time_type == "other":
+                    vals["remunerated_hours"] += hours
+                else:
+                    vals["non_remunerated_hours"] += hours
+            vals["day_type"] = " + ".join(names)
         return vals
