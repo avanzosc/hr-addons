@@ -1,9 +1,6 @@
-[![Build Status](https://travis-ci.org/avanzosc/hr-addons.svg?branch=16.0)](https://travis-ci.org/avanzosc/hr-addons)
-[![Coverage Status](https://coveralls.io/repos/github/avanzosc/hr-addons/badge.svg?branch=16.0)](https://coveralls.io/github/avanzosc/hr-addons?branch=16.0)
+[![pre-commit](https://github.com/avanzosc/hr-addons/actions/workflows/pre-commit.yml/badge.svg?branch=16.0)](https://github.com/avanzosc/hr-addons/actions/workflows/pre-commit.yml)
 
 HR Odoo addons
 ===============
 
 HR modules for Odoo
-
-
