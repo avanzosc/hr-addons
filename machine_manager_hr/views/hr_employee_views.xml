@@ -7,9 +7,9 @@
             <page name="hr_settings" position="after">
                 <page name="machines" string="Machines the employee works on">
                     <field name="machine_ids" nolabel="1">
-                        <tree name="tree-machines">
+                        <list name="tree-machines">
                             <field name="name" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>

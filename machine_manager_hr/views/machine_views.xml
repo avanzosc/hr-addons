@@ -4,12 +4,12 @@
         <field name="model">machine</field>
         <field name="inherit_id" ref="machine_manager.machine_form_view" />
         <field name="arch" type="xml">
-            <page name="finalcial-details" position="after">
+            <page name="financial-details" position="after">
                 <page name="machine-users" string="Machine Users">
                     <field name="employee_ids" nolabel="1">
-                        <tree name="tree-employee">
+                        <list name="tree-employee">
                             <field name="name" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>
