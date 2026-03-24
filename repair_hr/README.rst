@@ -2,12 +2,12 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-==============================
-Hr Stock picking create repair
-==============================
+=========
+Repair HR
+=========
 
 * Employee in repair order created from picking.
-* When this module is migrated it will be called "repair_hr".
+* Hr Stock Picking Create Repair module renamed to v18.
 
 Bug Tracker
 ===========
