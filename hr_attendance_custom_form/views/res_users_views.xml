@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_inherit_custom_features" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.custom.features</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="is_punching_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
