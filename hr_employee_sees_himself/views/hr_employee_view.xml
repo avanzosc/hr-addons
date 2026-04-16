@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_hr_employee_self" model="ir.actions.act_window">
+        <field name="name">My Employee</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+    <menuitem
+        id="menu_hr_employee_self"
+        name="My Employee"
+        parent="hr.menu_hr_root"
+        action="action_hr_employee_self"
+        groups="hr_employee_sees_himself.group_hr_employee_self"
+        sequence="1"/>
+
+</odoo>
