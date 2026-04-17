@@ -2,6 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import _, api, fields, models
 
+from .._common import _catch_employees_dates_to_treat
+
 
 class HrAttendanceLeave(models.Model):
     _name = "hr.attendance.leave"
@@ -113,6 +115,8 @@ class HrAttendanceLeave(models.Model):
                 )
 
     def _update_attendance_leave_info(self, employee, work_date):
+        if not employee or not employee.user_id:
+            return
         contract, vals = self._initialize_vals(employee, work_date)
         if contract:
             vals = self._get_festive(contract, work_date, vals)
@@ -246,3 +250,11 @@ class HrAttendanceLeave(models.Model):
                     vals["non_remunerated_hours"] += hours
             vals["day_type"] = " + ".join(names)
         return vals
+
+    def recaculate_hr_attendance_leave(self):
+        for record in self:
+            employees_dates = []
+            employees_dates = _catch_employees_dates_to_treat(
+                employees_dates, record.employee_id, record.work_day, record.work_day
+            )
+            self.env["hr.attendance.leave"]._treat_employee_dates(employees_dates)

@@ -272,3 +272,9 @@ msgstr "Día trabajo"
 #: model:ir.model.fields,field_description:hr_attendance_leave_report.field_hr_attendance_leave__worked_hours
 msgid "Worked hours"
 msgstr "Horas trabajadas"
+
+#. module: hr_attendance_leave_report
+#: model:ir.actions.server,name:hr_attendance_leave_report.action_recaculate_hr_attendance_leave
+msgid "Recalculate Day/Worker"
+msgstr "Recalcular Día/Trabajador"
+

@@ -14,6 +14,8 @@ Hr attendance leave report
   worked, holidays, and absences.
 * As a condition... that the worker has an assigned contract.
 * New Scheduled Action "Activate today's day in Attendances And Absences".
+* New server action "Recalculate Day/Worker" in "Attendances And Absences"
+  object.
 
 
 Bug Tracker
