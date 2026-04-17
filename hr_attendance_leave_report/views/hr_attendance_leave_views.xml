@@ -223,4 +223,23 @@
     groups="hr_attendance.group_hr_attendance_officer"
     action="action_hr_attendance_leave_manager"
   />
+
+  <record id="action_recaculate_hr_attendance_leave" model="ir.actions.server">
+    <field name="name">Recalculate Day/Worker</field>
+    <field name="model_id" ref="hr_attendance_leave_report.model_hr_attendance_leave" />
+    <field
+      name="binding_model_id"
+      ref="hr_attendance_leave_report.model_hr_attendance_leave"
+    />
+    <field
+      name='groups_id'
+      eval="[(4, ref('hr_attendance.group_hr_attendance_officer'))]"
+    />
+    <field name="state">code</field>
+    <field name="sequence">10</field>
+    <field name="code">
+            if records:
+                action = records.recaculate_hr_attendance_leave()
+        </field>
+  </record>
 </odoo>
