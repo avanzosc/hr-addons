@@ -7,6 +7,7 @@ HR Employee Sees Himself
 ========================
 
 * New group for users to see only himself in employees.
+* New group for users to see employees public views.
 
 Bug Tracker
 ===========

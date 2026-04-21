@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-16 14:02+0000\n"
-"PO-Revision-Date: 2026-04-16 14:02+0000\n"
+"POT-Creation-Date: 2026-05-12 10:33+0000\n"
+"PO-Revision-Date: 2026-05-12 10:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: hr_employee_sees_himself
+#: model:res.groups,name:hr_employee_sees_himself.group_hr_employee_public
+msgid "Employee public group"
+msgstr "Grupo para empleado público"
 
 #. module: hr_employee_sees_himself
 #: model:res.groups,name:hr_employee_sees_himself.group_hr_employee_self
@@ -25,3 +30,8 @@ msgstr "Ver sólo su propio empleado"
 #: model:ir.ui.menu,name:hr_employee_sees_himself.menu_hr_employee_self
 msgid "My Employee"
 msgstr "Mi empleado"
+
+#. module: hr_employee_sees_himself
+#: model:res.groups,name:hr_employee_sees_himself.group_show_base_menu
+msgid "Show Base Menu"
+msgstr "Mostras menús base"

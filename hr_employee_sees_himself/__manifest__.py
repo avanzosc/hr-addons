@@ -10,6 +10,7 @@
     "website": "https://github.com/avanzosc/hr-addons",
     "depends": [
         "hr",
+        "hr_attendance",
     ],
     "data": [
         "security/hr_employee_sees_himself.xml",
