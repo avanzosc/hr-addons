@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field
+      name="inherit_id"
+      ref="hr_employee_sees_himself.hr_kanban_view_employee_self"
+    />
+        <field name="arch" type="xml">
+            <div class="oe_kanban_details" position="inside">
+                <field name="employee_cars_count" invisible="1" />
+                <button
+          name="action_open_employee_cars"
+          type="object"
+          class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
+          groups="fleet.fleet_group_manager"
+        >
+                    <i class="fa fa-car me-2" />
+                    <span class="h5 mb-0">
+                      <field name="employee_cars_count" />
+                    </span>
+                    <span class="fw-bold text-primary fs-5"> Vehicles</span>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
