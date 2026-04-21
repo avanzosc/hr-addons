@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field
+      name="inherit_id"
+      ref="hr_employee_sees_himself.hr_kanban_view_employee_self"
+    />
+        <field name="arch" type="xml">
+            <div class="oe_kanban_details" position="inside">
+                <button
+          name="%(hr_timesheet.timesheet_action_from_employee)d"
+          type="action"
+          context="{'search_default_employee_id': active_id}"
+          class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
+        >
+                    <i class="fa fa-calendar me-2" />
+                    <span class="fw-bold text-primary fs-5"> Timesheets</span>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
