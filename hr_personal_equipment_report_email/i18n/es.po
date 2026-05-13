@@ -154,12 +154,8 @@ msgstr "Equipo de protección individual"
 
 #. module: hr_personal_equipment_report_email
 #: model:mail.template,subject:hr_personal_equipment_report_email.mail_template_ppe_delivery
-msgid ""
-"Personal Protective Equipment Delivery\n"
-"            Confirmation"
-msgstr ""
-"Confirmación de entrega de\n"
-"            equipo de protección individual"
+msgid "Personal Protective Equipment Delivery Confirmation"
+msgstr "Confirmación de entrega de equipo de protección individual"
 
 #. module: hr_personal_equipment_report_email
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_report_email.personal_equipment_report_template
