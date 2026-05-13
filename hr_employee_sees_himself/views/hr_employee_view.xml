@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+        <field name="name">My Employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees" />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath
+        expr="//div[contains(@class, 'o_hr_kanban_record')]"
+        position="attributes"
+      >
+                    <attribute name="class" add="my_dashboard_card" />
+             </xpath>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_self" model="ir.actions.act_window">
+        <field name="name">My Employee</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="hr_kanban_view_employee_self" />
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+    <menuitem
+    id="menu_hr_employee_self"
+    name="My Employee"
+    parent="hr.menu_hr_root"
+    action="action_hr_employee_self"
+    groups="hr_employee_sees_himself.group_hr_employee_self"
+    sequence="1"
+  />
+
+    <record id="hr.menu_hr_employee" model="ir.ui.menu">
+        <field
+      name="groups_id"
+      eval="[(6, 0, [ref('hr_employee_sees_himself.group_hr_employee_public')])]"
+    />
+    </record>
+
+</odoo>
