@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field
+      name="inherit_id"
+      ref="hr_employee_sees_himself.hr_kanban_view_employee_self"
+    />
+        <field name="arch" type="xml">
+            <div class="oe_kanban_details" position="inside">
+                <field name="contract_warning" invisible="1" />
+                <field name="first_contract_date" invisible="1" />
+                <button
+          name="%(hr_contract.act_hr_employee_2_hr_contract)d"
+          type="action"
+          context="{'search_default_employee_id': active_id}"
+          groups="hr_contract.group_hr_contract_manager"
+          class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
+        >
+                    <i class="fa fa-book me-2" />
+                    <span
+            attrs="{'invisible' : ['|', ('first_contract_date', '=', False), ('contract_warning', '=', True)]}"
+            class="h5 mb-0 text-success"
+          > In Contract Since</span>
+                    <span
+            attrs="{'invisible' : ['|', ('first_contract_date', '=', False), ('contract_warning', '=', True)]}"
+            class="h5 mb-0 text-success"
+          >
+                        <field name="first_contract_date" readonly="1" />
+                    </span>
+                    <span
+            attrs="{'invisible' : ['|', ('first_contract_date', '=', False), ('contract_warning', '=', False)]}"
+            class="h5 mb-0 text-danger"
+          >
+                        In Contract Since
+                    </span>
+                    <span
+            attrs="{'invisible' : ['|', ('first_contract_date', '=', False), ('contract_warning', '=', False)]}"
+            class="h5 mb-0 text-danger"
+          >
+                        <field name="first_contract_date" readonly="1" />
+                    </span>
+                    <span
+            attrs="{'invisible' : [('first_contract_date', '!=', False)]}"
+            class="h5 mb-0 text-danger"
+          >
+                       <field name="contracts_count" />
+                       <field name="first_contract_date" readonly="1" />
+                    </span>
+                    <span
+            attrs="{'invisible' : [('first_contract_date', '!=', False)]}"
+            class="o_stat_text text-danger"
+          >
+                        Contracts
+                    </span>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
