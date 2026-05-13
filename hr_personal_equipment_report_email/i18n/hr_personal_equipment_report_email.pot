@@ -122,9 +122,7 @@ msgstr ""
 
 #. module: hr_personal_equipment_report_email
 #: model:mail.template,subject:hr_personal_equipment_report_email.mail_template_ppe_delivery
-msgid ""
-"Personal Protective Equipment Delivery\n"
-"            Confirmation"
+msgid "Personal Protective Equipment Delivery Confirmation"
 msgstr ""
 
 #. module: hr_personal_equipment_report_email
