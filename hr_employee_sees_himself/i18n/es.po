@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_sees_himself
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-12 10:33+0000\n"
+"PO-Revision-Date: 2026-05-12 10:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_sees_himself
+#: model:res.groups,name:hr_employee_sees_himself.group_hr_employee_public
+msgid "Employee public group"
+msgstr "Grupo para empleado público"
+
+#. module: hr_employee_sees_himself
+#: model:res.groups,name:hr_employee_sees_himself.group_hr_employee_self
+msgid "Employee sees only himself"
+msgstr "Ver sólo su propio empleado"
+
+#. module: hr_employee_sees_himself
+#: model:ir.actions.act_window,name:hr_employee_sees_himself.action_hr_employee_self
+#: model:ir.ui.menu,name:hr_employee_sees_himself.menu_hr_employee_self
+msgid "My Employee"
+msgstr "Mi empleado"
+
+#. module: hr_employee_sees_himself
+#: model:res.groups,name:hr_employee_sees_himself.group_show_base_menu
+msgid "Show Base Menu"
+msgstr "Mostras menús base"
