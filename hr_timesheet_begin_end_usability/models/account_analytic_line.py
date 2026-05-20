@@ -10,7 +10,6 @@ class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
 
     date_end = fields.Date(
-        string="Date End",
         required=True,
         index=True,
         default=fields.Date.context_today,
