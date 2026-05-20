@@ -36,16 +36,16 @@ class AccountAnalyticLine(models.Model):
                 ):
                     raise exceptions.ValidationError(
                         _(
-                            "The duration (%s) must be equal to the difference "
-                            "between the hours (%s)."
+                            "The duration (%(html_unit_amount)s) must be equal to "
+                            "the difference between the hours (%(html_hours)s)."
                         )
-                        % (
-                            value_to_html(line.unit_amount, None),
-                            value_to_html(hours, None),
-                        )
+                        % {
+                            "html_unit_amount": value_to_html(line.unit_amount, None),
+                            "html_hours": value_to_html(hours, None),
+                        }
                     )
             # check if lines overlap
-            if self.user_id:
+            if line.user_id:
                 others = self.search(
                     [
                         ("id", "!=", line.id),
@@ -59,21 +59,20 @@ class AccountAnalyticLine(models.Model):
                     message = _("Lines can't overlap:\n")
                     message += "\n".join(
                         [
-                            "%s - %s"
-                            % (
-                                value_to_html(other.time_start, None),
-                                value_to_html(other.time_stop, None),
+                            f"{value_to_html(other.time_start, None)} - "
+                            f"{value_to_html(other.time_stop, None)}"
+                            for other in (line + others).sorted(
+                                key=lambda item: item.time_start
                             )
-                            for other in (line + others).sorted(lambda l: l.time_start)
                         ]
                     )
                     raise exceptions.ValidationError(message)
 
     @api.onchange("time_start", "time_stop")
     def onchange_hours_start_stop(self):
-        result = super(AccountAnalyticLine, self).onchange_hours_start_stop()
         start = timedelta(hours=self.time_start)
         stop = timedelta(hours=self.time_stop)
         if stop < start:
             self.unit_amount = (stop + timedelta(hours=24) - start).seconds / 3600
-        return result
+            return
+        self.unit_amount = (stop - start).seconds / 3600
