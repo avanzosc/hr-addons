@@ -6,8 +6,12 @@
 Hr Timesheet Begin End Usability
 ================================
 
-* If the analytic line does not have user, they can overlap the lines.
-* If start time if bigger than stop time, is the time stop is in the next day.
+Extends ``hr_timesheet_begin_end`` with the following usability improvements:
+
+* If the analytic line has no user, overlapping lines are allowed.
+* If start time is greater than stop time, the stop time is treated as being
+  on the next day (overnight entries), and ``date_end`` is set accordingly.
+* The ``employee_id`` field is not required on the timesheet list view.
 
 Bug Tracker
 ===========
