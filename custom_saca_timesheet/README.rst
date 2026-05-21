@@ -2,11 +2,17 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-===============
-Custom Descarga
-===============
+======================
+Custom Saca Timesheet
+======================
 
-Timesheet fields in saca.
+Integrates timesheets with saca lines:
+
+* Adds timesheet lines (Carga, Espera, Chofer, Matanza) automatically when
+  creating a purchase from a saca line.
+* The Espera timesheet is auto-calculated from the Chofer stop time to the
+  Matanza start time.
+* Adds ``saca_id`` and ``saca_line_id`` fields to timesheet and task views.
 
 Bug Tracker
 ===========

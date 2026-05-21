@@ -4,9 +4,9 @@
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="default_order">saca_id desc</attribute>
-            </tree>
+            </list>
             <field name="task_id" position="after">
                 <field name="saca_id" optional="show" />
                 <field name="saca_line_id" optional="show" />
@@ -18,9 +18,9 @@
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="analytic.view_account_analytic_line_tree" />
         <field name="arch" type="xml">
-            <tree position="attributes">
+            <list position="attributes">
                 <attribute name="default_order">saca_id desc</attribute>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -34,17 +34,17 @@
             </field>
             <filter name="groupby_task" position="after">
                 <filter
-          string="Saca"
-          name="groupby_saca"
-          domain="[]"
-          context="{'group_by': 'saca_id'}"
-        />
+                    string="Saca"
+                    name="groupby_saca"
+                    domain="[]"
+                    context="{'group_by': 'saca_id'}"
+                />
                 <filter
-          string="Saca Line"
-          name="groupby_saca_line"
-          domain="[]"
-          context="{'group_by': 'saca_line_id'}"
-        />
+                    string="Saca Line"
+                    name="groupby_saca_line"
+                    domain="[]"
+                    context="{'group_by': 'saca_line_id'}"
+                />
             </filter>
         </field>
     </record>
@@ -53,17 +53,17 @@
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="analytic.view_account_analytic_line_filter" />
         <field name="arch" type="xml">
-            <field name="account_id" position="after">
+            <field name="name" position="after">
                 <field name="saca_id" optional="show" />
             </field>
-            <filter name="account_id" position="after">
+            <group name="groupby" position="inside">
                 <filter
-          string="Saca"
-          name="groupby_saca"
-          domain="[]"
-          context="{'group_by': 'saca_id'}"
-        />
-            </filter>
+                    string="Saca"
+                    name="groupby_saca"
+                    domain="[]"
+                    context="{'group_by': 'saca_id'}"
+                />
+            </group>
         </field>
     </record>
 </odoo>
