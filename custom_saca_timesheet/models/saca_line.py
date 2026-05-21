@@ -33,7 +33,7 @@ class SacaLine(models.Model):
                                 "saca_line_id": self.id,
                                 "date": self.saca_id.date,
                                 "date_end": self.saca_id.date,
-                                "name": "{} {}".format(project.name, "Carga"),
+                                "name": f"{project.name} Carga",
                                 "project_id": project.id,
                             },
                         )
@@ -54,7 +54,7 @@ class SacaLine(models.Model):
                                 "saca_line_id": self.id,
                                 "date": self.saca_id.date,
                                 "date_end": self.saca_id.date,
-                                "name": "{} {}".format(project.name, "Espera"),
+                                "name": f"{project.name} Espera",
                                 "project_id": project.id,
                             },
                         )
@@ -75,7 +75,7 @@ class SacaLine(models.Model):
                                 "saca_line_id": self.id,
                                 "date": self.saca_id.date,
                                 "date_end": self.saca_id.date,
-                                "name": "{} {}".format(project.name, "Chofer"),
+                                "name": f"{project.name} Chofer",
                                 "project_id": project.id,
                             },
                         )
@@ -96,7 +96,7 @@ class SacaLine(models.Model):
                                 "saca_line_id": self.id,
                                 "date": self.saca_id.date,
                                 "date_end": self.saca_id.date,
-                                "name": "{} {}".format(project.name, "Matanza"),
+                                "name": f"{project.name} Matanza",
                                 "project_id": project.id,
                             },
                         )

@@ -7,7 +7,7 @@ from odoo import api, fields, models
 
 class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
-    order = "sequence"
+    _order = "sequence"
 
     sequence = fields.Integer(string="Sequence")
     saca_line_id = fields.Many2one(
@@ -74,21 +74,21 @@ class AccountAnalyticLine(models.Model):
             chofer = self.env["account.analytic.line"].search(
                 [
                     ("saca_line_id", "=", line.saca_line_id.id),
-                    ("name", "=", "{} {}".format(line.project_id.name, "Chofer")),
+                    ("name", "=", f"{line.project_id.name} Chofer"),
                 ],
                 limit=1,
             )
-            matanza = line.env["account.analytic.line"].search(
+            matanza = self.env["account.analytic.line"].search(
                 [
                     ("saca_line_id", "=", line.saca_line_id.id),
-                    ("name", "=", "{} {}".format(line.project_id.name, "Matanza")),
+                    ("name", "=", f"{line.project_id.name} Matanza"),
                 ],
                 limit=1,
             )
-            espera = line.env["account.analytic.line"].search(
+            espera = self.env["account.analytic.line"].search(
                 [
                     ("saca_line_id", "=", line.saca_line_id.id),
-                    ("name", "=", "{} {}".format(line.project_id.name, "Espera")),
+                    ("name", "=", f"{line.project_id.name} Espera"),
                 ],
                 limit=1,
             )
