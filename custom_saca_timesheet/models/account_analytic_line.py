@@ -9,7 +9,7 @@ class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
     _order = "sequence"
 
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
     saca_line_id = fields.Many2one(
         string="Saca Line",
         comodel_name="saca.line",
@@ -21,11 +21,9 @@ class AccountAnalyticLine(models.Model):
         store=True,
     )
     classified = fields.Boolean(
-        string="Classified",
         default=False,
     )
     speed = fields.Float(
-        string="Speed",
         compute="_compute_speed",
         store=True,
     )
@@ -49,7 +47,6 @@ class AccountAnalyticLine(models.Model):
             )
         for line in self:
             if line.task_id:
-
                 if "Matanza" in line.task_id.name and chofer:
                     line.date = (
                         chofer.date_end + timedelta(days=1)
@@ -69,7 +66,7 @@ class AccountAnalyticLine(models.Model):
                     line.date_end = line.date
 
     def write(self, values):
-        result = super(AccountAnalyticLine, self).write(values)
+        result = super().write(values)
         for line in self:
             chofer = self.env["account.analytic.line"].search(
                 [
