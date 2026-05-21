@@ -14,7 +14,7 @@ class SacaLine(models.Model):
     )
 
     def action_create_purchase(self):
-        super(SacaLine, self).action_create_purchase()
+        res = super().action_create_purchase()
         project = self.env.ref("custom_saca_timesheet.project_saca")
         if not self.purchase_order_line_ids:
             raise ValidationError(_("There is no any purchase order line."))
@@ -106,3 +106,4 @@ class SacaLine(models.Model):
             for line in self.timesheet_ids:
                 line.employee_id = False
                 line.user_id = False
+        return res
