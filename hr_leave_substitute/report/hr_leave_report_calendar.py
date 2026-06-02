@@ -10,44 +10,73 @@ class HrLeaveReportCalendarInherited(models.Model):
 
     def init(self):
         tools.drop_view_if_exists(self._cr, "hr_leave_report_calendar")
-
-        # Traducción de la cadena
         substitute_text = _(", Substitute: ")
-
         self._cr.execute(
-            """CREATE OR REPLACE VIEW hr_leave_report_calendar AS
-        (SELECT
-            row_number() OVER() AS id,
-            CONCAT(em.name, ': ', hl.duration_display,
-                CASE
-                    WHEN hl.substitute_id IS NOT NULL THEN ', ' || %s || sub_partner.name
-                    ELSE ''
-                END
-            ) AS name,
+            """
+            CREATE OR REPLACE VIEW hr_leave_report_calendar AS
+            SELECT
+            hl.id AS id,
+            hl.id AS leave_id,
+
             hl.date_from AS start_datetime,
             hl.date_to AS stop_datetime,
+
             hl.employee_id AS employee_id,
             hl.state AS state,
+
+            hl.department_id AS department_id,
+            hl.number_of_days AS duration,
+            hl.private_name AS description,
+            hl.holiday_status_id AS holiday_status_id,
+
             em.company_id AS company_id,
-            CASE
-                WHEN hl.holiday_type = 'employee' THEN rr.tz
-                ELSE %s
-            END AS tz
+            em.job_id AS job_id,
+
+            COALESCE(
+                rr.tz,
+                rc.tz,
+                cc.tz,
+                'UTC'
+            ) AS tz,
+
+            (hl.state = 'refuse') AS is_striked,
+            (hl.state NOT IN ('validate', 'refuse')) AS is_hatched,
+
+            CONCAT(
+                em.name, ': ', hl.number_of_days,
+                CASE
+                    WHEN hl.substitute_id IS NOT NULL THEN
+                        ', ' || %s || sub_partner.name
+                    ELSE ''
+                END
+            ) AS name
+
         FROM hr_leave hl
             LEFT JOIN hr_employee em
                 ON em.id = hl.employee_id
-            LEFT JOIN res_users sub_user
-                ON sub_user.id = hl.substitute_id
-            LEFT JOIN res_partner sub_partner
-                ON sub_partner.id = sub_user.partner_id
+
             LEFT JOIN resource_resource rr
                 ON rr.id = em.resource_id
+
+            LEFT JOIN resource_calendar rc
+                ON rc.id = em.resource_calendar_id
+
+            LEFT JOIN res_company co
+                ON co.id = em.company_id
+
+            LEFT JOIN resource_calendar cc
+                ON cc.id = co.resource_calendar_id
+
+            LEFT JOIN res_users sub_user
+                ON sub_user.id = hl.substitute_id
+
+            LEFT JOIN res_partner sub_partner
+                ON sub_partner.id = sub_user.partner_id
+
         WHERE
-            hl.state IN ('confirm', 'validate', 'validate1')
-        ORDER BY id);
+            hl.state IN ('confirm', 'validate', 'validate1', 'refuse')
         """,
-            [
-                substitute_text,
-                self.env.company.resource_calendar_id.tz or self.env.user.tz or "UTC",
-            ],
+        [
+            substitute_text,
+        ],
         )
