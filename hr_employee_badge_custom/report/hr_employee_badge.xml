@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template
+    id="print_employee_badge_custom"
+    inherit_id="hr.print_employee_badge"
+    priority="99"
+  >
+
+    <xpath expr="//t[@t-call='web.basic_layout']" position="inside">
+      <style>
+        .badge-container {
+           width: 100%;
+           text-align: justify; /* ayuda a distribuir tarjetas */
+        }
+        .badge-card {
+          display: inline-block;
+          width: 48%;       /* dos columnas */
+          margin: 0 1% 10pt 0; /* margen derecho y margen inferior */
+          vertical-align: top;
+          page-break-inside: avoid;
+          height: 153pt;    /* opcional: altura fija */
+          box-sizing: border-box;
+        }
+
+      </style>
+    </xpath>
+
+    <xpath expr="//div[@class='page']" position="replace">
+      <div class="page badge-container">
+        <t t-foreach="docs" t-as="employee">
+          <div class="badge-card">
+            <table
+              style="width:100%; height:auto; border:1pt solid black; border-collapse:separate; border-radius:8pt; margin:5pt"
+            >
+              <td style="width:33%;" valign="center">
+                <table style="width:100%; height:auto">
+                  <tr style="height:30%">
+                    <td align="center" valign="center">
+                      <img
+                        t-if="employee.company_id.logo"
+                        t-att-src="image_data_uri(employee.company_id.logo)"
+                        style="max-height:45pt; max-width:90%"
+                        alt="Company Logo"
+                      />
+                    </td>
+                  </tr>
+                  <tr style="height:70%;">
+                    <td align="center" valign="center">
+                      <img
+                        t-if="employee.image_1920"
+                        t-att-src="image_data_uri(employee.image_1920)"
+                        style="max-height:85pt; max-width:90%"
+                        alt="Employee Image"
+                      />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td style="width:67%" valign="center">
+                <table style="width:100%; height:auto">
+                  <tr>
+                    <th>
+                      <div style="font-size:15pt; margin:0;" align="center">
+                        <t t-esc="employee.name" />
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div align="center" style="font-size:10pt; margin-bottom:5pt;">
+                        <t t-esc="employee.job_id.name" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img
+                        alt="barcode"
+                        t-if="employee.barcode"
+                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', employee.barcode, 600, 120)"
+                        style="max-height:50pt; max-width:100%;"
+                        align="center"
+                      />
+                      <div align="center" style="font-size:9pt; margin-top:2pt;">
+                        <t
+                          t-if="employee.user_id.partner_id and employee.user_id.partner_id.ref"
+                        >
+                          <t t-esc="employee.user_id.partner_id.ref[-4:]" />
+                        </t>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </table>
+          </div>
+        </t>
+      </div>
+    </xpath>
+
+  </template>
+</odoo>
