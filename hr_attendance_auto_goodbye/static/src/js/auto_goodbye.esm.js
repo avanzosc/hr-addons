@@ -8,11 +8,11 @@ import {patch} from "@web/core/utils/patch";
 const AUTO_GOODBYE_DELAY = 5000;
 
 patch(KioskGreetings.prototype, {
-    setup() {
-        super.setup();
-        window.clearTimeout(this.kiosk_delay);
-        this.kiosk_delay = window.setTimeout(() => {
-            this.props.kioskReturn(true);
-        }, AUTO_GOODBYE_DELAY);
-    },
+  setup() {
+    super.setup();
+    window.clearTimeout(this.kiosk_delay);
+    this.kiosk_delay = window.setTimeout(() => {
+      this.props.kioskReturn(true);
+    }, AUTO_GOODBYE_DELAY);
+  },
 });
