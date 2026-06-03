@@ -6,7 +6,9 @@
 Hr Personal Equipment Request Cancel
 ====================================
 
-Server action to cancel PPE Requests, it also cancels its pickings and moves.
+Server action to cancel PPE Requests. If another installed module links stock
+pickings to the request through ``picking_ids``, those pickings are also
+cancelled.
 
 Bug Tracker
 ===========
@@ -26,6 +28,5 @@ Contributors
 * Lucía Echeverría <luciaecheverria@avanzosc.es>
 
 Do not contact contributors directly about support or help with technical issues.
-
 
 

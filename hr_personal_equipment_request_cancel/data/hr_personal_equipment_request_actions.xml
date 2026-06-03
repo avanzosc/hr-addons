@@ -1,14 +1,19 @@
 <odoo>
     <record id="action_cancel_personal_equipment_request" model="ir.actions.server">
         <field name="name">Cancel Request</field>
+        <field name="type">ir.actions.server</field>
         <field
-      name="model_id"
-      ref="hr_personal_equipment_request.model_hr_personal_equipment_request"
-    />
+            name="model_id"
+            ref="hr_personal_equipment_request.model_hr_personal_equipment_request"
+        />
+        <field
+            name="binding_model_id"
+            ref="hr_personal_equipment_request.model_hr_personal_equipment_request"
+        />
         <field name="state">code</field>
         <field name="code">
-            for record in records:
-                record.cancel_request()
+            if records:
+                records.cancel_request()
         </field>
     </record>
 </odoo>
