@@ -6,10 +6,9 @@ class HrPersonalEquipmentRequest(models.Model):
 
     def cancel_request(self):
         res = super().cancel_request()
-        for request in self:
-            for picking in request.picking_ids:
-                if picking.state == "done":
-                    picking.do_cancel_done()
-                if picking.state != "cancel":
-                    picking.action_cancel()
+        if "picking_ids" not in self._fields:
+            return res
+        pickings = self.mapped("picking_ids")
+        pickings.filtered(lambda picking: picking.state == "done").do_cancel_done()
+        pickings.filtered(lambda picking: picking.state != "cancel").action_cancel()
         return res
