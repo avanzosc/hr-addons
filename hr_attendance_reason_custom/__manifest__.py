@@ -4,7 +4,7 @@
     "category": "Human Resources",
     "author": "Avanzosc",
     "license": "LGPL-3",
-    "depends": [ 
+    "depends": [
         "hr_attendance",
         "hr_attendance_reason",
     ],

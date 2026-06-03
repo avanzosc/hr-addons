@@ -1,16 +1,21 @@
-
-from odoo import http
-from odoo.http import request, route
-from odoo.addons.hr_attendance_reason.controllers.main import HrAttendance as BaseHrAttendance
 import logging
 
+from odoo.http import request, route
+
+from odoo.addons.hr_attendance_reason.controllers.main import (
+    HrAttendance as BaseHrAttendance,
+)
+
 _logger = logging.getLogger(__name__)
+
 
 class HrAttendanceNoReasonsSystray(BaseHrAttendance):
     @route("/hr_attendance/attendance_user_data", type="json", auth="user")
     def user_attendance_data(self):
-        _logger.info("✅ Entrando en override user_attendance_data " \
-        "de hr_attendance_reason_custom")
+        _logger.info(
+            "✅ Entrando en override user_attendance_data "
+            "de hr_attendance_reason_custom"
+        )
         res = super().user_attendance_data()
 
         employee = request.env.user.employee_id
@@ -19,9 +24,7 @@ class HrAttendanceNoReasonsSystray(BaseHrAttendance):
 
         company = employee.company_id or request.env.company
         next_action = (
-            "sign_out"
-            if res.get("attendance_state") == "checked_in"
-            else "sign_in"
+            "sign_out" if res.get("attendance_state") == "checked_in" else "sign_in"
         )
 
         Reason = request.env["hr.attendance.reason"].sudo()
