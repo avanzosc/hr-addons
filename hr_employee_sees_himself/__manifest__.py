@@ -11,6 +11,8 @@
     "depends": [
         "hr",
         "hr_attendance",
+        "hr_expense",
+        "website",
     ],
     "data": [
         "security/hr_employee_sees_himself.xml",
