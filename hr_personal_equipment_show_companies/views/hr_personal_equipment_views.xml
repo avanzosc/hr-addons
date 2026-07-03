@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_personal_equipment_tree_view" model="ir.ui.view">
+        <field name="model">hr.personal.equipment</field>
+        <field
+      name="inherit_id"
+      ref="hr_personal_equipment_request.hr_personal_equipment_tree_view"
+    />
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="company_id_employee" optional="show" />
+                <field
+          name="company_ids_product"
+          widget="many2many_tags"
+          optional="show"
+        />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_personal_equipment_form_view" model="ir.ui.view">
+        <field name="model">hr.personal.equipment</field>
+        <field
+      name="inherit_id"
+      ref="hr_personal_equipment_request.hr_personal_equipment_form_view"
+    />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='date']" position="after">
+                    <group name="companies">
+                        <field name="company_id_employee" />
+                        <field name="company_ids_product" widget="many2many_tags" />
+                    </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
