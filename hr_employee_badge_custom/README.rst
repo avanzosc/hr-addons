@@ -1,0 +1,39 @@
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.svg
+   :target: https://opensource.org/licenses/AGPL-3.0
+   :alt: License: AGPL-3
+
+==============================
+Custom HR Employee Badge
+==============================
+
+This module modifies the Employee Badge report to:  
+
+* Prevent badges from being cut across pages.
+* Display badges in two columns to optimize paper usage.
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/avanzosc/hr-addons/issues>`_. In case of trouble,
+please check there if your issue has already been reported. If you spotted
+it first, help us fix it by providing detailed and welcomed feedback.
+
+Do not contact contributors directly about support or help with technical issues.
+
+Credits
+=======
+
+Contributors
+------------
+
+* Ana Juaristi <anajuaristi@avanzosc.es>
+
+* Ane Gurruchaga <aneavanzosc@gmail.com>
+
+For specific questions regarding this module, please contact the contributors. For support, please use the official issue tracker.
+
+License
+=======
+
+This project is licensed under the AGPL-3 License. For more details, refer to the LICENSE file or visit <https://opensource.org/licenses/AGPL-3.0>.
