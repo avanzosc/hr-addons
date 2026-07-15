@@ -2,21 +2,12 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-==========================
-Hr attendance leave report
-==========================
+=========
+Repair HR
+=========
 
-* For users in Attendances new menu option: "Time Control", the user can see
-  their own attendances and absences.
-* For manager in Attendances, Reporting, new menu option: "Time Control", for
-  see all users attendances and Absences.
-* With this new option, the worker's information will be displayed, with days
-  worked, holidays, and absences.
-* As a condition... that the worker has an assigned contract.
-* New Scheduled Action "Activate today's day in Attendances And Absences".
-* New server action "Recalculate Day/Worker" in "Attendances And Absences"
-  object.
-
+* Employee in repair order created from picking.
+* Hr Stock Picking Create Repair module renamed to v18.
 
 Bug Tracker
 ===========

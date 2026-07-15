@@ -6,7 +6,8 @@ import pytz
 from dateutil.relativedelta import relativedelta
 
 
-def _get_local_date(date_to_convert, tz="UTC"):
+def _get_local_date(date_to_convert, tz=None):
+    tz = tz or "UTC"
     if isinstance(date_to_convert, str):
         date_to_convert = datetime.strptime(date_to_convert, "%Y-%m-%d %H:%M:%S")
     local_tz = pytz.timezone(tz)
