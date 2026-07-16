@@ -19,7 +19,10 @@ class SacaLine(models.Model):
         if not self.purchase_order_line_ids:
             raise ValidationError(_("There is no any purchase order line."))
         if not self.timesheet_ids:
-            self.env["project.task"].create(
+            Task = self.env["project.task"].with_context(
+                allowed_company_ids=self.env.user.company_ids.ids
+            )
+            Task.create(
                 {
                     "project_id": project.id,
                     "name": "Carga",
@@ -40,7 +43,7 @@ class SacaLine(models.Model):
                     ],
                 }
             )
-            self.env["project.task"].create(
+            Task.create(
                 {
                     "project_id": project.id,
                     "name": "Espera",
@@ -61,7 +64,7 @@ class SacaLine(models.Model):
                     ],
                 }
             )
-            self.env["project.task"].create(
+            Task.create(
                 {
                     "project_id": project.id,
                     "name": "Chofer",
@@ -82,7 +85,7 @@ class SacaLine(models.Model):
                     ],
                 }
             )
-            self.env["project.task"].create(
+            Task.create(
                 {
                     "project_id": project.id,
                     "name": "Matanza",
