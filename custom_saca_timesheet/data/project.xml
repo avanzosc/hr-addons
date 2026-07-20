@@ -1,0 +1,5 @@
+<odoo noupdate="1">
+  <record id="project_saca" model="project.project">
+    <field name="name">Gestión de SACAS</field>
+  </record>
+</odoo>
