@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
-        <field name="model">hr.employee</field>
-        <field
+  <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+    <field name="model">hr.employee</field>
+    <field
       name="inherit_id"
       ref="hr_employee_sees_himself.hr_kanban_view_employee_self"
     />
-        <field name="arch" type="xml">
-            <div class="oe_kanban_details" position="inside">
-                <button
-          name="%(hr_attendance.hr_attendance_action_employee)d"
+    <field name="arch" type="xml">
+      <xpath expr="//t[@t-name='card']//footer" position="before">
+        <button
+          name="%(hr_attendance.hr_attendance_action)d"
           type="action"
-          context="{'search_default_employee_id': active_id}"
+          context="{'search_default_employee_id': id}"
           class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
         >
-                    <i class="fa fa-history me-2" />
-                    <span class="fw-bold text-primary fs-5">Attendance</span>
-                </button>
-            </div>
-        </field>
-    </record>
+          <i class="fa fa-history me-2" />
+          <span class="fw-bold text-primary fs-5">Attendance</span>
+        </button>
+      </xpath>
+    </field>
+  </record>
 </odoo>
