@@ -1,9 +1,8 @@
 # Copyright 2026 Berezi Amubieta - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-
 {
     "name": "HR Employee Sees Himself",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Human Resources/Employees",
     "license": "AGPL-3",
     "author": "AvanzOSC",
@@ -12,7 +11,12 @@
         "hr",
         "hr_attendance",
         "hr_expense",
+        "hr_holidays",
         "website",
+        "calendar",
+        "contacts",
+        "utm",
+        "spreadsheet_dashboard",
     ],
     "data": [
         "security/hr_employee_sees_himself.xml",
