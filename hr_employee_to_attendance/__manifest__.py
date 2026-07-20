@@ -3,7 +3,7 @@
 
 {
     "name": "HR Employee to Attendance",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Human Resources/Employees",
     "license": "AGPL-3",
     "author": "AvanzOSC",
