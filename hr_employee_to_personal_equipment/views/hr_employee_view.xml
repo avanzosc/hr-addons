@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="hr_kanban_view_employee_self" model="ir.ui.view">
-        <field name="model">hr.employee</field>
-        <field
+  <record id="hr_kanban_view_employee_self" model="ir.ui.view">
+    <field name="model">hr.employee</field>
+    <field
       name="inherit_id"
       ref="hr_employee_sees_himself.hr_kanban_view_employee_self"
     />
-        <field name="arch" type="xml">
-            <div class="oe_kanban_details" position="inside">
-                <button
+    <field name="arch" type="xml">
+      <xpath expr="//t[@t-name='card']//footer" position="before">
+        <button
           name="action_open_equipment_request"
           type="object"
           class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
         >
-                    <i class="fa fa-hand-o-up me-2" />
-                    <span class="h5 mb-0">
-                      <field name="equipment_request_count" />
-                    </span>
-                    <span class="fw-bold text-primary fs-5"> PE Request</span>
-                </button>
-                <button
+          <i class="fa fa-hand-o-up me-2" />
+          <span class="h5 mb-0">
+            <field name="equipment_request_count" />
+          </span>
+          <span class="fw-bold text-primary fs-5"> PE Request</span>
+        </button>
+        <button
           name="action_open_personal_equipment"
           type="object"
           class="btn btn-outline-primary w-100 mt-2 p-2 text-start"
         >
-                    <i class="fa fa-briefcase me-2" />
-                    <span class="h5 mb-0">
-                      <field name="personal_equipment_count" />
-                    </span>
-                    <span class="fw-bold text-primary fs-5"> PE</span>
-                </button>
-            </div>
-        </field>
-    </record>
+          <i class="fa fa-briefcase me-2" />
+          <span class="h5 mb-0">
+            <field name="personal_equipment_count" />
+          </span>
+          <span class="fw-bold text-primary fs-5"> PE</span>
+        </button>
+      </xpath>
+    </field>
+  </record>
 
-       <record
+  <record
     id="hr_personal_equipment_request.hr_personal_equipment_menu"
     model="ir.ui.menu"
   >
-        <field
+    <field
       name="groups_id"
       eval="[(6, 0, [ref('hr_employee_sees_himself.group_hr_employee_public')])]"
     />
-    </record>
+  </record>
 </odoo>
