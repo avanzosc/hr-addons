@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_users_view_form_profile" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.private.email</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form_profile" />
+        <field name="arch" type="xml">
+            <field name="private_email" position="attributes">
+                <attribute
+          name="attrs"
+        >{'readonly': [('can_edit', '=', False)]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
