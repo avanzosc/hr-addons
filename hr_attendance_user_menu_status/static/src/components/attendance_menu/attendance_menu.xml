@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="hr_attendance_user_menu_status.AttendanceUserMenuStatus" owl="1">
+        <Dropdown
+      t-if="state.employeeId"
+      class="'o_attendance_user_menu_status'"
+      position="'bottom-end'"
+      beforeOpen.bind="loadStatus"
+      menuClass="'o_attendance_user_menu_status_menu p-2 pb-3'"
+      title="statusTitle"
+    >
+            <t t-set-slot="toggler">
+                <i
+          t-if="!state.checking"
+          class="fa fa-circle"
+          t-att-class="checkedIn ? 'text-success' : 'text-danger'"
+          role="img"
+          t-att-aria-label="statusTitle"
+        />
+                <i
+          t-else=""
+          class="fa fa-spinner fa-spin"
+          role="img"
+          t-att-aria-label="statusTitle"
+        />
+            </t>
+            <div class="d-flex flex-column gap-4">
+                <div class="d-flex flex-column gap-3">
+                    <div t-if="checkedIn" class="d-flex flex-wrap gap-3">
+                        <div
+              t-if="!state.isFirstAttendance"
+              class="o_attendance_user_menu_status_hours flex-grow-1 flex-shrink-0"
+            >
+                            <small class="d-block text-muted">Before <t
+                  t-esc="state.lastCheckIn"
+                /></small>
+                            <div
+                t-esc="state.hoursPreviouslyToday"
+                class="fs-3 text-info text-end"
+              />
+                        </div>
+                        <div
+              class="o_attendance_user_menu_status_hours flex-grow-1 flex-shrink-0"
+            >
+                            <small class="d-block text-muted">Since <t
+                  t-esc="state.lastCheckIn"
+                /></small>
+                            <div
+                t-esc="state.lastAttendanceWorkedHours"
+                class="fs-3 text-info"
+                t-att-class="state.isFirstAttendance ? '' : 'text-end'"
+              />
+                        </div>
+                    </div>
+                    <div
+            t-if="!state.isFirstAttendance"
+            class="o_attendance_user_menu_status_hours d-flex flex-column"
+            t-att-class="checkedIn ? 'p-3 bg-light rounded' : ''"
+          >
+                        <div
+              class="d-flex"
+              t-att-class="checkedIn ? 'align-items-center justify-content-between' : 'flex-column'"
+            >
+                            <small class="text-muted">Total today</small>
+                            <h2 t-esc="state.hoursToday" class="mb-0 fs-2" />
+                        </div>
+                        <t t-call="hr_attendance_user_menu_status.CheckInOutButton">
+                            <t t-set="button_class" t-value="'mt-3'" />
+                        </t>
+                    </div>
+                </div>
+                <t t-if="state.isFirstAttendance">
+                    <t t-call="hr_attendance_user_menu_status.CheckInOutButton" />
+                </t>
+            </div>
+        </Dropdown>
+    </t>
+
+    <t t-name="hr_attendance_user_menu_status.CheckInOutButton" owl="1">
+        <DropdownItem
+      t-if="state.canCheckInOut and !state.checking"
+      class="'p-0 bg-transparent ' + (button_class || '')"
+      onSelected.bind="checkInOut"
+    >
+            <button
+        type="button"
+        class="btn w-100"
+        t-att-class="checkedIn ? 'btn-warning' : 'btn-success'"
+      >
+                <span t-if="checkedIn">Check out</span>
+                <span t-else="">Check in</span>
+                <i
+          class="fa ms-1"
+          t-att-class="checkedIn ? 'fa-sign-out' : 'fa-sign-in'"
+        />
+            </button>
+        </DropdownItem>
+    </t>
+
+</templates>
