@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.UserMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//span[hasclass('oe_topbar_name')]" position="after">
+            <span
+        t-if="attendanceStatus.state"
+        class="o_attendance_user_menu_status fa fa-circle ms-1"
+        t-att-class="attendanceStatus.state === 'checked_in' ? 'text-success' : 'text-danger'"
+        role="img"
+        t-att-title="getAttendanceStatusTitle()"
+        t-att-aria-label="getAttendanceStatusTitle()"
+      />
+        </xpath>
+    </t>
+
+</templates>
